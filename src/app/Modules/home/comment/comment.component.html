@@ -1,0 +1,35 @@
+<main class="comments">
+    <section class="single-post">
+        <app-single-post></app-single-post>
+    </section>
+    <section class="comments-body">
+        <table width="100%">
+            <tr>
+                <td>
+                    <textarea [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
+                </td>
+                <td>
+                    <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" *ngFor="let d of data">
+            <tr>
+                <td width="50px">
+                  <a [routerLink]="['/home/profile/',d.by._id]">
+                    <img class="dp" [src]="imageurl+d.by.dp" alt="">
+                  </a>
+                </td>
+                <td>
+                    {{d.by.name}}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                   <small class="comm-text">{{d.comm}}</small>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>

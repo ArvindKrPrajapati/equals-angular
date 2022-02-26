@@ -1,0 +1,25 @@
+<main class="add">
+    <form *ngIf="!imageChangedEvent" >
+        <label for="file"><mat-icon>upload</mat-icon><p> Upload</p></label>
+        <input type="file" id="file" name="file" (change)="postUpload($event)" accept="image/*" />
+        <h4 style="color: green;margin-top: 10px;" *ngIf="imgUploaded">{{imgUploaded}}</h4>
+    </form>
+    <div class="imgPre" *ngIf="imageChangedEvent">
+        <image-cropper
+          *ngIf="!uploading"
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="4 / 4"
+          (imageCropped)="imageCropped($event)"
+          ></image-cropper>
+        <img *ngIf="uploading" [src]="croppedImage" width="400px" height="400px" />
+      </div>
+      <div class="uploader" *ngIf="uploading">
+        <mat-progress-bar  [value]="uploadingProgress"></mat-progress-bar>
+    
+        <small> {{uploadingProgress}} %</small>
+      </div>
+      <button *ngIf="imageChangedEvent && !uploading " (click)="share()" class="share">share</button>
+      <button *ngIf="imageChangedEvent  " (click)="cancel()" class="share" style="background-color: crimson;">cancel</button>
+
+    </main>

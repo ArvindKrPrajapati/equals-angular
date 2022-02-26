@@ -1,0 +1,14 @@
+.myposts{
+    box-sizing: border-box;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+}
+.myposts img{
+    width: 100%;
+    border-radius: 2px;
+}
+.myposts img:hover{
+    box-shadow: 0 0 10px black;
+}

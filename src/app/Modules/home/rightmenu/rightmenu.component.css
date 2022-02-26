@@ -1,0 +1,63 @@
+.rightmenu{
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+.header{
+    height: 50px;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+}
+.content{
+    height: 100%;
+    border-left: 1px solid silver;
+    box-sizing: border-box;
+}
+.content li{
+    margin: 0;
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    align-items: center;
+}
+.content a{
+    color: black;
+    font-weight: 440;
+}
+.content li:hover{
+    background-color: gainsboro;
+    
+}
+.active{
+    border-left: 2px solid var(--light);
+    background-color: gainsboro;
+}
+.myprofile{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 15px;
+    padding: 6px 15px;
+    border-radius: 4px;
+}
+.myprofile img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.myprofile small{
+    color: black;
+    display: block;
+    font-weight: 500;
+}
+.myprofile:hover{
+    background: gainsboro;
+}
+.myprofile:active{
+    box-shadow: 0 0 5px silver;
+}

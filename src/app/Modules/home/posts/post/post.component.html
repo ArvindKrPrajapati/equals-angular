@@ -1,0 +1,42 @@
+
+<main class="post">
+    <div class="post-header">
+        <table>
+            <tr>
+                <td width="70px">
+                    <a [routerLink]="['/home/profile/',postdata.postedby._id]">
+                    <img class="profile-img" [src]="imageurl+postdata.postedby.dp" >
+                    </a>
+                </td>
+                <td>
+                    <div>
+                        <b>{{postdata.postedby.name}}</b><br>
+                        <small>{{postdata.datetime}}</small>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="post-body">
+                        <a [routerLink]="['/home/comment/',postdata._id]">
+                          <img [src]="imageurl+postdata.image" alt="">
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="post-footer">
+                        <button id="like" mat-icon-button *ngIf="!postdata.ilike" (click)="doReact('like')"><mat-icon>favorite_border</mat-icon></button>
+                        <button id="like" mat-icon-button *ngIf="postdata.ilike" (click)="doReact('unlike')" style="color:red"><mat-icon>favorite</mat-icon></button>
+                        <small>{{postdata.likes}}</small>
+                        <button mat-icon-button (click)="saveComment()"><mat-icon>chat_bubble_outline</mat-icon></button>
+                        <small>{{postdata.comments}}</small>
+                      </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</main>

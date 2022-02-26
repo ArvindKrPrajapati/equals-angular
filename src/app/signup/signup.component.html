@@ -1,0 +1,79 @@
+<main class="signup">
+    <div class="signup-body">
+       <section>
+        <div class="left">
+            <div class="sphere"></div>
+            <p class="brand font">equals</p>
+        </div>
+        <h3>Join With Millions</h3>
+        <img  src="assets/people.png" class="image" alt="">
+        <a routerLink="/home" class="login-btn">Login</a>
+       </section>
+        <div class="form">
+            <div class="error"  *ngIf="error">{{error}}</div>
+            <form  (submit)="singup()">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <label for="firstName" [style.color]="!firstName && fname.dirty ? 'red' : ''">First Name</label>
+                            <input [style.border]="!firstName && fname.dirty ? '1px solid red' : ''" type="text" name="firstName" id="firstName" [(ngModel)]="firstName" #fname="ngModel"/>
+                        </td>
+                        <td>
+                            <label for="lastName" [style.color]="!lastName && lname.dirty ? 'red' : ''">Last Name</label>
+                            <input [style.border]="!lastName && lname.dirty ? '1px solid red' : ''" type="text" name="lastName" id="lastName" [(ngModel)]="lastName" #lname="ngModel"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <small *ngIf="!firstName && fname.dirty">First Name is required</small>
+                        </td>
+                        <td>
+                            <small *ngIf="!lastName && lname.dirty">Last Name is required</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="email" [style.color]="!email && myemail.dirty ? 'red' : ''">Email</label>
+                            <input [style.border]="!email && myemail.dirty ? '1px solid red' : ''" type="email" name="email" id="email" [(ngModel)]="email" #myemail="ngModel"/>
+                            <small *ngIf="!email && myemail.dirty">Email is required</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="password" [style.color]="!password && p.dirty ? 'red' : ''">Create Password</label>
+                            <input [style.border]="!password && p.dirty ? '1px solid red' : ''" type="password" name="password" id="password" [(ngModel)]="password" #p="ngModel"/>
+                            <small *ngIf="!password && p.dirty">Password is required</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="cpassword" [style.color]="cpassword!==password && cp.dirty ? 'red' : ''">Confirm Password</label>
+                            <input [style.border]="cpassword!==password && cp.dirty ? '1px solid red' : ''" type="password" name="cpassword" id="cpassword" [(ngModel)]="cpassword" #cp="ngModel"/>
+                            <small *ngIf="cpassword!==password && cp.dirty">password doesnot match</small>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                           <label for="gender">Gender</label>
+                           <select (change)="setGender($event)" [value]="gender">
+                               <option value="male">Male</option>
+                               <option value="female">Female</option>
+                               <option value="gay">Gay</option>
+                               <option value="lesbian">Lesbian</option>
+                               <option value="other">Other</option>
+                           </select>
+                        </td>
+                    </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="signup-btn" [disabled]="signing">signup</button>
+                        <p class="loging" *ngIf="signing">signing up ......</p>
+
+                    </td>
+                </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</main>

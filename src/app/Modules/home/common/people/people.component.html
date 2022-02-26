@@ -1,0 +1,28 @@
+
+<table width="100%" class="people-table">
+    <tr>
+        <td>
+            <a [routerLink]="['/home/profile',user._id]" class="people-link">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <img class="people-img" [src]="imageurl+user.dp" alt="profie pic">
+                            <p class="name">{{user.name}}</p>
+                        </div>  
+                    </td>
+                    <td width="30%" style="text-align: center;">
+                        {{user.followers}} Followers
+                    </td>
+                    <td width="30%" style="text-align: center;">
+                        {{user.following}} Following
+                    </td>
+                </tr>
+            </table>
+            </a>
+        </td>
+        <td width="100px">
+            <button class="follow-btn" *ngIf="user._id!=myid" (click)="follow(user._id,$event)">{{user.ifollow ? "unfollow" : "follow"}}</button>
+        </td>
+    </tr>
+</table>

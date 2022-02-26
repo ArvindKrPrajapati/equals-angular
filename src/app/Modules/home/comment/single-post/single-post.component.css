@@ -1,0 +1,4 @@
+.singlepost{
+    position: fixed;
+    width:calc(50% - 230px);
+}

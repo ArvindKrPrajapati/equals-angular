@@ -1,0 +1,11 @@
+<main class="followers">
+    <p style="color: var(--dark);">Followers</p>
+    <br>
+    <div class="search">
+        <input type="search" name="search" placeholder="looking for someone">
+    </div>
+    <br>
+    <div class="content">
+        <app-people *ngFor="let d of data" [user]="d"></app-people>
+    </div>
+</main>

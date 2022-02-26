@@ -1,0 +1,36 @@
+.sidemenu{
+    height: 100vh;
+    width: 80px;
+    background-color: white;
+    position: fixed;
+    border-right: 1px solid gainsboro;
+}
+.sidemenu small{
+    display: block;
+}
+.sidemenu a{
+    text-decoration: none;
+    font-weight: 520;
+    color: var(--dark);
+    margin: 6px;
+    display: block;
+}
+.sidemenu ul li{
+    margin: 5px;
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+    transition: .5s ease;
+}
+.active{
+    border-left: 3px solid var(--dark);
+}
+.sidemenu li:hover{
+    background-color: gainsboro;
+}
+.setting{
+    display: block;
+    position: fixed;
+    bottom: 20px;
+}
+

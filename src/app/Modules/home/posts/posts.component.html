@@ -1,0 +1,42 @@
+
+<article class="add-comment" *ngIf="commPost">
+   <div class="comm-body">
+       <table width="100%">
+        <tr>
+            <td width="70px">
+                <img class="profile-img" [src]="imageurl+commPost.postedby.dp" >
+            </td>
+            <td>
+                <div>
+                    <b>{{commPost.postedby.name}}</b><br>
+                </div>
+            </td>
+            <td width="70px">
+                <img class="post-img" [src]="imageurl+commPost.image" >
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+              <textarea [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 60px;"> </td>
+            <td>
+                <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
+            </td>
+            <td>
+                <button mat-button (click)="commentData('')"><mat-icon>close</mat-icon></button>
+            </td>
+        </tr>
+       </table>
+   </div>
+</article>
+<main class="posts">
+    <app-stories></app-stories>
+    <div class="posts-content">
+        <p style="color: var(--dark); display: block; margin-bottom: 15px">Followers Posts</p>
+        <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" ></app-post>
+    </div>
+</main>

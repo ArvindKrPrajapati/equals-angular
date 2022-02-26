@@ -1,0 +1,13 @@
+<main class="rightmenu">
+    <div class="header">
+        <a [routerLink]="['/home/profile/',userdata.id]" class="myprofile">
+            <img [src]="imageurl+userdata.dp">
+            <small>&nbsp;&nbsp;{{userdata.name}}</small>
+        </a>
+    </div>
+    <div class="content">
+        <ul>
+            <a routerLink="discover-people"><li routerLinkActive="active"><mat-icon>emoji_people</mat-icon><span>&nbsp; Discover People</span></li></a>
+        </ul>
+    </div>
+</main>

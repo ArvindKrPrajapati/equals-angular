@@ -1,0 +1,18 @@
+<section class="add-story" *ngIf="!fileEvent">
+    <a  routerLink="/home/story/add/text" mat-icon-button><mat-icon>text_fields</mat-icon></a>
+    <label for="file" mat-icon-button ><mat-icon>wallpaper</mat-icon></label>
+    <input type="file" name="file" id="file" accept="image/*" (change)="handleFileChange($event)" style="display: none;">
+</section>
+
+
+
+<div  *ngIf="imagesrc" [style.background]="'url('+imagesrc+') center/cover no-repeat'" class="add-image-story">
+    <mat-progress-bar *ngIf="!uploading && progress==100" class="timer" [value]="timer"></mat-progress-bar>
+    
+    <div class="progress" *ngIf="uploading">{{progress}} %</div>
+   <div *ngIf="!uploading && progress !== 100">
+    <button mat-button class="save" (click)="save()">save</button>
+    <button mat-button class="close" (click)="close()"><mat-icon>close</mat-icon></button>
+   </div>
+    <img [src]="imagesrc" alt="">
+</div>

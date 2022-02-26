@@ -1,0 +1,42 @@
+#file{
+    display: none;
+}
+.add{
+    padding: 20px;
+}
+.add label{
+    justify-content: center;
+    align-items: center;
+    border: 1px inset  #03071e;
+    border-radius: 5px;
+    padding: 10px;
+   display: flex;
+}
+.add label mat-icon{
+    font-size: 25px;
+    color:  #03071e;
+}
+.add label p{
+    color: #03071e;
+}
+.add label:hover{
+    background-color: #eee;
+}
+image-cropper,img{
+    display: block;
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+}
+.share{
+    width:100%;
+    padding: 14px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+}
+.uploader{
+  margin-top: 10px;
+}

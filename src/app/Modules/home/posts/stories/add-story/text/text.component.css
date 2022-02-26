@@ -1,0 +1,20 @@
+.add-text-story{
+    padding: 20px;
+}
+.add-text-story textarea{
+    padding: 20px;
+    box-sizing: border-box;
+    font-style: "sans-serif";
+    height: 80vh;
+    width: 100%;
+    resize: none;
+    border: none;
+}
+.add-text-story button{
+   float: right;
+    color: white;
+    background-color: var(--dark);
+}
+.add-text-story textarea:focus{
+    outline: none;
+}

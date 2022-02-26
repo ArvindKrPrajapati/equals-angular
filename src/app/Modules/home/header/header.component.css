@@ -1,0 +1,22 @@
+
+.header{
+    background-color: white;
+    box-sizing: border-box;
+    color: var(--dark);
+    padding: 10px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-left: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+.header b{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-family: 'Redressed', cursive;
+}

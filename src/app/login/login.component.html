@@ -1,0 +1,25 @@
+<main class="login">
+     <section>
+        <div class="content">
+            <div class="sphere"></div>
+            <p class="brand font">equals</p>
+        </div>
+        <p class="quote">
+            A New Way To<br>Socialize
+        </p>
+        <a routerLink="/signup" class="signup">signup</a>
+     </section>
+   <section class="form">
+       <div class="error">
+          {{errormsg}}
+       </div>
+    <form #loginData="ngForm" (submit)="login(loginData)">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ngModel /> 
+        <label for="password">Password</label>
+        <input type="password"  name="password" ngModel/>
+        <button type="submit" class="login-btn" [disabled]="loging" >Login</button>
+        <p class="loging" *ngIf="loging">Loging in ......</p>
+    </form>
+   </section>
+</main>
