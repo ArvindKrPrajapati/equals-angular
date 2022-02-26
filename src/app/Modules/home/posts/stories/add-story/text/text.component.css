@@ -1,20 +1,42 @@
+
 .add-text-story{
-    padding: 20px;
+    margin: 100px;
 }
-.add-text-story textarea{
-    padding: 20px;
+.textarea{
+    /* margin:100px; */
+    height: calc(100vh - 280px);
+    width:calc(100%);
+    overflow: hidden;
+    background:linear-gradient(dodgerblue,var(--dark));
     box-sizing: border-box;
     font-style: "sans-serif";
-    height: 80vh;
-    width: 100%;
-    resize: none;
+    border-radius: 6px;
+    text-align: center;
+    
+    font-size: 1.3em;
+    font-weight: 500;
     border: none;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
-.add-text-story button{
-   float: right;
+
+.save{
+    position: absolute;
+    right: 410px;
+    top: 60px;
     color: white;
-    background-color: var(--dark);
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--light);
+    border-radius: 6px;
 }
-.add-text-story textarea:focus{
+.textarea:focus{
+    outline: none;
+}
+.save:disabled{
+    opacity: 0.5;
+}
+.save:active{
     outline: none;
 }

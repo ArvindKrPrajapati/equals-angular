@@ -44,6 +44,10 @@ export class ApiService {
   uploadStory(data:any){
     return this._http.put(this.url+"/user/story",data,{reportProgress:true,observe:'events',headers:new HttpHeaders({"Authorization": "Bearer " + this.token(),'ngsw-bypass': 'true'})})
   }
+  uploadTextStory(text:string){
+    return this._http.put(this.url+"/user/story",{text},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
+  }
+
 
   unFollowedUsers(){
     return this._http.get(this.url+"/user/unfollowed",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})

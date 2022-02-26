@@ -3,3 +3,11 @@
     display: grid;
     grid-template-columns: 80px 1fr 400px;
 }
+@media screen and (max-width: 768px){
+    .home{
+        display: block;
+    }
+  app-sidemenu,app-rightmenu{
+      display: none;
+  }
+  }

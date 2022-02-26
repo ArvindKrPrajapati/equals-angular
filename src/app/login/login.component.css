@@ -95,3 +95,20 @@
     font-size: small;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 768px){
+  .login{
+      display: block;
+      padding: 15px;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow: hidden;
+  }
+  .quote,.signup,.sphere{
+      display: none;
+  }
+  .form{
+      margin: auto;
+      border: 0;
+  }
+}

@@ -60,3 +60,13 @@
 .comm-btn:disabled{
     opacity: 0.9;
 }
+@media screen and (max-width: 768px){
+   app-stories{
+       display: none;
+   }
+   .posts-content{
+       padding: opx;
+       box-sizing: border-box;
+       width: 100vw;
+   }
+  }

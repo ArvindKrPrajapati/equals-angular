@@ -1,4 +1,8 @@
 <main class="add-text-story">
-    <button class="save" mat-button>save</button>
-    <textarea placeholder="write something......" id="scroll"></textarea>
+    <div *ngIf="saved" class="save" style="color: green;background-color: white;">saving......</div>
+    <mat-progress-bar *ngIf="saving" class="timer" [value]="timer"></mat-progress-bar>
+
+    <!-- <div class="save" *ngIf="saving">saving....</div> -->
+    <button class="save" (click)="saveText()" *ngIf="!saving" [disabled]="text ? false : true">save</button>
+    <textarea class="textarea" [(ngModel)]="text" placeholder="write something......" id="scroll"></textarea>
 </main>

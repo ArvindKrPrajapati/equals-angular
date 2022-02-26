@@ -16,7 +16,6 @@
 
 .add-image-story{
     margin:100px;
-    box-sizing: border-boxs;
     height: calc(100vh - 250px);
     display: flex;
     justify-content: center;
