@@ -7,7 +7,7 @@
         </div>
         <h3>Join With Millions</h3>
         <img  src="assets/people.png" class="image" alt="">
-        <a routerLink="/home" class="login-btn">Login</a>
+        <a routerLink="/" class="login-btn">Login</a>
        </section>
         <div class="form">
             <div class="error"  *ngIf="error">{{error}}</div>
@@ -19,15 +19,15 @@
                             <input [style.border]="!firstName && fname.dirty ? '1px solid red' : ''" type="text" name="firstName" id="firstName" [(ngModel)]="firstName" #fname="ngModel"/>
                         </td>
                         <td>
-                            <label for="lastName" [style.color]="!lastName && lname.dirty ? 'red' : ''">Last Name</label>
+                            <label class="lastname" for="lastName" [style.color]="!lastName && lname.dirty ? 'red' : ''">Last Name</label>
                             <input [style.border]="!lastName && lname.dirty ? '1px solid red' : ''" type="text" name="lastName" id="lastName" [(ngModel)]="lastName" #lname="ngModel"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="firstname-mobile">
                             <small *ngIf="!firstName && fname.dirty">First Name is required</small>
                         </td>
-                        <td>
+                        <td class="lastname-mobile">
                             <small *ngIf="!lastName && lname.dirty">Last Name is required</small>
                         </td>
                     </tr>

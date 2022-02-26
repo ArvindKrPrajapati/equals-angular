@@ -2,3 +2,9 @@
     position: fixed;
     width:calc(50% - 230px);
 }
+@media screen and (max-width: 768px){
+   .singlepost{
+     position: relative;
+     width: 100%;
+   }
+  }

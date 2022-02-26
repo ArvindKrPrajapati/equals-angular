@@ -60,13 +60,26 @@
 .comm-btn:disabled{
     opacity: 0.9;
 }
+.just-text{
+  display: block;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
 @media screen and (max-width: 768px){
    app-stories{
        display: none;
    }
    .posts-content{
-       padding: opx;
+       padding: 0px;
        box-sizing: border-box;
        width: 100vw;
+       margin-bottom: 60px;
    }
+     .just-text{
+      display: none;
+    }
+    .add-comment{
+      box-sizing: border-box;
+      padding: 0px 10px;
+    }
   }

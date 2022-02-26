@@ -36,7 +36,7 @@
 <main class="posts">
     <app-stories></app-stories>
     <div class="posts-content">
-        <p style="color: var(--dark); display: block; margin-bottom: 15px">Followers Posts</p>
+        <p class="just-text">Followers Posts</p>
         <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" ></app-post>
     </div>
 </main>

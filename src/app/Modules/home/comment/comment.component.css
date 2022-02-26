@@ -20,7 +20,7 @@
 }
 .comments-body table{
     border-bottom: 1px solid gainsboro;
-    padding: 15px 0px;
+    padding: 10px 0px;
 }
 
 .comment{
@@ -35,7 +35,8 @@
     border-radius: 7px;
 }
 .comment:focus{
-    outline: 1px solid var(--light);
+    outline: none;
+    border: 1px solid var(--light);
 }
 .comm-btn{
     color: white;
@@ -47,3 +48,14 @@
 .comm-btn:disabled{
     opacity: 0.9;
 }
+@media screen and (max-width: 768px){
+   .comments{
+     padding: 5px;
+     display: block;
+   }
+   .comments-body{
+     padding: 10px;
+     border-left: 0;
+     margin-bottom: 60px;
+   }
+  }

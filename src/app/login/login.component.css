@@ -52,13 +52,14 @@
 .form input{
     padding: 10px 15px;
     border-radius: 5px;
-    border: 1px solid dodgerblue;
+    border: 1px solid var(--light);
     display: block;
     width: 240px;
     box-sizing: border-box;
 }
 .form input:focus{
-    outline: 2px solid dodgerblue;
+  outline: none;
+    border: 2px solid var(--light);
 }
 .form label{
     margin: 10px 0px;
@@ -99,16 +100,26 @@
 @media screen and (max-width: 768px){
   .login{
       display: block;
-      padding: 15px;
-      height: 100vh;
+      padding: 20px;
+      height: 100%;
       box-sizing: border-box;
-      overflow: hidden;
+      overflow: auto;
   }
-  .quote,.signup,.sphere{
-      display: none;
+  .quote{
+     display: none;
   }
   .form{
       margin: auto;
       border: 0;
+  }
+  .form input,.login-btn{
+    width:100%;
+  }
+  .signup{
+    float: right;
+    margin-top: -40px;
+  }
+  .content{
+    margin-top: 10px;
   }
 }

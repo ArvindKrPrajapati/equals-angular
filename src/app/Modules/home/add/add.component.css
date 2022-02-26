@@ -4,6 +4,9 @@
 .add{
     padding: 20px;
 }
+.preview{
+  width: 100%;
+}
 .add label{
     justify-content: center;
     align-items: center;

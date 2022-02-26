@@ -60,6 +60,9 @@ td{
     color: white;
     background-color: var(--gold);
 }
+.signup-btn{
+padding: 15px;
+}
 .login-btn{
     background-color: var(--light);
     display: block;
@@ -99,4 +102,42 @@ input:focus,select:focus{
     text-align: center;
     font-size: small;
     margin-top: 10px;
+}
+
+@media screen and (max-width: 768px){
+ .signup{
+   height: 100%;
+   display: block;
+ }
+ .signup-body{
+   display: block;
+   width: 100%;
+   box-sizing: border-box;
+ }
+ .image,h3{
+   display: none;
+ }
+ .left{
+   margin-top: 0px;
+ }
+ td{
+   display: block;
+ }
+ .login-btn{
+   float: right;
+   margin-top: -40px;
+ }
+ .form{
+   padding: 15px 0px;
+ }
+ .firstname-mobile{
+   margin-top: -78px;
+ }
+  .lastname{
+    display: block;
+    margin-top: 20px;
+  }
+ .lastname-mobile{
+   margin-top: 70px;
+ }
 }

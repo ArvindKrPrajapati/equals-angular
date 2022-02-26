@@ -7,7 +7,7 @@
     .home{
         display: block;
     }
-  app-sidemenu,app-rightmenu{
+  app-rightmenu{
       display: none;
   }
   }
