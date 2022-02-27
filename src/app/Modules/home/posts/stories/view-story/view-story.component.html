@@ -1,0 +1,31 @@
+<div class="user">
+    <table width="100%">
+        <tr>
+            <td width="50px">
+                <a [routerLink]="['/home/profile/',data._id]">
+                    <img class="dp" [src]="imageurl+data.dp">
+                </a>
+            </td>
+            <td>
+                <small>{{data.name}}</small>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="timer">
+    <mat-progress-bar *ngFor="let d of data.stories" [value]="timer"></mat-progress-bar>
+
+</div>
+
+
+<section class="buttons">
+    <div class="left" (click)="decrease()"></div>
+    <div class="right" (click)="increase()"></div>
+</section>
+<main class="show-story">
+    <p>
+        {{data.stories[index].text}}
+    </p>
+</main>
