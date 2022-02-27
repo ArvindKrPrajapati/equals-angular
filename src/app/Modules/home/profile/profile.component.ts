@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   imageurl:string=""
   showdp:boolean=false;
   showcover:boolean=false;
-
+  isLoading:boolean=true
   imageChangedEvent: any = '';
   croppedImage: any = '';
   imgUploaded: any;
@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
     this._api.getProfile(this.id).subscribe((data:any)=>{
       if(data.success){
         this.data=data.data
+        this.isLoading=false
       }
     })
   }
@@ -112,6 +113,7 @@ export class ProfileComponent implements OnInit {
               if(progress==100){
                this.cancel();
                this.uploading=false;
+               this.showdp=false;
                this.uploadingProgress=0;
                this.imgUploaded="Shared successfully...";
               }
@@ -142,6 +144,7 @@ export class ProfileComponent implements OnInit {
                this.cancel();
                this.cuploading=false;
                this.uploadingProgress=0;
+               this.showcover=false;
                this.imgUploaded="Shared successfully...";
               }
            }

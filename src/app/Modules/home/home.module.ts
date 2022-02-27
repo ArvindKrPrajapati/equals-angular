@@ -32,6 +32,7 @@ import { SinglePostComponent } from './comment/single-post/single-post.component
 import { AddStoryComponent } from './posts/stories/add-story/add-story.component';
 import { TextComponent } from './posts/stories/add-story/text/text.component';
 import { ViewStoryComponent } from './posts/stories/view-story/view-story.component';
+import { LoadingComponent } from './common/loading/loading.component';
 @NgModule({
   declarations: [
     SidemenuComponent,
@@ -56,6 +57,7 @@ import { ViewStoryComponent } from './posts/stories/view-story/view-story.compon
     AddStoryComponent,
     TextComponent,
     ViewStoryComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

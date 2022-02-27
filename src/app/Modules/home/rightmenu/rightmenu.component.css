@@ -61,3 +61,14 @@
 .myprofile:active{
     box-shadow: 0 0 5px silver;
 }
+
+@media screen and (max-width: 768px){
+    .rightmenu{
+        z-index: 210;
+        top:0;
+        width: 250px;
+    }
+    .header{
+      display: none;
+    }
+  }

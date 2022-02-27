@@ -1,3 +1,4 @@
+<app-loading *ngIf="isLoading"></app-loading>
 
 <!-- for cover -->
 <section class="showdp" *ngIf="showcover">
@@ -73,7 +74,7 @@
 </section>
 <!-- end -->
 
-<main class="profile">
+<main class="profile" *ngIf=!isLoading>
     <div [style.background]="'url('+imageurl+data.cover+') center/cover no-repeat'" (click)="showCover()" class="cover" ></div>
     <img [src]="imageurl+data.dp" alt="profile pic" class="dp" (click)="showDp()">
     <div class="pcontent">

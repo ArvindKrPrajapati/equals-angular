@@ -1,3 +1,13 @@
+
+
+
+
 <main class="header">
     <b>equals</b>
+    <div class="left">
+        <a mat-icon-button [routerLink]="['/home/profile/',userdata.id]" class="myprofile">
+            <img [src]="imageurl+userdata.dp">
+        </a>
+        <button mat-icon-button (click)="toggleMenu(true)"><mat-icon>segment</mat-icon></button>
+    </div>
 </main>

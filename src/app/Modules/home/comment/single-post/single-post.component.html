@@ -1,3 +1,5 @@
-<main class="singlepost">
+
+<app-loading *ngIf="isLoading"></app-loading>
+<main class="singlepost" *ngIf="!isLoading">
     <app-post [postdata]="data" [postindex]=""  ></app-post>
 </main>

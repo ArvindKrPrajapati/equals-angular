@@ -3,11 +3,28 @@
     display: grid;
     grid-template-columns: 80px 1fr 400px;
 }
+.bg-menu{
+  display: none;
+}
 @media screen and (max-width: 768px){
     .home{
         display: block;
     }
-  app-rightmenu{
-      display: none;
-  }
+    .app-rightmenu{
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top:0;
+      transition: .3s ease;
+      transform: translateX(-100%);
+      z-index: 209;
+    }
+    .bg-menu{
+      position: fixed;
+      top:0;
+      width: 100%;
+      height: 100vh;
+      z-index: 209;
+      background: var(--bg);
+    }
   }

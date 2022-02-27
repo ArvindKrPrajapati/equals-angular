@@ -20,3 +20,27 @@
     letter-spacing: 1px;
     font-family: 'Redressed', cursive;
 }
+.left{
+  display: none;
+}
+
+
+@media screen and (max-width: 768px){
+.left{
+  display: flex;
+  align-items: center;
+}
+.myprofile img{
+  display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.myprofile{
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+  
+}

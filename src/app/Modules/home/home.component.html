@@ -1,12 +1,17 @@
+
+
+
+
+<div class="bg-menu" [style.display]="menu && 'block'"></div>
 <main class="home">
     <section>
         <app-sidemenu></app-sidemenu>
     </section>
     <section>
-        <app-header></app-header>
+        <app-header (menuHandler)="toggleMenu($event)"></app-header>
         <router-outlet></router-outlet>
     </section>
-    <section>
-        <app-rightmenu></app-rightmenu>
+    <section class="app-rightmenu" (click)="toggleMenu(null)" [style.transform]="menu && 'translateX(0)'">
+      <app-rightmenu ></app-rightmenu>
     </section>
 </main>

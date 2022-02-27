@@ -33,9 +33,10 @@
        </table>
    </div>
 </article>
+    <app-loading *ngIf="isLoading"></app-loading>
 <main class="posts">
     <app-stories></app-stories>
-    <div class="posts-content">
+    <div class="posts-content" *ngIf="!isLoading">
         <p class="just-text">Followers Posts</p>
         <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" ></app-post>
     </div>

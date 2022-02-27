@@ -1,3 +1,4 @@
+<app-loading *ngIf="isLoading"></app-loading>
 <main class="followers">
     <p style="color: var(--dark);">Followers</p>
     <br>
@@ -5,7 +6,7 @@
         <input type="search" name="search" placeholder="looking for someone">
     </div>
     <br>
-    <div class="content">
+    <div class="content" *ngIf="!isLoading">
         <app-people *ngFor="let d of data" [user]="d"></app-people>
     </div>
 </main>

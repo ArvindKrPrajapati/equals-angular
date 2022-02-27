@@ -1,11 +1,13 @@
 .profile{
     padding: 10px;
+    padding-bottom: 60px;
     /* overflow-y: auto; */
     box-sizing: border-box;
     /* height: calc(100vh - 50px); */
 }
 .name{
     text-transform: capitalize;
+    font-size: x-large;
 }
 .cover{
     border-radius: 15px;
@@ -35,9 +37,6 @@
  background:var(--light) ;
  color: white;
  border-radius: 5px;
-}
-.user-details .name{
-  font-size: x-large;
 }
 .showdp{
     position: fixed;
@@ -115,3 +114,45 @@ button:disabled{
 .numbers a:hover{
    transform: scale(1.1);
 } 
+
+@media screen and (max-width: 768px){
+    .showdp{
+      width: 100%;
+      z-index: 200;
+     }
+     .top-bar{
+       height: 50px;
+     }
+    .showdp-body,.imgPre{
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      margin-top: 0;
+      top: 0;
+      z-index: 200;
+    }
+    .showdp img{
+      width: calc(100% - 10px);
+      margin:10px 5px;
+    }
+    .cover{
+      height: 150px;
+    }
+    .dp{
+      width:120px;
+      height: 120px;
+      left:15px;
+      top:-60px;
+    }
+    .user-details{
+      display: block;
+      margin-top: 90px;
+      margin-left: 135px;
+    }
+    .name{
+      font-size:large;
+    }
+    .follow-btn{
+      margin-top: 15px;
+    }
+  }

@@ -13,6 +13,7 @@ export class PostsComponent implements OnInit {
   comment:string=''
   saving:boolean=false
   postIndex:any;
+  isLoading:boolean=true
   constructor(private _api:ApiService) {
     this.imageurl=_api.imageurl
    }
@@ -21,6 +22,7 @@ export class PostsComponent implements OnInit {
     this._api.getSubPost().subscribe((data:any)=>{
       if(data.success){
         this.data=data.data
+        this.isLoading=false
       }
     })
   }

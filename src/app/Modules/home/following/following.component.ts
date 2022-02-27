@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class FollowingComponent implements OnInit {
     data:any=[]
+    isLoading:boolean=true
   constructor(private _api:ApiService,private _route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class FollowingComponent implements OnInit {
    this._api.getFollowersOrFollowing("getfollowing",id).subscribe((data:any)=>{
      if(data.success){
       this.data=data.data
+      this.isLoading=false
      }
    })
   }

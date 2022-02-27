@@ -1,5 +1,4 @@
 .comments{
-    padding: 15px;
     display: grid;
     grid-template-columns: 1.4fr 1fr;
 }
