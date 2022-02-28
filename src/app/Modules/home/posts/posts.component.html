@@ -36,8 +36,24 @@
     <app-loading *ngIf="isLoading"></app-loading>
 <main class="posts">
     <app-stories></app-stories>
-    <div class="posts-content" *ngIf="!isLoading">
-        <p class="just-text">Followers Posts</p>
+    <div class="posts-content">
+     <div  *ngIf="!isLoading">
         <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" (deleteHandler)="deletePost($event)"></app-post>
+     </div>
+     <div class="nopost"  *ngIf="!isLoading && data.length===0">
+       <div>
+        <h1 class="font">welcome</h1>
+        <br>
+        <img [src]="imageurl+userdata.dp" alt="">
+        <br><br>
+        <p class="font">{{userdata.name}}</p>
+        <br>
+        <small>Follow people of your choice <br> to see their posts</small>
+        <br><br>
+        <a mat-button routerLink="/home/discover-people">
+            Discover People
+        </a>
+       </div>
+     </div>
     </div>
 </main>

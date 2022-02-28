@@ -14,8 +14,10 @@ export class PostsComponent implements OnInit {
   saving:boolean=false
   postIndex:any;
   isLoading:boolean=true
+  userdata:any;
   constructor(private _api:ApiService) {
     this.imageurl=_api.imageurl
+    this.userdata=_api.getUserInfo()
    }
 
   ngOnInit(): void {

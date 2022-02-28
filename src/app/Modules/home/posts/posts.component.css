@@ -65,6 +65,30 @@
   color: var(--dark);
   margin-bottom: 15px;
 }
+.nopost{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nopost div{
+    text-align: center;
+}
+.nopost img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.nopost h1{
+    font-size: xx-large;
+}
+.nopost p{
+    font-size: large;
+}
+.nopost a{
+    color: var(--light);
+    border:2px inset var(--light) ;
+}
 @media screen and (max-width: 768px){
    app-stories{
        display: none;
