@@ -38,6 +38,6 @@
     <app-stories></app-stories>
     <div class="posts-content" *ngIf="!isLoading">
         <p class="just-text">Followers Posts</p>
-        <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" ></app-post>
+        <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" (deleteHandler)="deletePost($event)"></app-post>
     </div>
 </main>

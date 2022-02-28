@@ -42,4 +42,7 @@ export class PostsComponent implements OnInit {
     this.postIndex=e
     this.commPost=this.data[e]
   }
+  deletePost(e:any){
+    this.data.splice(e,1)
+  }
 }

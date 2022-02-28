@@ -1,4 +1,5 @@
 import { Component, OnInit ,Input, Output , EventEmitter} from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -10,10 +11,15 @@ export class PostComponent implements OnInit {
 @Input() postdata:any;
 @Input() postindex:any;
 @Output() commentHandler= new EventEmitter()
+@Output() deleteHandler= new EventEmitter()
+
 imageurl:string;
+userdata:any;
+deleting:boolean=false
 addComment:boolean=true
-  constructor(private _api:ApiService) { 
+  constructor(private _api:ApiService,private _route:Router) { 
     this.imageurl=_api.imageurl
+    this.userdata=_api.getUserInfo()
   }
 
   ngOnInit(): void {
@@ -39,5 +45,15 @@ addComment:boolean=true
 
   saveComment(){
     this.commentHandler.emit(this.postindex)
+  }
+
+  deletePost(id:string){
+    this.deleting=true
+    this._api.deletePost(id).subscribe((res:any)=>{
+      if(res.success){
+        this.deleteHandler.emit(this.postindex)
+        this._route.navigate(["/home"])
+      }
+    })
   }
 }

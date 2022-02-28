@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  url:string="https://equals-api.herokuapp.com/api/v1"
-  imageurl:string="https://equals-api.herokuapp.com"
-  // url:string="http://localhost:3000/api/v1";
-  // imageurl:string="http://localhost:3000";
+  // url:string="https://equals-api.herokuapp.com/api/v1"
+  // imageurl:string="https://equals-api.herokuapp.com"
+  url:string="http://localhost:3000/api/v1";
+  imageurl:string="http://localhost:3000";
   constructor(private _http:HttpClient) {
    }
     token(){
@@ -59,6 +59,9 @@ export class ApiService {
 
   getSubPost(){
     return this._http.get(this.url+"/post/getsubpost",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  }
+   deletePost(id:string){
+    return this._http.delete(this.url+"/post?postid="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
   getSubStories(){
     return this._http.get(this.url+"/user/getsubstories",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})

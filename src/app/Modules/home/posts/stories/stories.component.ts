@@ -31,7 +31,7 @@ export class StoriesComponent implements OnInit {
       return t+" min ago";
     }
     if(t>=60){
-      return t / 60 +" hour ago"
+      return (t / 60).toString().split(".")[0] +" hour ago"
     }
     return "invalid"
   }
