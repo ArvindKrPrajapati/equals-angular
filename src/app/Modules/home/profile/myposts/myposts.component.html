@@ -1,4 +1,9 @@
-<main class="myposts" id="scroll">
+<div class="mat-spinner" *ngIf="isLoading">
+    <mat-spinner  [diameter]="30"></mat-spinner>
+   </div>
+
+
+<main class="myposts" id="scroll" *ngIf="!isLoading">
     <a *ngFor="let d of data" [routerLink]="['/home/comment/',d._id]">
         <img  [src]="imageurl+d.image" >
     </a>

@@ -12,7 +12,15 @@
 .myposts img:hover{
     box-shadow: 0 0 10px black;
 }
-
+.mat-spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.mat-spinner ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--light);
+}
 @media screen and (max-width: 768px){
     .myposts{
       grid-template-columns:repeat(3,1fr);

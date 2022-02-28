@@ -33,6 +33,8 @@ import { AddStoryComponent } from './posts/stories/add-story/add-story.component
 import { TextComponent } from './posts/stories/add-story/text/text.component';
 import { ViewStoryComponent } from './posts/stories/view-story/view-story.component';
 import { LoadingComponent } from './common/loading/loading.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     SidemenuComponent,
@@ -65,6 +67,7 @@ import { LoadingComponent } from './common/loading/loading.component';
     FormsModule,
     MatIconModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatButtonModule,
     ImageCropperModule
   ]

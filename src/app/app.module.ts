@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { ApiService } from './api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
-
 @NgModule({
   declarations: [
     AppComponent,

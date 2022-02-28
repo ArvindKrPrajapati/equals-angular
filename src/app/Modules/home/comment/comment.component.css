@@ -58,3 +58,12 @@
      margin-bottom: 60px;
    }
   }
+  .mat-spinner{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+  }
+  .mat-spinner ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: var(--light);
+}

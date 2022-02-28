@@ -2,7 +2,10 @@
     <section class="single-post">
         <app-single-post></app-single-post>
     </section>
-    <section class="comments-body">
+   <div class="mat-spinner" *ngIf="isLoading">
+    <mat-spinner  [diameter]="30"></mat-spinner>
+   </div>
+    <section class="comments-body" *ngIf="!isLoading">
         <table width="100%">
             <tr>
                 <td>
