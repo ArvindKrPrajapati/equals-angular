@@ -1,1 +1,25 @@
-<p>search works!</p>
+<app-loading *ngIf="isLoading"></app-loading>
+<main class="discover">
+    <div class="search">
+        <input type="search" name="search" placeholder="looking for someone" (keyup)="search($event)">
+    </div>
+    <br>
+    <div class="content">
+        <a *ngFor="let d of data" [routerLink]="['/home/profile/',d._id]"  class="user">
+         <div>
+            <table>
+                <tr>
+                    <td width="80px">
+                        <img [src]="imageurl+d.dp" alt="">
+                    </td>
+                    <td>
+                        <b> {{d.name}} </b><br>
+                        <small>{{d.gender}} &nbsp;</small>
+                        <small>{{d.followers}}  Followers </small>
+                    </td>
+                </tr>
+            </table>
+         </div>
+        </a>
+    </div>
+</main>

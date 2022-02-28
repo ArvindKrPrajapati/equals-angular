@@ -60,6 +60,11 @@ export class ApiService {
   getSubPost(){
     return this._http.get(this.url+"/post/getsubpost",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
+
+  liveSearch(searchstring:string){
+    return this._http.get(this.url+"/user?searchstring="+searchstring,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  }
+
    deletePost(id:string){
     return this._http.delete(this.url+"/post?postid="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }

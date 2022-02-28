@@ -1,0 +1,31 @@
+.discover{
+    box-sizing: border-box;
+    padding: 15px;
+    overflow-y: auto;
+    height: calc(100vh - 50px);
+}
+.search input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    border: 1px solid silver;
+}
+.search input:focus{
+    outline: none;
+    border: 2px solid dodgerblue;
+    box-shadow: 0 0 6px dodgerblue;
+}
+.user img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.user div{
+    width: 100%;
+    color: black;
+}
+.user div:hover{
+    background-color:#eee;
+}
