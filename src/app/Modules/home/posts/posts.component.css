@@ -1,3 +1,11 @@
+
+.empty{
+    border-right: 1px solid silver;
+}
+app-loading{
+    display: block;
+    margin: -20px -40px 0px -40px;
+}
 .posts{
     display: grid;
     grid-template-columns: 400px 1fr;
@@ -90,7 +98,13 @@
     border:2px inset var(--light) ;
 }
 @media screen and (max-width: 768px){
-   app-stories{
+   /* app-stories{
+       display: none;
+   } */
+   app-loading{
+       margin: 0;
+   }
+   .empty{
        display: none;
    }
    .posts-content{

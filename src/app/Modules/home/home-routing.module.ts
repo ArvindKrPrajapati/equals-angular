@@ -8,9 +8,6 @@ import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
 import { HomeComponent } from './home.component';
 import { PostsComponent } from './posts/posts.component';
-import { AddStoryComponent } from './posts/stories/add-story/add-story.component';
-import { TextComponent } from './posts/stories/add-story/text/text.component';
-import { ViewStoryComponent } from './posts/stories/view-story/view-story.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -63,18 +60,6 @@ const routes: Routes = [{
         {
           path:'comment/:id',
           component:CommentComponent
-        },
-        {
-          path:'story/add',
-          component:AddStoryComponent
-        },
-        {
-          path:'story/:id',
-          component:ViewStoryComponent
-        },
-        {
-          path:'story/add/text',
-          component:TextComponent
         }
       ]
 }];

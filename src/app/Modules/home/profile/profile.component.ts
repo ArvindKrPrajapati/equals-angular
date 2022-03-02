@@ -28,12 +28,8 @@ export class ProfileComponent implements OnInit {
   cimgUploaded: any;
   ccroppedImageFile: any='';
   cuploading: boolean=false;
-
-  now:any;
-  fileName: any;
   uploadingProgress: number=0;
   constructor(private _api:ApiService,private _route:ActivatedRoute) { 
-    // this.id=this._route.snapshot.paramMap.get('id');
     _route.paramMap.subscribe((p:any)=>{
       this.id=p.get('id')
       this.loadData()
@@ -92,65 +88,10 @@ export class ProfileComponent implements OnInit {
  }
 
 
-   share():void{
-    this.uploading=true;
-   const date=new Date();
-   this.now=date.getDate().toString()+date.getMonth().toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString();
-  let file=this.croppedImageFile
-   this.fileName=file.name;
-   const fd=new FormData();
-    fd.append("file",file,this.now+"-"+file.name);  
-   this._api.uploadDp(fd).subscribe((event:any)=>{   
-     if(event.body){
-      this.data.dp=event.body.data.dp;
-       this.now=""
-       this.fileName=""
-     }
+ 
+
+  
      
-      if (event.type === HttpEventType.UploadProgress) {
-            let progress = Math.round(100 * event.loaded / event.total);
-            this.uploadingProgress=progress;
-              if(progress==100){
-               this.cancel();
-               this.uploading=false;
-               this.showdp=false;
-               this.uploadingProgress=0;
-               this.imgUploaded="Shared successfully...";
-              }
-           }
-        });
-  }
-
-
-  cshare():void{
-    this.cuploading=true;
-   const date=new Date();
-   this.now=date.getDate().toString()+date.getMonth().toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString();
-  let file=this.ccroppedImageFile
-   this.fileName=file.name;
-   const fd=new FormData();
-    fd.append("file",file,this.now+"-"+file.name);  
-   this._api.uploadCover(fd).subscribe((event:any)=>{   
-     if(event.body){
-      this.data.cover=event.body.data.cover;
-      this.now=""
-      this.fileName=""
-     }
-     
-      if (event.type === HttpEventType.UploadProgress) {
-            let progress = Math.round(100 * event.loaded / event.total);
-            this.uploadingProgress=progress;
-              if(progress==100){
-               this.cancel();
-               this.cuploading=false;
-               this.uploadingProgress=0;
-               this.showcover=false;
-               this.imgUploaded="Shared successfully...";
-              }
-           }
-        });
-  }
-
 
   follow(id:string,e:any){
     e.target.disabled=true
@@ -173,6 +114,70 @@ export class ProfileComponent implements OnInit {
       })
     }
     
+  }
+
+  
+
+
+  share():void{
+    this.uploading=true;
+    let file=this.croppedImageFile
+   const fd=new FormData();
+    fd.append("file",file); 
+    fd.append("upload_preset","equals")
+    fd.append("cloud_name","shivraj-technology")
+ 
+   this._api.uploadToCloudinary(fd).subscribe((event:any)=>{   
+     if(event.body){
+      let s=event.body.url.split("/");
+      let name="/"+s[s.length-2]+"/"+s[s.length-1]
+      this._api.uploadDp(name).subscribe((res:any)=>{
+        if(res.success){
+          this.data.dp=res.data.dp;
+          this.cancel();
+          this.uploading=false;
+          this.showdp=false;
+          this.uploadingProgress=0;
+          this.imgUploaded="Shared successfully...";
+        }
+      })
+      
+      
+     }
+     
+      if (event.type === HttpEventType.UploadProgress) {
+            let progress = Math.round(100 * event.loaded / event.total);
+            this.uploadingProgress=progress;
+           }
+        });
+  }
+
+
+  cshare():void{
+    this.cuploading=true;
+    let file=this.ccroppedImageFile
+   const fd=new FormData();
+    fd.append("file",file);  
+    fd.append("upload_preset","equals")
+    fd.append("cloud_name","shivraj-technology")
+   this._api.uploadToCloudinary(fd).subscribe((event:any)=>{   
+     if(event.body){
+      let s=event.body.url.split("/");
+      let name="/"+s[s.length-2]+"/"+s[s.length-1]
+      this._api.uploadCover(name).subscribe((res:any)=>{
+        this.data.cover=res.data.cover;
+        this.cancel();
+        this.cuploading=false;
+        this.uploadingProgress=0;
+        this.showcover=false;
+      })
+     }
+     
+      if (event.type === HttpEventType.UploadProgress) {
+            let progress = Math.round(100 * event.loaded / event.total);
+            this.uploadingProgress=progress;
+           }
+        });
   }
 
 }

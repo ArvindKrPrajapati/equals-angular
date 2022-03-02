@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
   url:string="https://equals-api.herokuapp.com/api/v1"
-  imageurl:string="https://equals-api.herokuapp.com"
   // url:string="http://localhost:3000/api/v1";
-  // imageurl:string="http://localhost:3000";
+  imageurl:string="https://res.cloudinary.com/shivraj-technology/image/upload";
+  upurl:string="https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http:HttpClient) {
    }
     token(){
@@ -32,22 +32,21 @@ export class ApiService {
   signup(data:any){
     return this._http.post(this.url+"/user/signup",data,{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
   }
-  uploadPost(data:any){
-    return this._http.post(this.url+"/post/upload",data,{reportProgress:true,observe:'events',headers:new HttpHeaders({"Authorization": "Bearer " + this.token(),'ngsw-bypass': 'true'})})
-  }
-  uploadDp(data:any){
-    return this._http.put(this.url+"/user/dp",data,{reportProgress:true,observe:'events',headers:new HttpHeaders({"Authorization": "Bearer " + this.token(),'ngsw-bypass': 'true'})})
-  }
-  uploadCover(data:any){
-    return this._http.put(this.url+"/user/cover",data,{reportProgress:true,observe:'events',headers:new HttpHeaders({"Authorization": "Bearer " + this.token(),'ngsw-bypass': 'true'})})
-  }
-  uploadStory(data:any){
-    return this._http.put(this.url+"/user/story",data,{reportProgress:true,observe:'events',headers:new HttpHeaders({"Authorization": "Bearer " + this.token(),'ngsw-bypass': 'true'})})
-  }
-  uploadTextStory(text:string){
-    return this._http.put(this.url+"/user/story",{text},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
-  }
+  
 
+  uploadToCloudinary(data:any){
+    return this._http.post(this.upurl,data,{reportProgress:true,observe:'events'})
+  }
+  uploadPost(image:any){
+    return this._http.post(this.url+"/post/upload",{image},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
+  }
+  uploadDp(dp:string){
+    return this._http.put(this.url+"/user/dp",{dp},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
+  }
+  uploadCover(cover:string){
+    return this._http.put(this.url+"/user/cover",{cover},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
+  }
+  
 
   unFollowedUsers(){
     return this._http.get(this.url+"/user/unfollowed",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
@@ -68,12 +67,7 @@ export class ApiService {
    deletePost(id:string){
     return this._http.delete(this.url+"/post?postid="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
-  getSubStories(){
-    return this._http.get(this.url+"/user/getsubstories",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
-  }
-  getUserStories(id:string){
-    return this._http.get(this.url+"/user/getuserstories?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
-  }
+  
 
   getProfile(id:string){
     return this._http.get(this.url+"/user/profile?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})

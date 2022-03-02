@@ -14,8 +14,6 @@ export class AddComponent implements OnInit {
   imgUploaded: any;
   croppedImageFile: any='';
   uploading: boolean=false;
-  now:any;
-  fileName: any;
   uploadingProgress: number=0;
   constructor(private _api:ApiService) { }
 
@@ -38,25 +36,39 @@ export class AddComponent implements OnInit {
   this.imageChangedEvent='';
 }
 
- share():void{
-  this.uploading=true;
- const date=new Date();
- this.now=date.getDate().toString()+date.getMonth().toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString();
-let file=this.croppedImageFile
- this.fileName=file.name;
- const fd=new FormData();
-  fd.append("file",file,this.now+"-"+file.name);  
- this._api.uploadPost(fd).subscribe((event:any)=>{   
-    if (event.type === HttpEventType.UploadProgress) {
-          let progress = Math.round(100 * event.loaded / event.total);
-          this.uploadingProgress=progress;
-            if(progress==100){
-             this.cancel();
-             this.uploading=false;
-             this.uploadingProgress=0;
-             this.imgUploaded="Shared successfully...";
-            }
-         }
-      });
-}
+
+
+    share():void{
+    this.uploading=true;
+    let file=this.croppedImageFile
+   const fd=new FormData();
+    fd.append("file",file);  
+    fd.append("upload_preset","equals")
+    fd.append("cloud_name","shivraj-technology")
+
+   this._api.uploadToCloudinary(fd).subscribe((event:any)=>{   
+     if(event.body){
+       this.saveToDb(event.body.url)
+     }
+     
+      if (event.type === HttpEventType.UploadProgress) {
+            let progress = Math.round(100 * event.loaded / event.total);
+             this.uploadingProgress=progress;
+           }
+        });
+  }
+
+  saveToDb(image:string){
+    let s=image.split("/");
+    let name="/"+s[s.length-2]+"/"+s[s.length-1]
+    this._api.uploadPost(name).subscribe((res:any)=>{
+      if(res.success){
+        this.cancel();
+        this.uploading=false;
+        this.uploadingProgress=0;
+        this.imgUploaded="Shared successfully...";
+      }
+    })
+  }
+  
 }

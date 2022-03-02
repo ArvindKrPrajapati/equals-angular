@@ -18,7 +18,6 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { AddComponent } from './add/add.component';
 import { RightmenuComponent } from './rightmenu/rightmenu.component';
 import { PeopleComponent } from './common/people/people.component';
-import { StoriesComponent } from './posts/stories/stories.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostComponent } from './posts/post/post.component';
@@ -29,9 +28,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { CommentComponent } from './comment/comment.component';
 import { SinglePostComponent } from './comment/single-post/single-post.component';
-import { AddStoryComponent } from './posts/stories/add-story/add-story.component';
-import { TextComponent } from './posts/stories/add-story/text/text.component';
-import { ViewStoryComponent } from './posts/stories/view-story/view-story.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
@@ -44,7 +40,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SearchComponent,
     AlertsComponent,
     AddComponent,
-    StoriesComponent,
     RightmenuComponent,
     PeopleComponent,
     DiscoverComponent,
@@ -56,9 +51,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SettingsComponent,
     CommentComponent,
     SinglePostComponent,
-    AddStoryComponent,
-    TextComponent,
-    ViewStoryComponent,
     LoadingComponent,
   ],
   imports: [
