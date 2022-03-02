@@ -1,1 +1,123 @@
-<button mat-raised-button color="warning" (click)="logout()">logout</button>
+<main class="main">
+    <main class="setting">
+        <section>
+         <p class="title">Personal Information</p>
+         <br>
+         <div class="personal">
+          <table width="100%">
+              <tr>
+                  <td>
+                      <label for="name">Full Name</label>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <input type="text"  id="name" class="input"/>
+                  </td>
+                  <td width="30px">
+                      <button mat-button><mat-icon>edit</mat-icon></button>
+                  </td>
+              </tr>
+        <!-- email -->
+        <tr>
+          <td>
+              <label for="email">Email</label>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              <input type="text"  id="email" class="input"/>
+          </td>
+          <td width="30px">
+              <button mat-button><mat-icon>edit</mat-icon></button>
+          </td>
+      </tr>
+      <!-- password -->
+      <tr>
+          <td>
+              <label for="gender">Gender</label>
+          </td>
+      </tr>
+      <tr>
+          <td>
+             <select id="gender" class="input">
+                 <option value="male">Male</option>
+                 <option value="female">Female</option>
+                 <option value="gay">Gay</option>
+                 <option value="lesbian">Lesbian</option>
+                 <option value="other">Other</option>
+             </select>
+          </td>
+          <td width="30px">
+              <button mat-button><mat-icon>edit</mat-icon></button>
+          </td>
+      </tr>
+              <tr>
+                  <td>
+                      <label for="dob">Date Of Birth</label>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <input type="date" class="input"  id="dob"/>
+                  </td>
+                  <td width="30px">
+                      <button mat-button><mat-icon>edit</mat-icon></button>
+                  </td>
+              </tr>
+          </table>
+         </div>
+        </section>
+     
+       <section>
+         <p class="title">About You</p>
+         <br>
+          <div class="personal">
+             <table width="100%">
+                <tr>
+                 <td>
+                     <label for="about">Introduce Yourself</label>
+                 </td>
+                 <td width="30px">
+                     <button mat-button><mat-icon>edit</mat-icon></button>
+                 </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <textarea class="textarea"></textarea>
+                    </td>
+                </tr>
+             </table>
+          </div>
+     
+          <div class="personal">
+             <table width="100%">
+                 <tr>
+                     <td>
+                         <label for="password">Password</label>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         <input type="password"  id="password" class="input"/>
+                     </td>
+                     <td width="30px">
+                         <button mat-button><mat-icon>edit</mat-icon></button>
+                     </td>
+                 </tr>
+             </table>
+          </div>
+          
+       </section>
+     </main>
+     <!-- <p class="title" style="color: red;">Delete Your Account</p>
+     <section class="delete">
+       <small> 
+           lnyy oiwuoityp tiryotyw tweltwo tq3ytqwl qwt;yqoi. q;t yqowi qto;Youtttttt
+           qt ityqo3ntmoqupo
+       </small> 
+     <button mat-button>Delete Account</button>
+     </section> -->
+     <button mat-raised-button class="logout" (click)="logout()">logout</button>
+     
+</main>

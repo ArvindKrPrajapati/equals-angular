@@ -41,14 +41,14 @@
 .showdp{
     position: fixed;
     height: 100%;
-    width: calc(100% - 400px);
+    width: calc(100% - 480px);
     background: var(--bg);
     z-index: 6;
 }
 
 .showdp-body,.imgPre{
     position: fixed;
-    left: calc(50% - 270px);
+    left: calc(50% - 360px);
     margin-top: 20px;
     background-color:white ;
     width: 500px;
