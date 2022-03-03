@@ -1,6 +1,7 @@
 
 .empty{
     border-right: 1px solid silver;
+    height: 100vh;
 }
 app-loading{
     display: block;

@@ -72,6 +72,12 @@ export class ApiService {
   getProfile(id:string){
     return this._http.get(this.url+"/user/profile?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
+  deleteUser(){
+    return this._http.delete(this.url+"/user",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  }
+  editUserDetails(data:any){
+    return this._http.patch(this.url+"/user",data,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  }
   getFollowersOrFollowing(route:string,id:string){
     return this._http.get(this.url+"/user/"+route+"?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }

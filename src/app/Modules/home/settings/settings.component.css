@@ -30,7 +30,9 @@ label{
 .textarea{
     width: 100%;
     min-height: 140px;
-    border: none;
+    padding:10px;
+    box-sizing: border-box;
+    border: 1px solid silver;
     resize: none;
 }
 .input:focus{
@@ -41,13 +43,51 @@ label{
     outline: none;
 }
 .logout{
-    width: 90%;
+    width: calc(100% - 40px);
     display: block;
     color: white;
-   margin: auto;
+    box-sizing: border-box;
+   margin:0px auto;
     background-color: crimson;
 }
+.delete{
+    padding: 20px;
+    border: 1px solid red;
+    background-color: #ffd5d5;
+    border-radius: 10px;
+    margin: 20px;
+}
+.input:disabled,.textarea:disabled{
+ border: none;
+ color: black;
+}
 
+.askpass{
+    position: fixed;
+    width: calc(100% - 480px);
+    height: 100%;
+    z-index: 5;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+}
+.askpass div{
+    margin-top: 40px;
+    background-color:white;
+    padding: 14px;
+    border-radius: 9px;
+    width: 340px;
+    height: 150px;
+}
+.success{
+    color: green;
+    background: #ceffce;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+    font-size: small
+}
 @media screen and (max-width: 768px){
   .setting{
       display: block;
@@ -55,5 +95,8 @@ label{
   .main{
     padding-bottom: 60px;
 
+  }
+  .askpass{
+      width: 100%;
   }
 }

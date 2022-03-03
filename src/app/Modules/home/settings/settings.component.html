@@ -1,4 +1,21 @@
+<main class="askpass" *ngIf="askPass">
+    <div>
+        <section style="display: flex;align-items: center;justify-content: space-between;">
+        <label for="password">Old Password</label>
+        <button mat-icon-button style="color:red" (click)="close()"><mat-icon>close</mat-icon></button>
+        </section>
+        <input type="password" class="input"  id="password" [(ngModel)]="password">
+        <small style="color: red;">{{error}}</small>
+        <button [disabled]="saving" mat-button style="color:green;width: 100%;margin-top: 10px;" (click)="editInDb()">Change</button>
+    </div>
+</main>
+
+
 <main class="main">
+    <small style="display: block; width: 100%; margin: 10px; text-align: center;" *ngIf="isLoading">loading.....</small>
+    <div class="success" *ngIf="sucessMsg">
+        {{sucessMsg}}
+    </div>
     <main class="setting">
         <section>
          <p class="title">Personal Information</p>
@@ -12,10 +29,12 @@
               </tr>
               <tr>
                   <td>
-                      <input type="text"  id="name" class="input"/>
+                      <input type="text"  id="name" class="input" [disabled]="namefield" [(ngModel)]="data.name"/>
                   </td>
                   <td width="30px">
-                      <button mat-button><mat-icon>edit</mat-icon></button>
+                      <button mat-button *ngIf="namefield"  (click)="enableEdit('namefield')"><mat-icon>edit</mat-icon></button>
+                      <button mat-button *ngIf="!namefield" (click)="save()"><mat-icon>done</mat-icon></button>
+
                   </td>
               </tr>
         <!-- email -->
@@ -26,10 +45,11 @@
       </tr>
       <tr>
           <td>
-              <input type="text"  id="email" class="input"/>
+              <input type="text"  id="email" class="input" [disabled]="emailfield" [(ngModel)]="data.email"/>
           </td>
           <td width="30px">
-              <button mat-button><mat-icon>edit</mat-icon></button>
+              <button mat-button *ngIf="emailfield" (click)="enableEdit('emailfield')"><mat-icon>edit</mat-icon></button>
+              <button mat-button *ngIf="!emailfield" (click)="save()"><mat-icon>done</mat-icon></button>
           </td>
       </tr>
       <!-- password -->
@@ -40,7 +60,7 @@
       </tr>
       <tr>
           <td>
-             <select id="gender" class="input">
+             <select id="gender" class="input" [(ngModel)]="data.gender" [disabled]="genderfield">
                  <option value="male">Male</option>
                  <option value="female">Female</option>
                  <option value="gay">Gay</option>
@@ -49,7 +69,8 @@
              </select>
           </td>
           <td width="30px">
-              <button mat-button><mat-icon>edit</mat-icon></button>
+              <button mat-button *ngIf="genderfield" (click)="enableEdit('genderfield')"><mat-icon>edit</mat-icon></button>
+              <button mat-button *ngIf="!genderfield" (click)="save()"><mat-icon>done</mat-icon></button>
           </td>
       </tr>
               <tr>
@@ -59,10 +80,11 @@
               </tr>
               <tr>
                   <td>
-                      <input type="date" class="input"  id="dob"/>
+                      <input type="date" class="input"  id="dob" [disabled]="dobfield" [(ngModel)]="data.dob"/>
                   </td>
                   <td width="30px">
-                      <button mat-button><mat-icon>edit</mat-icon></button>
+                      <button mat-button *ngIf="dobfield" (click)="enableEdit('dobfield')"><mat-icon>edit</mat-icon></button>
+                      <button mat-button *ngIf="!dobfield" (click)="save()"><mat-icon>done</mat-icon></button>
                   </td>
               </tr>
           </table>
@@ -79,30 +101,33 @@
                      <label for="about">Introduce Yourself</label>
                  </td>
                  <td width="30px">
-                     <button mat-button><mat-icon>edit</mat-icon></button>
+                     <button mat-button *ngIf="aboutfield" (click)="enableEdit('aboutfield')"><mat-icon>edit</mat-icon></button>
+                     <button mat-button *ngIf="!aboutfield" (click)="save()"><mat-icon>done</mat-icon></button>
                  </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <textarea class="textarea"></textarea>
+                        <textarea class="textarea" [disabled]="aboutfield" [(ngModel)]="data.about"></textarea>
                     </td>
                 </tr>
              </table>
           </div>
      
           <div class="personal">
+              <small style="color: green;">{{psucess}}</small>
              <table width="100%">
                  <tr>
                      <td>
-                         <label for="password">Password</label>
+                         <label for="password">Change Password</label>
                      </td>
                  </tr>
                  <tr>
                      <td>
-                         <input type="password"  id="password" class="input"/>
+                         <input type="password" placeholder="enter new password" [disabled]="newpassfield"  id="password" class="input" [(ngModel)]="newpass"/>
                      </td>
                      <td width="30px">
-                         <button mat-button><mat-icon>edit</mat-icon></button>
+                        <button mat-button *ngIf="newpassfield" (click)="enableEdit('newpassfield')"><mat-icon>edit</mat-icon></button>
+                        <button mat-button *ngIf="!newpassfield" (click)="save()"><mat-icon>done</mat-icon></button>
                      </td>
                  </tr>
              </table>
@@ -110,14 +135,17 @@
           
        </section>
      </main>
-     <!-- <p class="title" style="color: red;">Delete Your Account</p>
+    
      <section class="delete">
-       <small> 
-           lnyy oiwuoityp tiryotyw tweltwo tq3ytqwl qwt;yqoi. q;t yqowi qto;Youtttttt
-           qt ityqo3ntmoqupo
-       </small> 
-     <button mat-button>Delete Account</button>
-     </section> -->
+        <p class="title" style="color: red; margin-bottom: 7px;">Delete Your Account</p>
+        <div>
+          <small style="color: crimson;"> 
+             Deleting your will parmemtly delete everything and it cannot be reversed . if you are then only delete your 
+             account .hope to see you again
+          </small> <br>
+        <button [disabled]="saving" mat-button style="color:red;width: 100%;margin-top: 5px; " (click)="deleteUser()">Delete Anyway</button>
+       </div>
+     </section>
      <button mat-raised-button class="logout" (click)="logout()">logout</button>
      
 </main>

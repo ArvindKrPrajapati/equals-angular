@@ -39,3 +39,6 @@ a{
 .font{
   font-family: 'Redressed', cursive;
 }
+button:disabled{
+  opacity: 0.5;
+}
