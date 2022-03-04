@@ -2,7 +2,14 @@
     stroke: var(--light);
 }
 .loading{
-  position: fixed;
-  left:calc(50% - 25px);
-  top: calc(50% - 25px);
+    position: fixed;
+    left: calc(50% - 135px);
+    top: calc(50% - 25px);
+
+}
+@media screen and (max-width: 768px){
+
+    .loading{
+    left:calc(50% - 25px);
+    }
 }
