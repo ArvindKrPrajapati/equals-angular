@@ -38,9 +38,10 @@ export class SettingsComponent implements OnInit {
   }
   
   formatDate(){
-    let t=this.data.dob.split("T")[0].split("-")
-    this.data.dob=t[0]+"-"+t[1]+"-"+t[2]
-    
+    if(this.data.dob){
+     let t=this.data.dob.split("T")[0].split("-")
+     this.data.dob=t[0]+"-"+t[1]+"-"+t[2]
+    }
   }
 
   ngOnInit(): void {
