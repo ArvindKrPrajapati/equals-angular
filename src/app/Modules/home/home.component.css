@@ -1,13 +1,18 @@
+
 .home{
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 80px 1fr 400px;
+   margin: 0px auto;
+   width: 1000px;
+   box-sizing: border-box;
+   display: grid;
+   grid-template-columns: 80px 1fr 300px;
 }
+
 .bg-menu{
   display: none;
 }
 @media screen and (max-width: 768px){
     .home{
+        width: 100%;
         display: block;
     }
     .app-rightmenu{

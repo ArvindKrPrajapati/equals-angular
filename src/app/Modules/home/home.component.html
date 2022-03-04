@@ -1,7 +1,6 @@
 
 
 
-
 <div class="bg-menu" [style.display]="menu && 'block'"></div>
 <main class="home">
     <section>
@@ -12,6 +11,7 @@
         <router-outlet></router-outlet>
     </section>
     <section class="app-rightmenu" (click)="toggleMenu(null)" [style.transform]="menu && 'translateX(0)'">
-      <app-rightmenu ></app-rightmenu>
-    </section>
+        <app-rightmenu ></app-rightmenu>
+      </section>
 </main>
+    
