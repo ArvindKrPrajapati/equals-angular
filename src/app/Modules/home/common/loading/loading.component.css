@@ -1,0 +1,8 @@
+.loading ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: var(--light);
+}
+.loading{
+  position: fixed;
+  left:calc(50% - 25px);
+  top: calc(50% - 25px);
+}
