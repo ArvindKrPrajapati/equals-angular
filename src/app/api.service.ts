@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  url:string="https://equals-api.herokuapp.com/api/v1"
-  // url:string="http://localhost:3000/api/v1";
+  // url:string="https://equals-api.herokuapp.com/api/v2"
+  url:string="http://localhost:3000/api/v2";
   imageurl:string="https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl:string="https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http:HttpClient) {
@@ -37,8 +37,8 @@ export class ApiService {
   uploadToCloudinary(data:any){
     return this._http.post(this.upurl,data,{reportProgress:true,observe:'events'})
   }
-  uploadPost(image:any){
-    return this._http.post(this.url+"/post/upload",{image},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
+  uploadPost(data:any){
+    return this._http.post(this.url+"/post/upload",data,{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
   }
   uploadDp(dp:string){
     return this._http.put(this.url+"/user/dp",{dp},{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
