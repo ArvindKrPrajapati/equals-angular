@@ -9,7 +9,7 @@ app-loading{
 }
 .posts{
     background-color: white;
-}
+   }
 .add-comment{
     width: 100%;
     height: 100%;
@@ -92,6 +92,11 @@ app-loading{
 .nopost a{
     color: var(--light);
     border:2px inset var(--light) ;
+}
+.loading{
+   display: flex;
+   justify-content: center;
+   padding: 15px;
 }
 @media screen and (max-width: 768px){
    /* app-stories{

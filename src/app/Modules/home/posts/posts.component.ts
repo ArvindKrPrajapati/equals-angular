@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -7,6 +7,20 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  el:any;
+  action:boolean=true
+  start:number=0
+  loadOnScroll:boolean=false
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+   let top=window.scrollY
+   this.el=document.querySelector("#posts")
+   let h=this.el.offsetHeight;
+   if(window.innerHeight+top>h && this.action){
+    this.start+=10;
+    this.loadData();
+   } 
+  }
   data:any=[]
   commPost:any;
   imageurl:string
@@ -21,14 +35,28 @@ export class PostsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._api.getSubPost().subscribe((data:any)=>{
+    if(this.action){
+      this.loadData(); 
+     }
+  }
+  loadData(){
+    this.action=false
+    this.loadOnScroll=true
+    this._api.getSubPost(this.start).subscribe((data:any)=>{
       if(data.success){
-        this.data=data.data
-        this.isLoading=false
+        if(data.data.length>0){
+         this.data.push(...data.data)
+         this.isLoading=false
+         this.loadOnScroll=false
+          this.action=true
+          }else{
+            this.isLoading=false
+            this.loadOnScroll=false
+          }
+        
       }
     })
   }
-  
   saveComment(){
     this.saving=true
     this._api.doComment(this.commPost._id,this.comment).subscribe((res:any)=>{
@@ -47,4 +75,6 @@ export class PostsComponent implements OnInit {
   deletePost(e:any){
     this.data.splice(e,1)
   }
+
+ 
 }

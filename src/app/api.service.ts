@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
+  // ,headers: new HttpHeaders({ 'ngsw-bypass': 'true' }) 
   url:string="https://equals-api.herokuapp.com/api/v2"
   // url:string="http://localhost:3000/api/v2";
   imageurl:string="https://res.cloudinary.com/shivraj-technology/image/upload";
@@ -35,7 +36,7 @@ export class ApiService {
   
 
   uploadToCloudinary(data:any){
-    return this._http.post(this.upurl,data,{reportProgress:true,observe:'events'})
+  return this._http.post(this.upurl,data,{reportProgress:true,observe:'events',headers: new HttpHeaders({ 'ngsw-bypass': 'true' })})
   }
   uploadPost(data:any){
     return this._http.post(this.url+"/post/upload",data,{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
@@ -56,8 +57,8 @@ export class ApiService {
     return this._http.put(this.url+"/user/follow",{followerid,action},{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 
-  getSubPost(){
-    return this._http.get(this.url+"/post/getsubpost",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  getSubPost(start:number){
+    return this._http.get(this.url+"/post/getsubpost?start="+start,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 
   liveSearch(searchstring:string){

@@ -33,14 +33,17 @@
        </table>
    </div>
 </article>
-<main class="posts">
+<main class="posts" id="posts">
     <!-- <div class="empty"></div> -->
     <!-- <app-stories></app-stories> -->
     <div class="posts-content">
         <app-loading *ngIf="isLoading"></app-loading>
      <div  *ngIf="!isLoading" class="p">
         <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" (deleteHandler)="deletePost($event)"></app-post>
-     </div>
+        <main class="loading" *ngIf="loadOnScroll">
+            <mat-spinner  [diameter]="30"></mat-spinner>
+       </main> 
+    </div>
      <div class="nopost"  *ngIf="!isLoading && data.length===0">
        <div>
         <h1 class="font">welcome</h1>
