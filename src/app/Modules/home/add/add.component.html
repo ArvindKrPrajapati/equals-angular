@@ -22,17 +22,18 @@
         </td>
         <td width="70px">
           <img *ngIf="imgsrc" [src]="imgsrc" alt="selected img" class="selectedimg">
-          <button *ngIf="imgsrc" mat-icon-button [disabled]="saving" style=" position: absolute; left: 780px; top:55px;" (click)="close()"><mat-icon>close</mat-icon></button>
+          <button *ngIf="imgsrc" mat-icon-button [disabled]="saving" class="close-top" (click)="close()"><mat-icon>close</mat-icon></button>
         </td>
       </tr>
       <tr>
         <td colspan="3">
-          <textarea id="scroll" placeholder="whats going on...." class="post" [(ngModel)]="text"></textarea>
+          <textarea id="scroll" placeholder="whats going on...." maxlength="1000" class="post" [(ngModel)]="text"></textarea>
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <div class="btns">
+            <small [style.color]="text.length===1000 ? 'red' : 'black'"> {{text.length >0 ? text.length +"/ 1000" : ""}} </small>
             <button mat-icon-button [disabled]="saving"><label for="file" ><mat-icon style="position: relative;top: 7px;">image</mat-icon></label></button>
             <input type="file" id="file" style="display: none;" accept="image/*" (change)="setImage($event)"/>
             <button mat-button class="share-btn" [disabled]="saving" (click)="share()">share</button>
@@ -48,28 +49,3 @@
 
 
 
-<!-- <main class="add">
-    <form *ngIf="!imageChangedEvent" >
-        <label for="file"><mat-icon>upload</mat-icon><p> Upload</p></label>
-        <input type="file" id="file" name="file" (change)="postUpload($event)" accept="image/*" />
-        <h4 style="color: green;margin-top: 10px;" *ngIf="imgUploaded">{{imgUploaded}}</h4>
-    </form>
-    <div class="imgPre" *ngIf="imageChangedEvent">
-        <image-cropper
-          *ngIf="!uploading"
-          [imageChangedEvent]="imageChangedEvent"
-          [maintainAspectRatio]="true"
-          [aspectRatio]="4 / 4"
-          (imageCropped)="imageCropped($event)"
-          ></image-cropper>
-        <img *ngIf="uploading" [src]="croppedImage"  class="preview" />
-      </div>
-      <div class="uploader" *ngIf="uploading">
-        <mat-progress-bar  [value]="uploadingProgress"></mat-progress-bar>
-    
-        <small> {{uploadingProgress}} %</small>
-      </div>
-      <button *ngIf="imageChangedEvent && !uploading " (click)="share()" class="share">share</button>
-      <button *ngIf="imageChangedEvent  " (click)="cancel()" class="share" style="background-color: crimson;">cancel</button>
-
-    </main> -->

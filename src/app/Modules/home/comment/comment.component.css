@@ -1,6 +1,7 @@
 .comments{
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    background-color: white;
+    /* display: grid;
+    grid-template-columns: 1.4fr 1fr; */
 }
 .dp{
     width: 40px;
@@ -12,30 +13,30 @@
     border-left: 1px solid gainsboro;
 }
 .comm-text{
-    font-size: 14px;
-    line-height: 22px;
-    word-break: break-all;
-    word-wrap:break-word;
+   white-space: pre-wrap;
 }
 .comments-body table{
-    border-bottom: 1px solid gainsboro;
+    /* border-bottom: 1px solid gainsboro; */
     padding: 10px 0px;
 }
-
+.see-comment{
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    border-top: 1px solid #eee;
+    padding: 20px 0px;
+}
 .comment{
     width: 100%;
     height: 60px;
     box-sizing: border-box;
     padding: 10px;
-    font-size: large;
-    font-style: "sans-serif";
-    border: 1px solid silver;
+    border: none;
     resize: none;
     border-radius: 7px;
 }
 .comment:focus{
     outline: none;
-    border: 1px solid var(--light);
+    /* border: 1px solid var(--light); */
 }
 .comm-btn{
     color: white;

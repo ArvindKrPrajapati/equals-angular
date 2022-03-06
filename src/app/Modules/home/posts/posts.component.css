@@ -8,13 +8,7 @@ app-loading{
     margin: -20px -40px 0px -40px;
 }
 .posts{
-    /* display: grid;
-    grid-template-columns: 400px 1fr; */
-    /* height: calc(100vh - 50px); */
-    /* overflow-y: auto; */
-}
-.posts-content{
-    padding: 20px 40px;
+    background-color: white;
 }
 .add-comment{
     width: 100%;
@@ -44,6 +38,7 @@ app-loading{
 .post-img{
     width: 60px;
     height: 60px;
+    object-fit: contain;
     border-radius: 3px;
 }
 .comment{
@@ -109,12 +104,11 @@ app-loading{
        display: none;
    }
    .posts-content{
-       padding: 6px;
        box-sizing: border-box;
        /* margin-bottom: 160px; */
    }
    .p{
-       margin-bottom: 55px;
+       padding-bottom: 55px;
    }
      .just-text{
       display: none;

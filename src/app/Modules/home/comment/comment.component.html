@@ -8,31 +8,28 @@
     <section class="comments-body" *ngIf="!isLoading">
         <table width="100%">
             <tr>
+                <td width="50px">
+                    <a [routerLink]="['/home/profile/',userdata.id]">
+                      <img class="dp" [src]="imageurl+userdata.dp" alt="">
+                    </a>
+                  </td>
                 <td>
-                    <textarea [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
+                    <textarea maxlength="500"  [(ngModel)]="comment" [style.border]="comment.length>=500 ? '1px solid red' : ''" id="scroll" class="comment" placeholder="Add comment"></textarea>
                 </td>
                 <td>
                     <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
                 </td>
             </tr>
         </table>
-        <table width="100%" *ngFor="let d of data">
-            <tr>
-                <td width="50px">
-                  <a [routerLink]="['/home/profile/',d.by._id]">
-                    <img class="dp" [src]="imageurl+d.by.dp" alt="">
-                  </a>
-                </td>
-                <td>
-                    {{d.by.name}}
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                   <small class="comm-text">{{d.comm}}</small>
-                </td>
-            </tr>
-        </table>
+        <section class="see-comment" *ngFor="let d of data">
+            <a [routerLink]="['/home/profile/',d.by._id]">
+                <img class="dp" [src]="imageurl+d.by.dp" alt="">
+              </a>
+              <div>
+                  <b>{{d.by.name}}</b>
+                  <br>
+                  <small class="comm-text">{{d.comm}}</small>
+              </div>
+        </section>
     </section>
 </main>

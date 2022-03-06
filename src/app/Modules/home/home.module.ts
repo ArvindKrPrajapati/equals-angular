@@ -30,7 +30,8 @@ import { CommentComponent } from './comment/comment.component';
 import { SinglePostComponent } from './comment/single-post/single-post.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [
     SidemenuComponent,
@@ -60,6 +61,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatIconModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
+    MatSlideToggleModule,
     MatButtonModule,
     ImageCropperModule
   ]

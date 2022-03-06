@@ -98,7 +98,7 @@
              <table width="100%">
                 <tr>
                  <td>
-                     <label for="about">Introduce Yourself</label>
+                     <label for="about">Introduce Yourself  <small *ngIf="!aboutfield">{{data.about.length}} / 50</small></label>
                  </td>
                  <td width="30px">
                      <button mat-button *ngIf="aboutfield" (click)="enableEdit('aboutfield')"><mat-icon>edit</mat-icon></button>
@@ -107,7 +107,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <textarea class="textarea" [disabled]="aboutfield" [(ngModel)]="data.about"></textarea>
+                        <textarea class="textarea" [disabled]="aboutfield" maxlength="50"  [(ngModel)]="data.about"></textarea>
                     </td>
                 </tr>
              </table>

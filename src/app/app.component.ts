@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'equals';
+  mode:any;
+  constructor(){
+    this.mode=localStorage.getItem("mode")
+
+  }
 }

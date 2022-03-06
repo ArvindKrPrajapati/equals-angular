@@ -3,8 +3,8 @@
    </div>
 
 
-<main class="myposts" id="scroll" *ngIf="!isLoading">
-    <a *ngFor="let d of data" [routerLink]="['/home/comment/',d._id]">
-        <img  [src]="imageurl+d.image" >
-    </a>
+<main  id="scroll" *ngIf="!isLoading">
+    <div *ngFor="let d of data">
+    <app-post [postdata]="d" [postindex]=""  ></app-post>
+    </div>
 </main>

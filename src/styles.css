@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Redressed&display=swap');
 :root{
   --darkb:#03071e;
   --dark:#0b5a5c;
   --light:#097779;
   --lightb: #050c30;
   --gold:#e85d04;
-  --bg:rgba(0,0,0,0.4)
+  --bg:rgba(0,0,0,0.4);
+  --nightbg:#202020;
+  --nighttext:#f5f5f5;
+  --nightline:#000;
 }
 *{
     padding: 0;
@@ -16,8 +20,7 @@ html, body {
    }
 body {
    margin: 0;
-   font-family: Roboto, "Helvetica Neue", sans-serif;
-   /* overflow: hidden; */
+   font-family: 'Noto Sans', sans-serif;
    overflow: auto;
  }
 a{
@@ -42,3 +45,5 @@ a{
 button:disabled{
   opacity: 0.5;
 }
+
+

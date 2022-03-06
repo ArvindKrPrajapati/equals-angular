@@ -12,7 +12,7 @@
                 </div>
             </td>
             <td width="70px">
-                <img class="post-img" [src]="imageurl+commPost.image" >
+                <img *ngIf="commPost.image" class="post-img" [src]="imageurl+commPost.image" >
             </td>
         </tr>
         <tr>

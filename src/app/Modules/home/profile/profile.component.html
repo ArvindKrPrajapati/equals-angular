@@ -83,7 +83,7 @@
             <b class="name">{{data.name}}</b>
         <br><small style="text-transform: capitalize;">{{data.gender}}</small>
         <br><small style="text-transform: capitalize;">{{findAge(data.dob)}}</small>
-        <br><small style="text-transform: capitalize;">{{data.about}}</small>
+        <br><small style="text-transform: capitalize; word-break: break-all;">{{data.about}}</small>
         </div>
         <button class="follow-btn" *ngIf="id!==userdata.id" (click)="follow(id,$event)">{{data.ifollow ? "unfollow" : "follow"}}</button>
 
