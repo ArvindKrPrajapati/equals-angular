@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  // url:string="https://equals-api.herokuapp.com/api/v2"
-  url:string="http://localhost:3000/api/v2";
+  url:string="https://equals-api.herokuapp.com/api/v2"
+  // url:string="http://localhost:3000/api/v2";
   imageurl:string="https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl:string="https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http:HttpClient) {
