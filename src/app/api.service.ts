@@ -36,7 +36,7 @@ export class ApiService {
   
 
   uploadToCloudinary(data:any){
-  return this._http.post(this.upurl,data,{reportProgress:true,observe:'events',headers: new HttpHeaders({ 'ngsw-bypass': 'true' })})
+  return this._http.post(this.upurl,data,{reportProgress:true,observe:'events'})
   }
   uploadPost(data:any){
     return this._http.post(this.url+"/post/upload",data,{headers:new HttpHeaders({"Authorization": "Bearer " + this.token()})})
