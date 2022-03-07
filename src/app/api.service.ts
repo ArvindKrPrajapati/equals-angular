@@ -1,10 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  // cache
+  public responseCache = new Map();
+  // cache end
+  
   // ,headers: new HttpHeaders({ 'ngsw-bypass': 'true' }) 
   url:string="https://equals-api.herokuapp.com/api/v2"
   // url:string="http://localhost:3000/api/v2";
@@ -58,7 +63,19 @@ export class ApiService {
   }
 
   getSubPost(start:number){
-    return this._http.get(this.url+"/post/getsubpost?start="+start,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+    const purl=this.url+"/post/getsubpost?start="+start+"&id="+this.getUserInfo().id
+       const postsFromCache = this.responseCache.get(purl);
+       const nowdate=Date.now()
+    if (postsFromCache && (nowdate - postsFromCache.date)<86400000) {
+      return of(postsFromCache);
+    }
+    const response = this._http.get<any>(purl,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})});
+    response.subscribe((posts:any) =>{
+      posts.date=Date.now()
+        this.responseCache.set(purl,posts)
+      })
+    return response;
+    // return this._http.get(this.url+"/post/getsubpost?start="+start,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 
   liveSearch(searchstring:string){
@@ -71,7 +88,19 @@ export class ApiService {
   
 
   getProfile(id:string){
-    return this._http.get(this.url+"/user/profile?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+    const profileurl=this.url+"/user/profile?id="+id
+    const profileFromCache = this.responseCache.get(profileurl);
+    const nowdate=Date.now()
+ if (profileFromCache && (nowdate - profileFromCache.date)<3600000) {
+   return of(profileFromCache);
+ }
+ const response = this._http.get<any>(profileurl,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})});
+ response.subscribe((profile:any) =>{
+   profile.date=Date.now()
+     this.responseCache.set(profileurl,profile)
+   })
+ return response;
+    // return this._http.get(this.url+"/user/profile?id="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
   deleteUser(){
     return this._http.delete(this.url+"/user",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})

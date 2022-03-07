@@ -61,6 +61,7 @@ label{
 .input:disabled,.textarea:disabled{
  border: none;
  color: black;
+ background-color: inherit;
 }
 
 .askpass{

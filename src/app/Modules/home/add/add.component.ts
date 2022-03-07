@@ -71,7 +71,7 @@ export class AddComponent implements OnInit {
           this.savedImgurl="/"+s[s.length-2]+"/"+s[s.length-1]
            this.saveToDb()
          }
-         console.log(event);
+        //  console.log(event);
          
           if (event.type === HttpEventType.UploadProgress) {
                 let progress = Math.round(100 * event.loaded / event.total);
