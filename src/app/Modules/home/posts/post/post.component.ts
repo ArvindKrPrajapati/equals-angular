@@ -90,23 +90,26 @@ reacting:boolean=false
 
 externalShare(postid:string){
   let element:any = document.querySelectorAll(".post")[this.postindex];
+  var capturing:any = document.querySelectorAll(".capturing")[this.postindex]
+  capturing.innerText="capturing......"
     html2canvas(element,{useCORS: true}).then(function(canvas) {
-      //  let image= canvas.toDataURL()  //.replace('image/jpeg', 'image/octet-stream');
-      // canvas.toBlob((blob:any) => navigator.share({blob: blob, mimeType: 'image/png'}),
-      // 'image/png');
         canvas.toBlob(function(blob:any){
           var file = new File([blob], "picture.png", {type: 'image/jpeg'});
           var filesArray = [file];
           navigator.share({
-            text: 'post from equals',
+            text: 'Join equals India ka apna social app',
             files: filesArray,
             title: 'equals',
-            url: 'https://equals-angular.herokuapp.com'
-          });
-        //     let link = document.createElement("a");
-        //     link.download = "equals-image.png";
-        //     link.href = URL.createObjectURL(blob);
-        //     link.click();
+            url: 'https://equals-angular.herokuapp.com/comment/'+postid
+          }).then(()=>{
+            capturing.innerText=""
+          }).catch((err)=>{
+            capturing.innerText="try again"
+          })
+            // let link = document.createElement("a");
+            // link.download = "equals-image.png";
+            // link.href = URL.createObjectURL(blob);
+            // link.click();
 
         },'image/png');
     });
