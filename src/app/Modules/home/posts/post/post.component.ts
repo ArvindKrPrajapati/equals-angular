@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input, Output , EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
+import html2canvas from 'html2canvas';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -85,5 +86,29 @@ reacting:boolean=false
       return (t / 470400).toString().split(".")[0] +" year ago"
   }
   return "a long ago"
+}
+
+externalShare(postid:string){
+  let element:any = document.querySelectorAll(".post")[this.postindex];
+    html2canvas(element,{useCORS: true}).then(function(canvas) {
+      //  let image= canvas.toDataURL()  //.replace('image/jpeg', 'image/octet-stream');
+      // canvas.toBlob((blob:any) => navigator.share({blob: blob, mimeType: 'image/png'}),
+      // 'image/png');
+        canvas.toBlob(function(blob:any){
+          var file = new File([blob], "picture.png", {type: 'image/jpeg'});
+          var filesArray = [file];
+          navigator.share({
+            text: 'post from equals',
+            files: filesArray,
+            title: 'equals',
+            url: 'https://equals-angular.herokuapp.com'
+          });
+        //     let link = document.createElement("a");
+        //     link.download = "equals-image.png";
+        //     link.href = URL.createObjectURL(blob);
+        //     link.click();
+
+        },'image/png');
+    });
 }
 }

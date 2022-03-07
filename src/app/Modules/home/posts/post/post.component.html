@@ -1,5 +1,5 @@
 
-<main class="post" [style.background]="deleting && 'gainsboro' ">
+<main class="post" id="post" [style.background]="deleting && 'gainsboro' ">
    <div class="dp">
     <a  [routerLink]="['/home/profile/',postdata.postedby._id]">
         <img class="profile-img" [src]="imageurl+postdata.postedby.dp" >
@@ -37,6 +37,7 @@
         <small>{{postdata.likes}}</small>
         <button mat-icon-button (click)="saveComment()"><mat-icon>chat_bubble_outline</mat-icon></button>
         <small>{{postdata.comments}}</small>
+        <button mat-icon-button (click)="externalShare(postdata._id)"><mat-icon>share</mat-icon></button>
       </div>
    </div>
    <small style="color:red" *ngIf="deleting">deleting....</small>
