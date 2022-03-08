@@ -55,6 +55,9 @@
       display: inline;
       margin: 0;
     }
+    .sidemenu li:hover{
+      background-color: inherit;
+  }
    .sidemenu small{
      display: none;
    }

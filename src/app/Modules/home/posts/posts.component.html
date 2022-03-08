@@ -18,11 +18,11 @@
         <tr>
             <td></td>
             <td>
-              <textarea [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
+              <textarea maxlength="500" [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
             </td>
         </tr>
         <tr>
-            <td style="height: 60px;"> </td>
+            <td style="height: 60px;"><small>{{comment.length}} / 500</small></td>
             <td>
                 <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
             </td>

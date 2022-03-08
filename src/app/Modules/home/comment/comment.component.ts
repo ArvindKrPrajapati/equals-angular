@@ -15,6 +15,7 @@ export class CommentComponent implements OnInit {
   comment:string=''
   saving:boolean=false
   isLoading:boolean=false
+  postedby:any;
   constructor(private _api:ApiService,private _route:ActivatedRoute) {
     this.userdata=_api.getUserInfo()
     _route.paramMap.subscribe((p:any)=>{
@@ -32,10 +33,13 @@ export class CommentComponent implements OnInit {
       }
     })
   }
-
+  
+  getPostedBy(e:any){
+   this.postedby=e;
+  }
   saveComment(){
     this.saving=true
-    this._api.doComment(this.postid,this.comment).subscribe((res:any)=>{
+    this._api.doComment(this.postid,this.comment,this.postedby).subscribe((res:any)=>{
        if(res.success){
         let a={
           by:{

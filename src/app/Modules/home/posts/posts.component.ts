@@ -59,7 +59,7 @@ export class PostsComponent implements OnInit {
   }
   saveComment(){
     this.saving=true
-    this._api.doComment(this.commPost._id,this.comment).subscribe((res:any)=>{
+    this._api.doComment(this.commPost._id,this.comment,this.commPost.postedby._id).subscribe((res:any)=>{
        if(res.success){
          this.commPost="";
          this.comment=""

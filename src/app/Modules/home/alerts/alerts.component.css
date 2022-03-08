@@ -1,6 +1,33 @@
-.alerts{
+.nodata{
     height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dp{
+    width: 5opx;
+    height: 50px;
+    border-radius: 50%;
+}
+.comm{
+    text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+display: block;
+width: 200px;
+}
+.anchor{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: black;
+}
+.content{
+    padding: 4px 15px;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+}
+.content:hover{
+   background-color: #f6f6f6;
 }

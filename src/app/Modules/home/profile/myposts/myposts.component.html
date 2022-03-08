@@ -4,7 +4,7 @@
 
 
 <main  id="scroll" *ngIf="!isLoading">
-    <div *ngFor="let d of data">
-    <app-post [postdata]="d" [postindex]=""  ></app-post>
+    <div *ngFor="let d of data;let index=index">
+    <app-post [postdata]="d" [postindex]="index"  ></app-post>
     </div>
 </main>

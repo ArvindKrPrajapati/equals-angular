@@ -124,11 +124,15 @@ export class ApiService {
     return this._http.get(this.url+"/post/getcomments?postid="+id,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 
-  doReact(postid:string,action:string){
-    return this._http.put(this.url+"/post/react",{postid,action},{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  doReact(postid:string,action:string,postedby:string){
+    return this._http.put(this.url+"/post/react",{postid,action,postedby},{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 
-  doComment(postid:string,comm:string){
-    return this._http.put(this.url+"/post/comment",{postid,comm},{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  doComment(postid:string,comm:string,postedby:string){
+    return this._http.put(this.url+"/post/comment",{postid,comm,postedby},{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+  }
+
+  getNotification(){
+    return this._http.get(this.url+"/notification",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 }

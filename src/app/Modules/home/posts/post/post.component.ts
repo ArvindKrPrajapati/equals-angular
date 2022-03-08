@@ -30,7 +30,7 @@ reacting:boolean=false
   doReact(action:string){
     this.reacting=true  
     if(action==="like"){
-     this._api.doReact(this.postdata._id,action).subscribe((res:any)=>{
+     this._api.doReact(this.postdata._id,action,this.postdata.postedby._id).subscribe((res:any)=>{
        if(res.success){
          this.reacting=false
         this.postdata.ilike=true
@@ -38,7 +38,7 @@ reacting:boolean=false
        }
      })
     }else if(action==="unlike"){
-      this._api.doReact(this.postdata._id,action).subscribe((res:any)=>{
+      this._api.doReact(this.postdata._id,action,this.postdata.postedby._id).subscribe((res:any)=>{
         if(res.success){
           this.reacting=false
          this.postdata.ilike=false

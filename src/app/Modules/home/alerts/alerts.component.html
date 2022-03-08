@@ -1,5 +1,18 @@
-<main class="alerts">
-    <b>
-        No Notification
-    </b>
+ <app-loading *ngIf="isLoading"></app-loading>
+<main class="nodata" *ngIf="!isLoading && data.length===0">
+    <b> No Notification</b>
+</main>
+
+<main class="alerts" *ngIf="!isLoading && data.length>0">
+   <div class="content" *ngFor="let d of data">
+        <a [routerLink]="['/home/profile',d.from._id]">
+            <img [src]="imageurl+d.from.dp" class="dp">
+        </a>
+        <a [routerLink]="['/home/comment/',d.onpost]" class="anchor">
+           <div>
+            {{d.from.name}} <span *ngIf="d.category=='following'"> started</span> {{d.category}}<span *ngIf="d.category=='commented'"> on</span> <span *ngIf="d.category!='following'"> your post</span><span *ngIf="d.category=='following'"> you</span>
+            <small class="comm" *ngIf="d.category=='commented'">{{d.comm}}</small>
+           </div>
+         </a>
+   </div>
 </main>

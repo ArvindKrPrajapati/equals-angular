@@ -1,6 +1,6 @@
 <main class="comments">
     <section class="single-post">
-        <app-single-post></app-single-post>
+        <app-single-post (postedby)="getPostedBy($event)"></app-single-post>
     </section>
    <div class="mat-spinner" *ngIf="isLoading">
     <mat-spinner  [diameter]="30"></mat-spinner>
