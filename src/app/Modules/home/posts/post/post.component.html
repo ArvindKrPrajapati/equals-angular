@@ -1,5 +1,5 @@
 
-<main class="post" id="post" [style.background]="deleting && 'gainsboro' ">
+<main class="post" id="post" [style.background]="deleting && 'var(--line)' ">
    <div class="dp">
     <a  [routerLink]="['/home/profile/',postdata.postedby._id]">
         <img class="profile-img" [src]="imageurl+postdata.postedby.dp" >
@@ -12,7 +12,7 @@
         <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_horiz</mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
+          <mat-menu #menu="matMenu" >
             <button class="delete-btn" *ngIf="userdata.id===postdata.postedby._id" (click)="deletePost(postdata._id)" [disabled]="deleting"  mat-menu-item>
               <mat-icon>delete</mat-icon>
               <span>Delete</span>

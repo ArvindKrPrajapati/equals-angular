@@ -8,9 +8,11 @@
     width: 100%;
     box-sizing: border-box;
     padding: 10px 15px;
+    background-color: var(--back);
+    color: var(--text);
     border: none;
     border-radius: 7px;
-    border: 1px solid silver;
+    border: 1px solid var(--line);
 }
 .search input:focus{
     outline: none;
@@ -24,8 +26,13 @@
 }
 .user div{
     width: 100%;
-    color: black;
+    color: var(--text);
 }
 .user div:hover{
     background-color:#eee;
 }
+@media (prefers-color-scheme: dark) {
+   .user div:hover{
+       background-color: black;
+   }
+  }

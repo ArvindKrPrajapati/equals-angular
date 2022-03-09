@@ -7,10 +7,10 @@
     padding: 10px; 
 }
 .people-table:hover{
- background-color: gainsboro;
+ background-color: var(--line);
 }
 .people-link{
-    color: black;
+    color: var(--text);
 }
 
 .name{
@@ -20,7 +20,7 @@
 .follow-btn{
     padding:  10px 20px;
     border-radius: 6px;
-    color: white;
+    color: var(--back);
     background-color: var(--light);
     border: none;
     float: right;

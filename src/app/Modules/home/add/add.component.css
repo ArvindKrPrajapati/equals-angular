@@ -14,7 +14,7 @@
 .done{
     position: fixed;
     top: calc(100% - 200px);;
-    background-color: white;
+    background-color: var(--back);
     left: calc(50% - 120px);
 }
 .imgprev img{
@@ -32,7 +32,7 @@
 .add-table{
     padding: 15px;
     border-radius: 7px;
-    background-color: white;
+    background-color: var(--back);
 }
 .dp{
     width: 40px;
@@ -51,6 +51,8 @@
     width: 100%;
     box-sizing: border-box;
     height: 120px;
+    color: var(--text);
+    background-color: var(--back);
 }
 .post:focus{
     outline: none;
@@ -60,7 +62,7 @@
 }
 .share-btn{
     background-color: var(--light);
-    color: white;
+    color: var(--back);
     border-radius: 35px;
     margin-left: 10px;
 }
@@ -87,3 +89,8 @@
       /* right: 10px; */
   }
 }
+@media (prefers-color-scheme: dark) {
+  .add{
+      background-color: black;
+  }
+  }

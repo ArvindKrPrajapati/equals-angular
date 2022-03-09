@@ -21,7 +21,7 @@ width: 200px;
     display: flex;
     align-items: center;
     height: 100%;
-    color: black;
+    color: var(--text);
 }
 .content{
     padding: 4px 15px;
@@ -31,3 +31,8 @@ width: 200px;
 .content:hover{
    background-color: #f6f6f6;
 }
+@media (prefers-color-scheme: dark) {
+    .content:hover{
+        background-color: black;
+    }
+  }

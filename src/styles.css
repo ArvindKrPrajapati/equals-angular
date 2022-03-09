@@ -7,9 +7,8 @@
   --lightb: #050c30;
   --gold:#e85d04;
   --bg:rgba(0,0,0,0.4);
-  --nightbg:#202020;
-  --nighttext:#f5f5f5;
-  --nightline:#000;
+  /* --text:white;
+  --back:black; */
 }
 *{
     padding: 0;
@@ -46,4 +45,29 @@ button:disabled{
   opacity: 0.5;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root{
+    --text:white;
+    --back:#0c0c0c;
+    --line:black;
+    --dark:white;
+    --light:white;
+  }
+ body{
+   background-color: var(--back);
+   color: var(--text);
+ }
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --text:black;
+    --back:white;
+    --line:gainsboro;
+  }
+  body{
+    background-color: var(--back);
+    color: var(--text);
+  }
+}
 

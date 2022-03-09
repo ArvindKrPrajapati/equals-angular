@@ -6,9 +6,7 @@
  padding: 15px;
   grid-template-columns: 68px 1fr;
 }
-.dark{
-  background-color: red;
-}
+
 .post:hover{
   background-color: #f7f7f7;
 }
@@ -33,7 +31,9 @@ object-fit: contain;
     margin: -8px 0px;
   }
   .delete-btn{
-    width:300px
+    width:300px;
+    background-color: var(--back);
+    color: var(--text);
   }
   .post-header{
     height: 20px;
@@ -43,7 +43,7 @@ object-fit: contain;
   .text{
     font-size: .9em;
     line-height: 1.3em;
-    color: black;
+    color: var(--text);
     white-space: pre-wrap;
   }
   .post-footer{
@@ -64,4 +64,18 @@ object-fit: contain;
     }
   .post-body{
     padding-top: 7px;
+  }
+ .delete-btn mat-icon{
+  color: var(--text);
+ }
+ .delete-btn:hover{
+   background-color: var(--line);
+ }
+  @media (prefers-color-scheme: dark) {
+   .post:hover{
+     background-color: black;
+   }
+   .post{
+    border-bottom: 1px solid black;
+   }
   }

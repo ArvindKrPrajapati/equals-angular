@@ -33,7 +33,7 @@
       <tr>
         <td colspan="3">
           <div class="btns">
-            <small [style.color]="text.length===1000 ? 'red' : 'black'"> {{text.length >0 ? text.length +"/ 1000" : ""}} </small>
+            <small [style.color]="text.length===1000 ? 'red' : 'var(--text)'"> {{text.length >0 ? text.length +"/ 1000" : ""}} </small>
             <button mat-icon-button [disabled]="saving"><label for="file" ><mat-icon style="position: relative;top: 7px;">image</mat-icon></label></button>
             <input type="file" id="file" style="display: none;" accept="image/*" (change)="setImage($event)"/>
             <button mat-button class="share-btn" [disabled]="saving" (click)="share()">share</button>

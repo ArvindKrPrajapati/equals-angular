@@ -1,5 +1,5 @@
 .comments{
-    background-color: white;
+    background-color: var(--back);
     /* display: grid;
     grid-template-columns: 1.4fr 1fr; */
 }
@@ -10,7 +10,7 @@
 }
 .comments-body{
     padding: 0px 25px;
-    border-left: 1px solid gainsboro;
+    border-left: 1px solid var(--line);
 }
 .comm-text{
    white-space: pre-wrap;
@@ -33,13 +33,15 @@
     border: none;
     resize: none;
     border-radius: 7px;
+    background-color: var(--back);
+    color: var(--text);
 }
 .comment:focus{
     outline: none;
     /* border: 1px solid var(--light); */
 }
 .comm-btn{
-    color: white;
+    color: var(--back);
     background-color: var(--light);
     float: right;
     margin: 10px 0px;
@@ -68,3 +70,8 @@
   .mat-spinner ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
     stroke: var(--light);
 }
+@media (prefers-color-scheme: dark) {
+   .see-comment{
+    border-top: 1px solid black;
+   }
+  }

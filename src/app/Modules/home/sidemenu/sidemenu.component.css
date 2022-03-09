@@ -7,9 +7,9 @@
 .sidemenu{
     height: 100vh;
     width: 80px;
-    background-color: white;
+    background-color: var(--back);
     position: fixed;
-    border-right: 1px solid gainsboro;
+    border-right: 1px solid var(--line);
 }
 .sidemenu small{
     display: block;
@@ -28,7 +28,7 @@
 }
 
 .sidemenu li:hover{
-    background-color: gainsboro;
+    background-color: var(--line);
 }
 
   .active{
@@ -37,7 +37,7 @@
   }
 @media screen and (max-width: 768px){
    .sidemenu{
-     border-top: 1px solid gainsboro;
+     border-top: 1px solid var(--line);
      height: 50px;
      width: 100%;
      bottom: 0;

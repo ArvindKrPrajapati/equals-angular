@@ -1,7 +1,7 @@
 .profile{
     padding: 10px;
     padding-bottom: 60px;
-    background-color: white;
+    background-color: var(--back);
     min-height: 100%;
     /* overflow-y: auto; */
     box-sizing: border-box;
@@ -40,7 +40,7 @@
  height: 40px;
  padding: 10px 40px;
  background:var(--light) ;
- color: white;
+ color: var(--back);
  border-radius: 5px;
 }
 .showdp{
@@ -57,9 +57,9 @@
     position: fixed;
     left: calc(50% - 360px);
     margin-top: 20px;
-    background-color:white ;
+    background-color:var(--back) ;
     width: 500px;
-    border: 1px solid gainsboro;
+    border: 1px solid var(--line);
 }
 .imgPre{
     overflow-x: hidden;
@@ -72,7 +72,7 @@
     position: sticky;
     top:0px;
     z-index: 7;
-    background-color: #eee;
+    background-color: var(--line);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -113,7 +113,7 @@ button:disabled{
     display: block;
     padding: 18px;
     text-align: center;
-    color: black;
+    color: var(--text);
 }
 .numbers p{
   font-size: small;

@@ -1,14 +1,11 @@
 
-.empty{
-    border-right: 1px solid silver;
-    height: 100vh;
-}
+
 app-loading{
     display: block;
     margin: -20px -40px 0px -40px;
 }
 .posts{
-    background-color: white;
+    background-color: var(--back);
    }
 .add-comment{
     width: 100%;
@@ -25,7 +22,7 @@ app-loading{
 
 .comm-body{
     padding: 15px;
-    background-color: white;
+    background-color: var(--back);
     width: 600px;
     border-radius: 10px;
     /* height: 280px; */
@@ -44,6 +41,8 @@ app-loading{
 .comment{
     width: 100%;
     height: 130px;
+    background-color: var(--back);
+    color: var(--text);
     box-sizing: border-box;
     padding: 20px;
     font-size: large;
@@ -55,7 +54,7 @@ app-loading{
     outline: none;
 }
 .comm-btn{
-    color: white;
+    color: var(--text);
     background-color: var(--light);
     float: right;
     margin: 10px 0px;
@@ -122,4 +121,9 @@ app-loading{
       box-sizing: border-box;
       padding: 0px 10px;
     }
+  }
+  @media (prefers-color-scheme: dark) {
+   .comm-btn{
+       color: black;
+   }
   }

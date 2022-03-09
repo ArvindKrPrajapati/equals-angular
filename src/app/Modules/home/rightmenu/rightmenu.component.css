@@ -1,5 +1,5 @@
 .rightmenu{
-    background-color: white;
+    background-color: var(--back);
     height: 100vh;
     position: fixed;
     overflow: hidden;
@@ -7,36 +7,36 @@
 }
 .header{
     height: 50px;
-    background-color:white;
+    background-color:var(--back);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid var(--line);
 }
 .content{
     height: 100%;
-    border-left: 1px solid silver;
+    border-left: 1px solid var(--line);
     box-sizing: border-box;
 }
 .content li{
     margin: 0;
     list-style: none;
     padding: 10px;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
 }
 .content a{
-    color: black;
+    color: var(--text);
     font-weight: 440;
 }
 .content li:hover{
-    background-color: gainsboro;
+    background-color: var(--line);
     
 }
 .active{
     border-left: 2px solid var(--light);
-    background-color: gainsboro;
+    background-color: var(--line);
 }
 .myprofile{
     display: flex;
@@ -53,15 +53,15 @@
     border-radius: 50%;
 }
 .myprofile small{
-    color: black;
+    color: var(--text);
     display: block;
     font-weight: 500;
 }
 .myprofile:hover{
-    background: gainsboro;
+    background: var(--line);
 }
 .myprofile:active{
-    box-shadow: 0 0 5px silver;
+    box-shadow: 0 0 5px var(--line);
 }
 
 @media screen and (max-width: 768px){
