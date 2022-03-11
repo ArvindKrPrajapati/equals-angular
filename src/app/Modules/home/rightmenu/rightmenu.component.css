@@ -63,7 +63,13 @@
 .myprofile:active{
     box-shadow: 0 0 5px var(--line);
 }
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: white ;
+}
 
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: gainsboro ;
+}
 @media screen and (max-width: 768px){
     .rightmenu{
         z-index: 210;

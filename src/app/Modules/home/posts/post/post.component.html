@@ -4,7 +4,8 @@
     <a  [routerLink]="['/home/profile/',postdata.postedby._id]">
         <img class="profile-img" [src]="imageurl+postdata.postedby.dp" >
         </a>
-   </div>
+        <a [routerLink]="['/home/comment/',postdata._id]" class="pro-link"></a>
+        </div>
    <div class="content">
     <div class="post-header">
        <div> <b>{{postdata.postedby.name}}</b>&nbsp;  <small>{{formatDate(postdata.datetime,postdata.now)}}</small></div>
@@ -25,11 +26,24 @@
           
        </div>
     </div>
-    <div class="post-body">
-        <a [routerLink]="['/home/comment/',postdata._id]">
-        <p *ngIf="postdata.text" class="text">{{postdata.text}}</p>
+    <div class="post-body" id="body">
+          <section>
+        <div *ngIf="postdata.text" class="text" [innerHtml]="urlify(postdata.text)"></div>
           <img *ngIf="postdata.image" [src]="imageurl+postdata.image" alt="">
-        </a>
+          <div class="carousel">
+            <div  class="player"  *ngFor="let vid of postdata.links">
+              <youtube-player 
+                [videoId]="vid" 
+                suggestedQuality="highres" 
+                [height]="h" 
+                [width]="w" 
+                [startSeconds]="4"
+                [endSeconds]="8">
+              </youtube-player>
+            </div>
+          </div>
+       
+          </section>
     </div>
     <div class="post-footer">
         <button id="like" [disabled]="reacting" mat-icon-button *ngIf="!postdata.ilike" (click)="doReact('like')"><mat-icon>favorite_border</mat-icon></button>

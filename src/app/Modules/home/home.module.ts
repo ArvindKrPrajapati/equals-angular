@@ -32,6 +32,8 @@ import { LoadingComponent } from './common/loading/loading.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { YouTubePlayerModule } from "@angular/youtube-player";
+
 @NgModule({
   declarations: [
     SidemenuComponent,
@@ -64,7 +66,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatMenuModule,
     MatSlideToggleModule,
     MatButtonModule,
-    ImageCropperModule
+    ImageCropperModule,
+    YouTubePlayerModule
   ]
 })
 export class HomeModule { }

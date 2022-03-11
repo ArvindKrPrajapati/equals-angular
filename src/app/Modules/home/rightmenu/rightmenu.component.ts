@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -11,20 +10,27 @@ export class RightmenuComponent implements OnInit {
 
   userdata:any;
   imageurl:string="";
-  constructor(private _api:ApiService,private _meta:Meta) { 
+  constructor(private _api:ApiService,private el:ElementRef) { 
    this.userdata= _api.getUserInfo();  
    this.imageurl=_api.imageurl; 
   }
   ngOnInit(): void {
   }
   changeMode(e:any){
-    var tag;
+    this.el.nativeElement.style.setProperty(' --back','#0c0c0c')
+
     if(e.checked){
-      tag={name:'color-scheme',content:'dark'}
-      this._meta.addTag(tag)
+      // document.body.style.background="#0c0c0c"
+      // document.documentElement.style.setProperty(' --back','#0c0c0c')
+      // document.documentElement.style.setProperty( ' --text','white')
+
+    // console.log( document.documentElement.style.setProperty(' --back','#0c0c0c'))
+ 
     }else{
-      tag={name:'color-scheme',content:'light'}
-      this._meta.addTag(tag)
+      // document.body.style.background="white"
+      document.documentElement.style.setProperty(' --back','white')
+      document.documentElement.style.setProperty( ' --text','black')
+      
     }
    
   }

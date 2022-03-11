@@ -6,7 +6,20 @@
  padding: 15px;
   grid-template-columns: 68px 1fr;
 }
+.pro-link{
+  display: block;
+  height:80%;
 
+  /* background-color:red; */
+}
+.player{
+  display: block;
+  margin-top: 15px;
+  background-color: var(--line);
+  /* background-color: red; */
+  overflow: hidden;
+  border-radius: 20px;
+}
 .post:hover{
   background-color: #f7f7f7;
 }

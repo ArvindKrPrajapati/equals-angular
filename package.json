@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "@angular/service-worker": "~13.1.0",
+    "@angular/youtube-player": "^13.2.6",
     "express": "^4.17.3",
     "html2canvas": "^1.4.1",
     "ngx-image-cropper": "^6.1.0",
