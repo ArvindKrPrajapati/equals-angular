@@ -32,9 +32,7 @@ export class AddComponent implements OnInit {
     this.setText(url,text,title)
   }
   setText(url:any,text:any,title:any){
-   alert(url)
-   alert(text)
-   alert(title)
+   this.text=text+"\n\n"+title
   }
    
   setImage(e:any){
