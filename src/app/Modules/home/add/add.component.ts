@@ -22,15 +22,16 @@ export class AddComponent implements OnInit {
   constructor(private _api:ApiService) { 
     this.imageurl=_api.imageurl
     this.userdata=_api.getUserInfo()
-  }
-
-  ngOnInit(): void {
     var parsedUrl = new URL(window.location.toString());
     let url= parsedUrl.searchParams.get('url');
     alert(url)
     if(url){
       this.text=url
     }
+  }
+
+  ngOnInit(): void {
+    
   }
    
   setImage(e:any){

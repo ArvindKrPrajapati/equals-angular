@@ -58,7 +58,6 @@
   ],
   "share_target": {
     "action": "/home/add-post",
-    "method": "GET",
     "params": {
       "title": "title",
       "text": "text",
