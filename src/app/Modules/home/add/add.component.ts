@@ -26,9 +26,10 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     var parsedUrl = new URL(window.location.toString());
-    let text= parsedUrl.searchParams.get('url');
-    if(text){
-      this.text=text
+    let url= parsedUrl.searchParams.get('url');
+    alert(url)
+    if(url){
+      this.text=url
     }
   }
    
