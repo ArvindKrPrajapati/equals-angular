@@ -58,7 +58,7 @@
   ],
   "share_target":
   {
-    "action": "/home/add",
+    "action": "/home/add-post",
     "params":
     {
       "title": "title",

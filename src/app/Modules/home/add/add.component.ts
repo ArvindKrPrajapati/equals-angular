@@ -25,6 +25,11 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var parsedUrl = new URL(window.location.toString());
+    let text= parsedUrl.searchParams.get('link');
+    if(text){
+      this.text=text
+    }
   }
    
   setImage(e:any){

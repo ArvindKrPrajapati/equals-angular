@@ -53,7 +53,7 @@
           <small>{{postdata.comments}}</small>
           <button mat-icon-button (click)="externalShare(postdata._id)"><mat-icon>share</mat-icon></button> <small class="capturing"></small>  
         </div>
-       <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button><mat-icon>open_in_full</mat-icon></a>
+       <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button ><mat-icon>open_in_full</mat-icon></a>
       </div>
    </div>
    <small style="color:red" *ngIf="deleting">deleting....</small>
