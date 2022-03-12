@@ -29,15 +29,15 @@
           <section>
         <div *ngIf="postdata.text" class="text" [innerHtml]="urlify(postdata.text)"></div>
           <img *ngIf="postdata.image" [src]="imageurl+postdata.image" alt="">
-          <div class="carousel">
-            <div  class="player"  *ngFor="let vid of postdata.links">
+          <div class="carousel" *ngIf="!postdata.image">
+            <div  class="player">
               <youtube-player 
-                [videoId]="vid" 
+                [videoId]="postdata.link" 
                 suggestedQuality="highres" 
                 [height]="h" 
                 [width]="w" 
-                [startSeconds]="4"
-                [endSeconds]="8">
+                [startSeconds]="0"
+                >
               </youtube-player>
             </div>
           </div>

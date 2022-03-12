@@ -40,25 +40,22 @@ onResize(event:any) {
 
   ngOnInit(): void {
       const text=this.postdata.text
-    this.postdata.links=[]
-    if(text){
+    if(text && !(this.postdata.image)){
      const reg=/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/gmi
      const a = text.match(reg)
+
      if(a&&a.length>0){
-      a.map((links:string)=>{
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-        var match = links.match(regExp);
-        if(match&&match[7].length==11){
-           this.postdata.links.push(match[7])
-          
-        }
-      })
+      const link=a[a.length - 1]
+       var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+         var match = link.match(regExp);
+         if(match&&match[7].length==11){
+            this.postdata.link=match[7]
+         }
      }
-     
+     let w:any=document.getElementById("body")
+     this.w= w.offsetWidth;
+     this.h=w.offsetWidth / 2
     }
-    let w:any=document.getElementById("body")
-    this.w= w.offsetWidth;
-    this.h=w.offsetWidth / 2
   }
   ngAfterViewInIt(){
   
@@ -163,3 +160,24 @@ externalShare(postid:string){
   // return text
 }
 }
+
+// to fetch all yt links in a text
+// const text=this.postdata.text
+// this.postdata.links=[]
+// if(text && !(this.postdata.image)){
+//  const reg=/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/gmi
+//  const a = text.match(reg)
+//  if(a&&a.length>0){
+//   a.map((links:string)=>{
+//     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+//     var match = links.match(regExp);
+//     if(match&&match[7].length==11){
+//        this.postdata.links.push(match[7])
+      
+//     }
+//   })
+//  }
+//  let w:any=document.getElementById("body")
+//  this.w= w.offsetWidth;
+//  this.h=w.offsetWidth / 2
+// }
