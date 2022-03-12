@@ -22,16 +22,21 @@ export class AddComponent implements OnInit {
   constructor(private _api:ApiService) { 
     this.imageurl=_api.imageurl
     this.userdata=_api.getUserInfo()
-    var parsedUrl = new URL(window.location.toString());
-    let url= parsedUrl.searchParams.get('url');
-    alert(url)
-    if(url){
-      this.text=url
-    }
   }
 
   ngOnInit(): void {
     
+  }
+  ngAfterViewInIt(){
+    const parsedUrl = new URL(window.location.toString());
+  // searchParams.get() will properly handle decoding the values.
+   const title=parsedUrl.searchParams.get('title')
+   const text=parsedUrl.searchParams.get('text')
+   const url =parsedUrl.searchParams.get('url')
+  //  this.text=url
+   alert(url)
+   alert(text)
+   alert(title)
   }
    
   setImage(e:any){
