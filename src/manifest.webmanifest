@@ -58,7 +58,7 @@
   ],
   "share_target":
   {
-    "action": "/share",
+    "action": "/home/add",
     "params":
     {
       "title": "title",
