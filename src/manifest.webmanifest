@@ -1,7 +1,7 @@
 {
   "name": "equals",
   "short_name": "equals",
-  "theme_color": "#1976d2",
+  "theme_color": "#fafafa",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
@@ -55,5 +55,15 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "share_target":
+  {
+    "action": "/share",
+    "params":
+    {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }

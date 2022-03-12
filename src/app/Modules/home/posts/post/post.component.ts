@@ -30,7 +30,8 @@ onResize(event:any) {
  var ww=  event.target.innerWidth;
  let w=520
  if(ww<768){
-   w=ww - 100
+  let bodyw:any=document.getElementById("body")
+   w=bodyw.offsetWidth
  }
 
  this.w=w
@@ -38,26 +39,29 @@ onResize(event:any) {
 }
 
   ngOnInit(): void {
-   const text=this.postdata.text
-   this.postdata.links=[]
-   if(text){
-    const reg=/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/gmi
-    const a = text.match(reg)
-    a.map((links:string)=>{
-      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-      var match = links.match(regExp);
-      if(match&&match[7].length==11){
-         this.postdata.links.push(match[7])
-        
-      }
-    })
-    
-   }
+      const text=this.postdata.text
+    this.postdata.links=[]
+    if(text){
+     const reg=/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/gmi
+     const a = text.match(reg)
+     if(a&&a.length>0){
+      a.map((links:string)=>{
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+        var match = links.match(regExp);
+        if(match&&match[7].length==11){
+           this.postdata.links.push(match[7])
+          
+        }
+      })
+     }
+     
+    }
     let w:any=document.getElementById("body")
     this.w= w.offsetWidth;
     this.h=w.offsetWidth / 2
   }
   ngAfterViewInIt(){
+  
     let w:any=document.getElementById("body")
     this.w= w.offsetWidth;
     this.h=w.offsetWidth / 2
@@ -156,5 +160,6 @@ externalShare(postid:string){
   return text.replace(urlRegex, function(url){
       return '<a href='+url+' class="a" target="_blank">'+url+'</a>'
   })
+  // return text
 }
 }
