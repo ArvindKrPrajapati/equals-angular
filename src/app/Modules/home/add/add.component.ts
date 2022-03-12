@@ -25,15 +25,13 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-  }
-  ngAfterViewInIt(){
     const parsedUrl = new URL(window.location.toString());
-  // searchParams.get() will properly handle decoding the values.
-   const title=parsedUrl.searchParams.get('title')
-   const text=parsedUrl.searchParams.get('text')
-   const url =parsedUrl.searchParams.get('url')
-  //  this.text=url
+    const title=parsedUrl.searchParams.get('title')
+    const text=parsedUrl.searchParams.get('text')
+    const url =parsedUrl.searchParams.get('url')
+    this.setText(url,text,title)
+  }
+  setText(url:any,text:any,title:any){
    alert(url)
    alert(text)
    alert(title)

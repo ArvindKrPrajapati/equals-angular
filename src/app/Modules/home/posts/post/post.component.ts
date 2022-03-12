@@ -58,7 +58,6 @@ onResize(event:any) {
     }
   }
   ngAfterViewInIt(){
-  
     let w:any=document.getElementById("body")
     this.w= w.offsetWidth;
     this.h=w.offsetWidth / 2
