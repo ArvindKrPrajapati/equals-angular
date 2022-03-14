@@ -32,7 +32,13 @@ export class AddComponent implements OnInit {
     this.setText(url,text,title)
   }
   setText(url:any,text:any,title:any){
-   this.text=text+"\n\n"+title
+  if(title!==null && text!==null){
+    this.text=text+"\n\n"+title
+  }else if(title!==null){
+   this.text=title
+  }else if(text!==null){
+    this.text=text
+  }
   }
    
   setImage(e:any){

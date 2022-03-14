@@ -69,7 +69,7 @@ button:disabled{
     --text:black;
     --back:white;
     --line:gainsboro;
-    --headerbg:white;
+    --headerBg:white;
   }
   body{
     background-color: var(--back);
