@@ -52,10 +52,11 @@ button:disabled{
 @media (prefers-color-scheme: dark) {
   :root{
     --text:white;
-    --back:#0c0c0c;
+    --back:#1d1d1d;
     --line:black;
     --dark:white;
     --light:white;
+    --headerBg:#0f0f0f;
   }
  body{
    background-color: var(--back);
@@ -68,6 +69,7 @@ button:disabled{
     --text:black;
     --back:white;
     --line:gainsboro;
+    --headerbg:white;
   }
   body{
     background-color: var(--back);

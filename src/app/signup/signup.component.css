@@ -21,17 +21,17 @@
     width: 360px;
 }
 .sphere{
-    width:20px;
-    border-radius: 20px;
-    height: 50px;
-    border: 1px solid var(--dark);
-    box-shadow: inset 2px 0 14px  var(--light);
+  width:20px;
+  border-radius: 20px;
+  height: 50px;
+  border: 1px solid #0b5a5c;
+  box-shadow: inset 2px 0 14px  #097779;
 }
 .brand{
-    font-size: 40px;
-    font-weight: 600;
-    margin-left: 5px;
-    color: var(--light);
+  font-size: 40px;
+  font-weight: 600;
+  margin-left: 5px;
+  color: #097779;
 }
 label{
     display: block;
@@ -64,7 +64,7 @@ td{
 padding: 15px;
 }
 .login-btn{
-    background-color: var(--light);
+    background-color: #097779;
     display: block;
     width: 70px;
     text-align: center;

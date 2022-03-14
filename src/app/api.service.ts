@@ -133,6 +133,18 @@ export class ApiService {
   }
 
   getNotification(){
-    return this._http.get(this.url+"/notification",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
+    const nurl=this.url+"/notification?id="+this.getUserInfo().id
+    const notificationFromCache = this.responseCache.get(nurl);
+    const nowdate=Date.now()
+ if (notificationFromCache && (nowdate - notificationFromCache.date)<86400000) {
+   return of(notificationFromCache);
+ }
+ const response = this._http.get<any>(nurl,{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})});
+ response.subscribe((posts:any) =>{
+   posts.date=Date.now()
+     this.responseCache.set(nurl,posts)
+   })
+ return response;
+    // return this._http.get(this.url+"/notification",{headers:new HttpHeaders({"Authorization":"Bearer "+this.token()})})
   }
 }

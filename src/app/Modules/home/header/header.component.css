@@ -1,6 +1,6 @@
 
 .header{
-    background-color: var(--back);
+    background-color: var(--headerBg);
     box-sizing: border-box;
     color: var(--dark);
     padding: 10px;
