@@ -58,18 +58,10 @@
   ],
   "share_target": {
     "action": "/home/add-post",
-    "method": "GET",
-    "enctype": "multipart/form-data",
     "params": {
       "title": "title",
       "text": "text",
-      "url": "url",
-      "files": [
-        {
-          "name": "file",
-          "accept": ["image/png", ".png"]
-        }
-      ]
+      "url": "url"
     }
   }
 }
