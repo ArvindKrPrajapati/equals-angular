@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-sidemenu',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidemenu.component.css']
 })
 export class SidemenuComponent implements OnInit {
-
-  constructor() { }
+  user: any;
+  constructor(private _api: ApiService) {
+    this.user = _api.getUserInfo()
+  }
 
   ngOnInit(): void {
   }

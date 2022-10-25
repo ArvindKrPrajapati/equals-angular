@@ -1,63 +1,66 @@
-
-<article class="add-comment" *ngIf="commPost">
-   <div class="comm-body">
-       <table width="100%">
-        <tr>
-            <td width="70px">
-                <img class="profile-img" [src]="imageurl+commPost.postedby.dp" >
-            </td>
-            <td>
-                <div>
-                    <b>{{commPost.postedby.name}}</b><br>
-                </div>
-            </td>
-            <td width="70px">
-                <img *ngIf="commPost.image" class="post-img" [src]="imageurl+commPost.image" >
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-              <textarea maxlength="500" [(ngModel)]="comment" id="scroll" class="comment" placeholder="Add comment"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 60px;"><small>{{comment.length}} / 500</small></td>
-            <td>
-                <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
-            </td>
-            <td>
-                <button mat-button (click)="commentData('')"><mat-icon>close</mat-icon></button>
-            </td>
-        </tr>
-       </table>
-   </div>
+<!-- <article class="add-comment" *ngIf="commPost">
+    <div class="comm-body">
+        <table width="100%">
+            <tr>
+                <td width="70px">
+                    <img class="profile-img" [src]="imageurl+commPost.postedby.dp">
+                </td>
+                <td>
+                    <div>
+                        <b>{{commPost.postedby.name}}</b><br>
+                    </div>
+                </td>
+                <td width="70px">
+                    <img *ngIf="commPost.image" class="post-img" [src]="imageurl+commPost.image">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea maxlength="500" [(ngModel)]="comment" id="scroll" class="comment"
+                        placeholder="Add comment"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 60px;"><small>{{comment.length}} / 500</small></td>
+                <td>
+                    <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn"
+                        (click)="saveComment()">comment</button>
+                </td>
+                <td>
+                    <button mat-button (click)="commentData('')">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </article>
 <main class="posts" id="posts">
-    <!-- <div class="empty"></div> -->
-    <!-- <app-stories></app-stories> -->
+
     <div class="posts-content">
         <app-loading *ngIf="isLoading"></app-loading>
-     <div  *ngIf="!isLoading" class="p">
-        <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i" (commentHandler)="commentData($event)" (deleteHandler)="deletePost($event)"></app-post>
-        <main class="loading" *ngIf="loadOnScroll">
-            <mat-spinner  [diameter]="30"></mat-spinner>
-       </main> 
+        <div *ngIf="!isLoading" class="p">
+            <app-post *ngFor="let d of data; let i=index" [postdata]="d" [postindex]="i"
+                (commentHandler)="commentData($event)" (deleteHandler)="deletePost($event)"></app-post>
+            <main class="loading" *ngIf="loadOnScroll">
+                <mat-spinner [diameter]="30"></mat-spinner>
+            </main>
+        </div>
+        <div class="nopost" *ngIf="!isLoading && data.length===0">
+            <div>
+                <h1 class="font">welcome</h1>
+                <br>
+                <img [src]="imageurl+userdata.dp" alt="">
+                <br><br>
+                <p class="font">{{userdata.name}}</p>
+                <br>
+                <small>Follow people of your choice <br> to see their posts</small>
+                <br><br>
+                <a mat-button routerLink="/home/discover-people">
+                    Discover People
+                </a>
+            </div>
+        </div>
     </div>
-     <div class="nopost"  *ngIf="!isLoading && data.length===0">
-       <div>
-        <h1 class="font">welcome</h1>
-        <br>
-        <img [src]="imageurl+userdata.dp" alt="">
-        <br><br>
-        <p class="font">{{userdata.name}}</p>
-        <br>
-        <small>Follow people of your choice <br> to see their posts</small>
-        <br><br>
-        <a mat-button routerLink="/home/discover-people">
-            Discover People
-        </a>
-       </div>
-     </div>
-    </div>
-</main>
+</main> -->

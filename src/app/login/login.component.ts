@@ -8,28 +8,32 @@ import { ApiService } from '../api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   errormsg:string='';
-   loging:boolean=false;
-  constructor(private _api:ApiService,private _router:Router) { }
+  errormsg: string = '';
+  loging: boolean = false;
+  mobile: any = '';
+  password: any;
+  constructor(private _api: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
   }
-   login(data:any) :void{ 
-     this.errormsg='';
-     this.loging=true;
-     if(data.value.email && data.value.password){
-      this._api.login(data.value).subscribe((data:any)=>{
-        if(data.success){
-          localStorage.setItem('token',data.token);
+  login(): void {
+    this.errormsg = '';
+    this.loging = true;
+    console.log(this.mobile, this.password);
+
+    if (this.mobile.length == 10 && this.password) {
+      this._api.login({ mobile: this.mobile, password: this.password }).subscribe((data: any) => {
+        if (data.success) {
+          localStorage.setItem('token', data.data);
           this._router.navigate(['/home/posts'])
         }
-      },(err:any)=>{
-        this.loging=false;
-        this.errormsg=err.error.error || "connection error"
+      }, (err: any) => {
+        this.loging = false;
+        this.errormsg = err.error.error || err.error.message || "connection error"
       })
-    }else{
-      this.loging=false;
-       this.errormsg="all fields are required"
+    } else {
+      this.loging = false;
+      this.errormsg = "all fields are required"
     }
-   }
+  }
 }

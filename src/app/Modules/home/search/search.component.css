@@ -1,38 +1,43 @@
-.discover{
+.discover {
     box-sizing: border-box;
     padding: 15px;
     overflow-y: auto;
     height: calc(100vh - 50px);
 }
-.search input{
+
+.search input {
     width: 100%;
     box-sizing: border-box;
     padding: 10px 15px;
     background-color: var(--back);
     color: var(--text);
-    border: none;
     border-radius: 7px;
-    border: 1px solid var(--line);
+    border: 2px solid dodgerblue;
 }
-.search input:focus{
+
+.search input:focus {
     outline: none;
     border: 2px solid dodgerblue;
     box-shadow: 0 0 6px dodgerblue;
 }
-.user img{
+
+.user img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
 }
-.user div{
+
+.user div {
     width: 100%;
     color: var(--text);
 }
-.user div:hover{
-    background-color:#eee;
+
+.user div:hover {
+    background-color: #eee;
 }
+
 @media (prefers-color-scheme: dark) {
-   .user div:hover{
-       background-color: black;
-   }
-  }
+    .user div:hover {
+        background-color: black;
+    }
+}

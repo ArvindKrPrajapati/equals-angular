@@ -1,125 +1,108 @@
-.login{
-    height: 70vh;
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    color: white;
+}
+
+
+.inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.form {
+    text-align: left;
+    width: 300px;
+}
+
+.font {
+    font-family: 'Redressed', cursive;
+}
+
+.flex {
+    /*Flexbox for containers*/
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.content{
-    display: flex;
-    margin-top: 30px;
-    /* align-items: center; */
-}
-.sphere{
-    width:20px;
-    border-radius: 20px;
-    height: 50px;
-    border: 1px solid #0b5a5c;
-    box-shadow: inset 2px 0 14px  #097779;
-}
-.brand{
-    font-size: 40px;
-    font-weight: 600;
-    margin-left: 5px;
-    color: #097779;
-}
-.quote{
-    margin-top: 10px;
-    font-size: 40px;
-    line-height: 55px;
-    color: var(--text);
-}
-.signup{
-    display: block;
-    margin-top: 20px;
-    padding: 10px 40px;
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    width: 50px;
-    border-radius: 19px;
-    color: white;
-    background-color: var(--gold);
-}
-.signup:hover{
-    box-shadow: 0 0 8px var(--gold);
-}
-.form{
-    margin-left: 15px;
-    padding:30px 20px;
-    border: 1px solid gainsboro;
-    border-radius: 4px;
-}
-.form input{
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid var(--light);
-    display: block;
-    width: 240px;
-    box-sizing: border-box;
-}
-.form input:focus{
-  outline: none;
-    border: 2px solid var(--light);
-}
-.form label{
-    margin: 10px 0px;
-    display: block;
-    font-size: small;
-}
-.login-btn{
-    width: 240px;
-    margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0b5a5c;
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-}
-.login-btn:active{
-    box-shadow: 0 0 6px var(--light);
-}
-.login-btn:hover{
-    box-shadow: 0 0 6px var(--light);
-}
-.error{
-    color:crimson;
-    font-size: small;
-    font-weight: 500;
-}
-.login-btn:disabled{
-    opacity: 0.5;
-}
-.loging{
     text-align: center;
-    font-size: small;
-    margin-top: 10px;
 }
 
-@media screen and (max-width: 768px){
-  .login{
-      display: block;
-      padding: 20px;
-      height: 100%;
-      box-sizing: border-box;
-      overflow: auto;
-  }
-  .quote{
-     display: none;
-  }
-  .form{
-      margin: auto;
-      border: 0;
-  }
-  .form input,.login-btn{
-    width:100%;
-  }
-  .signup{
-    float: right;
-    margin-top: -40px;
-  }
-  .content{
-    margin-top: 10px;
-  }
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+}
+
+label {
+    font-size: small;
+}
+
+/* Animation */
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .content {
+        height: 30vh;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .form {
+        width: 80%;
+    }
 }

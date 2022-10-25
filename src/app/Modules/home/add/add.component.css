@@ -1,50 +1,62 @@
-.imgprev{
-    width: 620px;
+.imgprev {
+    width: 100%;
     height: 100%;
+    left: 0;
     position: fixed;
     background-color: var(--bg);
-    z-index: 100;
+    z-index: 10;
 }
-.img-cont{
-    width: 400px;
+
+.img-cont {
+    width: 100%;
     margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: calc(100% - 300px);
 
 }
-.done{
+
+.done {
     position: fixed;
-    top: calc(100% - 200px);;
+    top: calc(100% - 200px);
+    ;
     background-color: var(--back);
     left: calc(50% - 120px);
 }
-.imgprev img{
-    width: 100%;
+
+.imgprev img {
+    width: 95%;
     height: 100%;
     object-fit: contain;
 }
 
-.add{
+.add {
     padding: 15px;
     background-color: #eee;
     height: calc(100vh - 60px);
     box-sizing: border-box;
 }
-.add-table{
+
+.add-table {
     padding: 15px;
     border-radius: 7px;
     background-color: var(--back);
 }
-.dp{
+
+.dp {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
-.selectedimg{
+
+.selectedimg {
     width: 60px;
     height: 60px;
     object-fit: contain;
 }
-.post{
+
+.post {
     resize: none;
     border: none;
     padding: 10px;
@@ -54,43 +66,43 @@
     color: var(--text);
     background-color: var(--back);
 }
-.post:focus{
+
+.post:focus {
     outline: none;
 }
-.btns{
- float: right;
+
+.btns {
+    float: right;
 }
-.share-btn{
-    background-color: var(--light);
-    color: var(--back);
+
+.share-btn {
+    background-color: #c133ff;
+    color: white;
     border-radius: 35px;
     margin-left: 10px;
 }
-.saving{
+
+.saving {
     display: flex;
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
 }
-.close-top{
-   position: absolute; 
-   left: 950px; 
-   top:55px;
+
+.close-top {
+    position: absolute;
 }
-@media screen and (max-width: 768px){
-  .imgprev{
-      width: 100%;
-  }
-  .done{
-      left: calc(50% - 25px);
-  }
-  .close-top{
-      left:calc(100% - 50px);
-      /* right: 10px; */
-  }
+
+@media screen and (max-width: 768px) {
+    .imgprev {
+        width: 100%;
+    }
+
+    .done {
+        left: calc(50% - 25px);
+    }
+
+    .close-top {
+        left: calc(100% - 50px);
+    }
 }
-@media (prefers-color-scheme: dark) {
-  .add{
-      background-color: black;
-  }
-  }

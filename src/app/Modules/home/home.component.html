@@ -1,4 +1,4 @@
-
+<!-- 
 
 
 <div class="bg-menu" [style.display]="menu && 'block'"></div>
@@ -14,4 +14,28 @@
         <app-rightmenu ></app-rightmenu>
       </section>
 </main>
-    
+     -->
+<div class="bg-menu" [style.display]="menu && 'block'" (click)="toggleMenu(null)"></div>
+
+<main class="home">
+    <app-header (menuHandler)="toggleMenu($event)"></app-header>
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-3 d-md-block d-none p-0">
+                <!-- sidemenu -->
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-md-6 col-12 p-0">
+                <!-- content -->
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-3 p-0">
+                <!-- rightmenu -->
+                <section class="app-rightmenu" (click)="toggleMenu(null)" [style.transform]="menu && 'translateX(0)'">
+                    <app-rightmenu></app-rightmenu>
+                </section>
+            </div>
+        </div>
+    </section>
+</main>

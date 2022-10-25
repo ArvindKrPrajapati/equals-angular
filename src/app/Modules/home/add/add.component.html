@@ -1,10 +1,14 @@
 <div class="imgprev" *ngIf="showbox">
-  <button mat-icon-button style="float: right;" (click)="close()"><mat-icon>close</mat-icon></button>
+  <button class="bg-white" mat-icon-button style="float: right;" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
   <div class="img-cont">
     <p style="color: white;text-align: center;" *ngIf="!imgsrc">loading wait....</p>
     <img [src]="imgsrc" *ngIf="imgsrc" alt="image prev">
   </div>
-  <button mat-icon-button class="done" (click)="selected()"><mat-icon>done</mat-icon></button>
+  <button mat-icon-button class="done bg-white" (click)="selected()">
+    <mat-icon>done</mat-icon>
+  </button>
 </div>
 
 
@@ -14,7 +18,7 @@
       <tr>
         <td width="60px" style="height: 70px;">
           <a [routerLink]="['/home/profile',userdata.id]">
-            <img [src]="imageurl+userdata.dp" alt="" class="dp">
+            <img [src]="userdata.dp ? imageurl+userdata.dp : '../../../../assets/dp.png'" alt="" class="dp">
           </a>
         </td>
         <td>
@@ -22,20 +26,26 @@
         </td>
         <td width="70px">
           <img *ngIf="imgsrc" [src]="imgsrc" alt="selected img" class="selectedimg">
-          <button *ngIf="imgsrc" mat-icon-button [disabled]="saving" class="close-top" (click)="close()"><mat-icon>close</mat-icon></button>
+          <button *ngIf="imgsrc" mat-icon-button [disabled]="saving" class="close-top" (click)="close()">
+            <mat-icon>close</mat-icon>
+          </button>
         </td>
       </tr>
       <tr>
         <td colspan="3">
-          <textarea id="scroll" placeholder="whats going on...." maxlength="1000" class="post" [(ngModel)]="text"></textarea>
+          <textarea id="scroll" placeholder="whats going on...." maxlength="1000" class="post"
+            [(ngModel)]="text"></textarea>
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <div class="btns">
-            <small [style.color]="text.length===1000 ? 'red' : 'var(--text)'"> {{text.length >0 ? text.length +"/ 1000" : ""}} </small>
-            <button mat-icon-button [disabled]="saving"><label for="file" ><mat-icon style="position: relative;top: 7px;">image</mat-icon></label></button>
-            <input type="file" id="file" style="display: none;" accept="image/*" (change)="setImage($event)"/>
+            <small [style.color]="text.length===1000 ? 'red' : 'var(--text)'"> {{text.length >0 ? text.length +"/ 1000"
+              : ""}} </small>
+            <button mat-icon-button [disabled]="saving"><label for="file">
+                <mat-icon style="position: relative;top: 7px;">image</mat-icon>
+              </label></button>
+            <input type="file" id="file" style="display: none;" accept="image/*" (change)="setImage($event)" />
             <button mat-button class="share-btn" [disabled]="saving" (click)="share()">share</button>
           </div>
         </td>
@@ -46,6 +56,3 @@
     {{savingMsg}}<small *ngIf="uploadingProgress>0">&nbsp; {{uploadingProgress}} %</small>
   </div>
 </main>
-
-
-

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -7,17 +7,17 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() menuHandler=new EventEmitter()
-  imageurl:string;
-  userdata:any;
-  constructor(private _api:ApiService) {
-    this.imageurl=this._api.imageurl;
-    this.userdata=this._api.getUserInfo()
+  @Output() menuHandler = new EventEmitter()
+  imageurl: string;
+  user: any;
+  constructor(private _api: ApiService) {
+    this.imageurl = this._api.imageurl;
+    this.user = this._api.getUserInfo()
   }
 
   ngOnInit(): void {
-     }
-  toggleMenu(state:boolean){
+  }
+  toggleMenu(state: boolean) {
     this.menuHandler.emit(state)
   }
 }

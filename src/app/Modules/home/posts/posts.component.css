@@ -1,13 +1,13 @@
-
-
-app-loading{
+app-loading {
     display: block;
     margin: -20px -40px 0px -40px;
 }
-.posts{
+
+.posts {
     background-color: var(--back);
-   }
-.add-comment{
+}
+
+.add-comment {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -20,25 +20,28 @@ app-loading{
     justify-content: center;
 }
 
-.comm-body{
+.comm-body {
     padding: 15px;
     background-color: var(--back);
     width: 600px;
     border-radius: 10px;
     /* height: 280px; */
 }
-.profile-img{
+
+.profile-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
-.post-img{
+
+.post-img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     border-radius: 3px;
 }
-.comment{
+
+.comment {
     width: 100%;
     height: 130px;
     background-color: var(--back);
@@ -50,80 +53,93 @@ app-loading{
     border: none;
     resize: none;
 }
-.comment:focus{
+
+.comment:focus {
     outline: none;
 }
-.comm-btn{
+
+.comm-btn {
     color: var(--text);
     background-color: var(--light);
     float: right;
     margin: 10px 0px;
     border-radius: 20px;
 }
-.comm-btn:disabled{
+
+.comm-btn:disabled {
     opacity: 0.9;
 }
-.just-text{
-  display: block;
-  color: var(--dark);
-  margin-bottom: 15px;
+
+.just-text {
+    display: block;
+    color: var(--dark);
+    margin-bottom: 15px;
 }
-.nopost{
+
+.nopost {
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.nopost div{
+
+.nopost div {
     text-align: center;
 }
-.nopost img{
+
+.nopost img {
     width: 90px;
     height: 90px;
     border-radius: 50%;
 }
-.nopost h1{
+
+.nopost h1 {
     font-size: xx-large;
 }
-.nopost p{
+
+.nopost p {
     font-size: large;
 }
-.nopost a{
+
+.nopost a {
     color: var(--light);
-    border:2px inset var(--light) ;
+    border: 2px inset var(--light);
 }
-.loading{
-   display: flex;
-   justify-content: center;
-   padding: 15px;
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
 }
-@media screen and (max-width: 768px){
-   /* app-stories{
+
+@media screen and (max-width: 768px) {
+
+    /* app-stories{
        display: none;
    } */
-   app-loading{
-       margin: 0;
-   }
-   .empty{
-       display: none;
-   }
-   .posts-content{
-       box-sizing: border-box;
-       /* margin-bottom: 160px; */
-   }
-   .p{
-       padding-bottom: 55px;
-   }
-     .just-text{
-      display: none;
+    app-loading {
+        margin: 0;
     }
-    .add-comment{
-      box-sizing: border-box;
-      padding: 0px 10px;
+
+    .empty {
+        display: none;
     }
-  }
-  @media (prefers-color-scheme: dark) {
-   .comm-btn{
-       color: black;
-   }
-  }
+
+    .posts-content {
+        box-sizing: border-box;
+        /* margin-bottom: 160px; */
+    }
+
+    .p {
+        padding-bottom: 55px;
+    }
+
+    .just-text {
+        display: none;
+    }
+
+    .add-comment {
+        box-sizing: border-box;
+        padding: 0px 10px;
+    }
+}
