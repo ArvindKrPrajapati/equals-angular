@@ -33,7 +33,7 @@
 
 .add {
     padding: 15px;
-    background-color: #eee;
+    background-color: white;
     height: calc(100vh - 60px);
     box-sizing: border-box;
 }

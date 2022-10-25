@@ -22,7 +22,7 @@ app-loading {
 
 .comm-body {
     padding: 15px;
-    background-color: var(--back);
+    background-color: white;
     width: 600px;
     border-radius: 10px;
     /* height: 280px; */
@@ -59,8 +59,8 @@ app-loading {
 }
 
 .comm-btn {
-    color: var(--text);
-    background-color: var(--light);
+    color: white;
+    background-color: #c133ff;
     float: right;
     margin: 10px 0px;
     border-radius: 20px;

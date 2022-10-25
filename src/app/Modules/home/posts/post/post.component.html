@@ -1,65 +1,68 @@
-
 <main class="post" id="post" [style.background]="deleting && 'var(--line)' ">
-   <div class="dp">
-    <a  [routerLink]="['/home/profile/',postdata.postedby._id]">
-        <img class="profile-img" [src]="imageurl+postdata.postedby.dp" >
-        </a>
-        </div>
-   <div class="content">
+  <div class="dp">
+    <a [routerLink]="['/home/profile/',postdata.postedby._id]">
+      <img class="profile-img"
+        [src]="postdata.postedby.dp ? imageurl+postdata.postedby.dp : '../../../../assets/dp.png'">
+    </a>
+  </div>
+  <div class="content">
     <div class="post-header">
-       <div> <b>{{postdata.postedby.name}}</b>&nbsp;  <small>{{formatDate(postdata.datetime,postdata.now)}}</small></div>
-       <div class="menu">
-        <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_horiz</mat-icon>
+      <div> <b>{{postdata.postedby.name}}</b>&nbsp; <small>{{formatDate(postdata.datetime,postdata.now)}}</small></div>
+      <div class="menu">
+        <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button class="delete-btn" *ngIf="userdata.id===postdata.postedby._id" (click)="deletePost(postdata._id)"
+            [disabled]="deleting" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
           </button>
-          <mat-menu #menu="matMenu" >
-            <button class="delete-btn" *ngIf="userdata.id===postdata.postedby._id" (click)="deletePost(postdata._id)" [disabled]="deleting"  mat-menu-item>
-              <mat-icon>delete</mat-icon>
-              <span>Delete</span>
-            </button>
-            <button class="delete-btn" mat-menu-item>
-              <mat-icon>close</mat-icon>
-              <span>cancel</span>
-            </button>
-          </mat-menu>
-          
-       </div>
+          <button class="delete-btn" mat-menu-item>
+            <mat-icon>close</mat-icon>
+            <span>cancel</span>
+          </button>
+        </mat-menu>
+
+      </div>
     </div>
     <div class="post-body" id="body">
-          <section>
+      <section>
         <div *ngIf="postdata.text" class="text" [innerHtml]="urlify(postdata.text)"></div>
-          <img *ngIf="postdata.image" [src]="imageurl+postdata.image" alt="">
-          <div class="carousel" *ngIf="!postdata.image">
-            <div  class="player">
-              <youtube-player 
-                [videoId]="postdata.link" 
-                suggestedQuality="highres" 
-                [height]="h" 
-                [width]="w" 
-                [startSeconds]="0"
-                >
-              </youtube-player>
-            </div>
+        <img *ngIf="postdata.image" [src]="imageurl+postdata.image" alt="">
+        <div class="carousel" *ngIf="!postdata.image">
+          <div class="player">
+            <youtube-player [videoId]="postdata.link" suggestedQuality="highres" [height]="h" [width]="w"
+              [startSeconds]="0">
+            </youtube-player>
           </div>
-       
-          </section>
-    </div>
-    <div class="post-footer"> 
-        <div>
-          <button id="like" [disabled]="reacting" mat-icon-button *ngIf="!postdata.ilike" (click)="doReact('like')"><mat-icon>favorite_border</mat-icon></button>
-          <button id="like" [disabled]="reacting" mat-icon-button *ngIf="postdata.ilike" (click)="doReact('unlike')" style="color:red"><mat-icon>favorite</mat-icon></button>
-          <small>{{postdata.likes}}</small>
-          <button mat-icon-button (click)="saveComment()"><mat-icon>chat_bubble_outline</mat-icon></button>
-          <small>{{postdata.comments}}</small>
-          <button mat-icon-button (click)="externalShare(postdata._id)"><mat-icon>share</mat-icon></button> <small class="capturing"></small>  
         </div>
-       <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button ><mat-icon>open_in_full</mat-icon></a>
+
+      </section>
+    </div>
+    <div class="post-footer">
+      <div>
+        <button id="like" [disabled]="reacting" mat-icon-button *ngIf="!postdata.isLiked" (click)="doReact('like')">
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+        <button id="like" [disabled]="reacting" mat-icon-button *ngIf="postdata.isLiked" (click)="doReact('dislike')"
+          style="color:red">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <small>{{postdata.likes}}</small>
+        <button mat-icon-button (click)="saveComment()">
+          <mat-icon>chat_bubble_outline</mat-icon>
+        </button>
+        <small>{{postdata.comments}}</small>
+        <button mat-icon-button (click)="externalShare(postdata._id)">
+          <mat-icon>share</mat-icon>
+        </button> <small class="capturing"></small>
       </div>
-   </div>
-   <small style="color:red" *ngIf="deleting">deleting....</small>
+      <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button>
+        <mat-icon>open_in_full</mat-icon>
+      </a>
+    </div>
+  </div>
+  <small style="color:red" *ngIf="deleting">deleting....</small>
 </main>
-
-
-
-
-

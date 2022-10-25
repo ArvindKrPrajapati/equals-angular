@@ -1,9 +1,10 @@
-<!-- <article class="add-comment" *ngIf="commPost">
+<article class="add-comment" *ngIf="commPost">
     <div class="comm-body">
         <table width="100%">
             <tr>
                 <td width="70px">
-                    <img class="profile-img" [src]="imageurl+commPost.postedby.dp">
+                    <img class="profile-img"
+                        [src]="commPost.postedby.dp ? imageurl+commPost.postedby.dp : '../../../../assets/dp.png'">
                 </td>
                 <td>
                     <div>
@@ -63,4 +64,4 @@
             </div>
         </div>
     </div>
-</main> -->
+</main>

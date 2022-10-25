@@ -69,15 +69,15 @@ onResize(event:any) {
      this._api.doReact(this.postdata._id,action,this.postdata.postedby._id).subscribe((res:any)=>{
        if(res.success){
          this.reacting=false
-        this.postdata.ilike=true
+        this.postdata.isLiked=true
         this.postdata.likes++;
        }
      })
-    }else if(action==="unlike"){
+    }else if(action==="dislike"){
       this._api.doReact(this.postdata._id,action,this.postdata.postedby._id).subscribe((res:any)=>{
         if(res.success){
           this.reacting=false
-         this.postdata.ilike=false
+         this.postdata.isLiked=false
          this.postdata.likes--;
         }
       })

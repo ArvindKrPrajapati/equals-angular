@@ -2,106 +2,117 @@
 
 <!-- for cover -->
 <section class="showdp" *ngIf="showcover">
-      <div class="showdp-body"> 
-        <div class="top-bar">
-            <p>Cover Image </p>
-            <div>
-                <button *ngIf="userdata.id===id" mat-button style="color: green;"> <label for="cover" ><mat-icon style="position: relative;top: 7px;">edit</mat-icon></label></button>
-                <input type="file" name="cover" id="cover" style="display: none;" (change)="coverUpload($event)" accept="image/*">
-                <button mat-button class="close" (click)="showCover()"><mat-icon>close</mat-icon></button>
-           </div>
-          </div>
-        <img [src]="imageurl+data.cover" alt="cover pic">
+  <div class="showdp-body">
+    <div class="top-bar">
+      <p>Cover Image </p>
+      <div>
+        <button *ngIf="userdata.id===id" mat-button style="color: green;"> <label for="cover">
+            <mat-icon style="position: relative;top: 7px;">edit</mat-icon>
+          </label></button>
+        <input type="file" name="cover" id="cover" style="display: none;" (change)="coverUpload($event)"
+          accept="image/*">
+        <button mat-button class="close" (click)="showCover()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
     </div>
+    <img [src]="imageurl+data.cover" alt="cover pic">
+  </div>
 
- <div class="imgPre" id="scroll" *ngIf="cimageChangedEvent">
-        <div class="progress-bar" *ngIf="cuploading">
-            <mat-progress-bar  [value]="uploadingProgress"></mat-progress-bar>
-        </div>    
-        <div class="top-bar">
-          <p>Crop Cover Image </p>
-          <div>
-            <button mat-icon-button style="color: green;" [disabled]="cuploading" (click)="cshare()"><mat-icon>save_as</mat-icon></button>
-            <button mat-button  class="close" (click)="cancel()"><mat-icon>close</mat-icon></button>
-          </div>
-        </div>
-        <image-cropper
-          *ngIf="!cuploading"
-          [imageChangedEvent]="cimageChangedEvent"
-          [maintainAspectRatio]="true"
-          [aspectRatio]="8 / 4"
-          (imageCropped)="cimageCropped($event)"
-          ></image-cropper>
-        <img *ngIf="cuploading" [src]="ccroppedImage" />
-      </div> 
+  <div class="imgPre" id="scroll" *ngIf="cimageChangedEvent">
+    <div class="progress-bar" *ngIf="cuploading">
+      <mat-progress-bar [value]="uploadingProgress"></mat-progress-bar>
+    </div>
+    <div class="top-bar">
+      <p>Crop Cover Image </p>
+      <div>
+        <button mat-icon-button style="color: green;" [disabled]="cuploading" (click)="cshare()">
+          <mat-icon>save_as</mat-icon>
+        </button>
+        <button mat-button class="close" (click)="cancel()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <image-cropper *ngIf="!cuploading" [imageChangedEvent]="cimageChangedEvent" [maintainAspectRatio]="true"
+      [aspectRatio]="8 / 4" (imageCropped)="cimageCropped($event)"></image-cropper>
+    <img *ngIf="cuploading" [src]="ccroppedImage" />
+  </div>
 </section>
 <!-- end -->
 
 <!-- for dp -->
 <section class="showdp" *ngIf="showdp">
-    <div class="showdp-body">
-        <div class="top-bar">
-            <p>View Image </p>
-            <div>
-                <button *ngIf="userdata.id===id" mat-button style="color: green;"> <label for="dp" ><mat-icon style="position: relative;top: 7px;">edit</mat-icon></label></button>
-                <input type="file" name="dp" id="dp" style="display: none;" (change)="dpUpload($event)" accept="image/*">
-                <button mat-button class="close" (click)="showDp()"><mat-icon>close</mat-icon></button>
-           </div>
-          </div>
-        <img [src]="imageurl+data.dp" alt="profile pic">
-    </div>
-
-    <div class="imgPre" id="scroll" *ngIf="imageChangedEvent">
-        <div class="progress-bar" *ngIf="uploading">
-            <mat-progress-bar  [value]="uploadingProgress"></mat-progress-bar>
-        </div>    
-        <div class="top-bar">
-          <p>Crop Image </p>
-          <div>
-            <button mat-icon-button style="color: green;" [disabled]="uploading" (click)="share()"><mat-icon>save_as</mat-icon></button>
-            <button mat-button  class="close" (click)="cancel()"><mat-icon>close</mat-icon></button>
-          </div>
-        </div>
-        <image-cropper
-          *ngIf="!uploading"
-          [imageChangedEvent]="imageChangedEvent"
-          [maintainAspectRatio]="true"
-          [aspectRatio]="4 / 4"
-          (imageCropped)="imageCropped($event)"
-          ></image-cropper>
-        <img *ngIf="uploading" [src]="croppedImage" />
+  <div class="showdp-body">
+    <div class="top-bar">
+      <p>View Image </p>
+      <div>
+        <button *ngIf="userdata.id===id" mat-button style="color: green;"> <label for="dp">
+            <mat-icon style="position: relative;top: 7px;">edit</mat-icon>
+          </label></button>
+        <input type="file" name="dp" id="dp" style="display: none;" (change)="dpUpload($event)" accept="image/*">
+        <button mat-button class="close" (click)="showDp()">
+          <mat-icon>close</mat-icon>
+        </button>
       </div>
+    </div>
+    <img [src]="imageurl+data.dp" alt="profile pic">
+  </div>
+
+  <div class="imgPre" id="scroll" *ngIf="imageChangedEvent">
+    <div class="progress-bar" *ngIf="uploading">
+      <mat-progress-bar [value]="uploadingProgress"></mat-progress-bar>
+    </div>
+    <div class="top-bar">
+      <p>Crop Image </p>
+      <div>
+        <button mat-icon-button style="color: green;" [disabled]="uploading" (click)="share()">
+          <mat-icon>save_as</mat-icon>
+        </button>
+        <button mat-button class="close" (click)="cancel()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <image-cropper *ngIf="!uploading" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 4" (imageCropped)="imageCropped($event)"></image-cropper>
+    <img *ngIf="uploading" [src]="croppedImage" />
+  </div>
 </section>
 <!-- end -->
 
 <main class="profile" *ngIf=!isLoading>
-    <div [style.background]="'url('+imageurl+data.cover+') center/cover no-repeat'" (click)="showCover()" class="cover" ></div>
-    <img [src]="imageurl+data.dp" alt="profile pic" class="dp" (click)="showDp()">
-    <div class="pcontent">
-      <div class="user-details">
-        <div>
-            <b class="name">{{data.name}}</b>
+  <div
+    [style.background]="data.cover ? 'url('+imageurl+data.cover+') center/cover no-repeat' : 'url(../../../../assets/dp.png) center/cover no-repeat'"
+    (click)="showCover()" class="cover">
+  </div>
+  <img [src]="data.dp ? imageurl+data.dp : '../../../../assets/dp.png'" alt="profile pic" class="dp" (click)="showDp()">
+  <div class="pcontent">
+    <div class="user-details">
+      <div>
+        <b class="name">{{data.name}}</b>
         <br><small style="text-transform: capitalize;">{{data.gender}}</small>
         <br><small style="text-transform: capitalize;">{{findAge(data.dob)}}</small>
         <br><small style="text-transform: capitalize; word-break: break-all;">{{data.about}}</small>
-        </div>
-        <button class="follow-btn" *ngIf="id!==userdata.id" (click)="follow(id,$event)">{{data.ifollow ? "unfollow" : "follow"}}</button>
+      </div>
+      <button class="follow-btn" *ngIf="id!==userdata.id" (click)="follow(id,$event)">{{data.ifollow ? "unfollow" :
+        "follow"}}</button>
 
     </div>
     <div class="numbers">
       <a class="npost">
-          <b>{{data.postscount}}</b>
-          <p>Posts</p>
+        <b>{{data.posts}}</b>
+        <p>Posts</p>
       </a>
       <a [routerLink]="['/home/followers/',data._id]" class="nfollower">
-          <b>{{data.followers}}</b>
-          <p>Follower</p>
+        <b>{{data.followers}}</b>
+        <p>Follower</p>
       </a>
       <a [routerLink]="['/home/following/',data._id]" class="nfollowing">
-        <b>{{data.following}}</b>
+        <b>{{data.followings}}</b>
         <p>Following</p>
-    </a>
+      </a>
     </div>
     <app-myposts></app-myposts>
-    </div>
+  </div>
 </main>

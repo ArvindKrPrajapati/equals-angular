@@ -35,9 +35,3 @@
 .user div:hover {
     background-color: #eee;
 }
-
-@media (prefers-color-scheme: dark) {
-    .user div:hover {
-        background-color: black;
-    }
-}
