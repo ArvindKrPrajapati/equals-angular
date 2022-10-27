@@ -1,24 +1,27 @@
-.rightmenu{
+.rightmenu {
     background-color: var(--headerBg);
     height: 100vh;
     position: fixed;
     overflow: hidden;
     width: 300px;
 }
-.header{
+
+.header {
     height: 50px;
-    background-color:var(--headerBg);
+    background-color: var(--headerBg);
     display: flex;
     align-items: center;
     justify-content: flex-end;
     border-bottom: 1px solid var(--line);
 }
-.content{
+
+.content {
     height: 100%;
     border-left: 1px solid var(--line);
     box-sizing: border-box;
 }
-.content li{
+
+.content li {
     margin: 0;
     list-style: none;
     padding: 10px;
@@ -26,19 +29,22 @@
     display: flex;
     align-items: center;
 }
-.content a{
+
+.content a {
     color: var(--text);
     font-weight: 440;
 }
-.content li:hover{
+
+.content li:hover {
     background-color: var(--line);
-    
+
 }
-.active{
-    border-left: 2px solid var(--light);
-    background-color: var(--line);
+
+.active {
+    background-color: #eee;
 }
-.myprofile{
+
+.myprofile {
     display: flex;
     align-items: center;
     /* position: relative;
@@ -47,36 +53,43 @@
     padding: 6px 15px;
     border-radius: 4px;
 }
-.myprofile img{
+
+.myprofile img {
     width: 25px;
     height: 25px;
     border-radius: 50%;
 }
-.myprofile small{
+
+.myprofile small {
     color: var(--text);
     display: block;
     font-weight: 500;
 }
-.myprofile:hover{
+
+.myprofile:hover {
     background: var(--line);
 }
-.myprofile:active{
+
+.myprofile:active {
     box-shadow: 0 0 5px var(--line);
 }
+
 :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-    background-color: white ;
+    background-color: white;
 }
 
-:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-    background-color: gainsboro ;
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: gainsboro;
 }
-@media screen and (max-width: 768px){
-    .rightmenu{
+
+@media screen and (max-width: 768px) {
+    .rightmenu {
         z-index: 210;
-        top:0;
+        top: 0;
         width: 250px;
     }
-    .header{
-      display: none;
+
+    .header {
+        display: none;
     }
-  }
+}

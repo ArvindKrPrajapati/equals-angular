@@ -1,15 +1,12 @@
-.loading ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
-    stroke: var(--light);
+.loading ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #c133ff;
 }
-.loading{
-    position: fixed;
-    left: calc(50% - 135px);
-    top: calc(50% - 25px);
 
-}
-@media screen and (max-width: 768px){
+.loading {
 
-    .loading{
-    left:calc(50% - 25px);
-    }
+    height: calc(100vh - 110px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

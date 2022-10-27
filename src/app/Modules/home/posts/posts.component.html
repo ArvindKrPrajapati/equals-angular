@@ -50,9 +50,9 @@
         </div>
         <div class="nopost" *ngIf="!isLoading && data.length===0">
             <div>
-                <h1 class="font">welcome</h1>
+                <h1 class="myfont">welcome</h1>
                 <br>
-                <img [src]="imageurl+userdata.dp" alt="">
+                <img [src]="userdata.dp ? imageurl+userdata.dp : '../../../../assets/dp.png'" alt="">
                 <br><br>
                 <p class="font">{{userdata.name}}</p>
                 <br>

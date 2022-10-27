@@ -5,9 +5,11 @@
         [src]="postdata.postedby.dp ? imageurl+postdata.postedby.dp : '../../../../assets/dp.png'">
     </a>
   </div>
+
   <div class="content">
     <div class="post-header">
-      <div> <b>{{postdata.postedby.name}}</b>&nbsp; <small>{{formatDate(postdata.datetime,postdata.now)}}</small></div>
+      <div> <b>{{postdata.postedby.name}}</b>&nbsp; <small>{{formatDate(postdata.datetime,postdata.now)}}</small>
+      </div>
       <div class="menu">
         <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu"
           aria-label="Example icon-button with a menu">
@@ -31,13 +33,13 @@
       <section>
         <div *ngIf="postdata.text" class="text" [innerHtml]="urlify(postdata.text)"></div>
         <img *ngIf="postdata.image" [src]="imageurl+postdata.image" alt="">
-        <div class="carousel" *ngIf="!postdata.image">
-          <div class="player">
-            <youtube-player [videoId]="postdata.link" suggestedQuality="highres" [height]="h" [width]="w"
-              [startSeconds]="0">
-            </youtube-player>
-          </div>
-        </div>
+        <!-- <div class="carousel" *ngIf="!postdata.image">
+            <div class="player">
+              <youtube-player [videoId]="postdata.link" suggestedQuality="highres" [height]="h" [width]="w"
+                [startSeconds]="0">
+              </youtube-player>
+            </div>
+          </div> -->
 
       </section>
     </div>
@@ -51,17 +53,20 @@
           <mat-icon>favorite</mat-icon>
         </button>
         <small>{{postdata.likes}}</small>
-        <button mat-icon-button (click)="saveComment()">
+        <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button class="text-dark">
           <mat-icon>chat_bubble_outline</mat-icon>
-        </button>
+        </a>
+        <!-- <button mat-icon-button (click)="saveComment()">
+          <mat-icon>chat_bubble_outline</mat-icon>
+        </button> -->
         <small>{{postdata.comments}}</small>
         <button mat-icon-button (click)="externalShare(postdata._id)">
           <mat-icon>share</mat-icon>
         </button> <small class="capturing"></small>
       </div>
-      <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button>
+      <!-- <a [routerLink]="['/home/comment/',postdata._id]" mat-icon-button>
         <mat-icon>open_in_full</mat-icon>
-      </a>
+      </a> -->
     </div>
   </div>
   <small style="color:red" *ngIf="deleting">deleting....</small>

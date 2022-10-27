@@ -8,7 +8,9 @@ import { ApiService } from 'src/app/api.service';
 })
 export class SidemenuComponent implements OnInit {
   user: any;
+  imageurl: string;
   constructor(private _api: ApiService) {
+    this.imageurl = this._api.imageurl;
     this.user = _api.getUserInfo()
   }
 

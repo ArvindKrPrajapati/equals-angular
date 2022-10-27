@@ -2,34 +2,37 @@
     <section class="single-post">
         <app-single-post (postedby)="getPostedBy($event)"></app-single-post>
     </section>
-   <div class="mat-spinner" *ngIf="isLoading">
-    <mat-spinner  [diameter]="30"></mat-spinner>
-   </div>
+    <div class="mat-spinner" *ngIf="isLoading">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
     <section class="comments-body" *ngIf="!isLoading">
         <table width="100%">
             <tr>
                 <td width="50px">
                     <a [routerLink]="['/home/profile/',userdata.id]">
-                      <img class="dp" [src]="imageurl+userdata.dp" alt="">
+                        <img class="dp" [src]="userdata.dp ? imageurl+userdata.dp : '../../../../assets/dp.png'" alt="">
                     </a>
-                  </td>
-                <td>
-                    <textarea maxlength="500"  [(ngModel)]="comment" [style.border]="comment.length>=500 ? '1px solid red' : ''" id="scroll" class="comment" placeholder="Add comment"></textarea>
                 </td>
                 <td>
-                    <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn" (click)="saveComment()">comment</button>
+                    <textarea maxlength="500" [(ngModel)]="comment"
+                        [style.border]="comment.length>=500 ? '1px solid red' : ''" id="scroll" class="comment"
+                        placeholder="Add comment"></textarea>
+                </td>
+                <td>
+                    <button [disabled]="saving" *ngIf="comment" mat-raised-button class="comm-btn"
+                        (click)="saveComment()">comment</button>
                 </td>
             </tr>
         </table>
         <section class="see-comment" *ngFor="let d of data">
             <a [routerLink]="['/home/profile/',d.by._id]">
-                <img class="dp" [src]="imageurl+d.by.dp" alt="">
-              </a>
-              <div>
-                  <b>{{d.by.name}}</b>
-                  <br>
-                  <small class="comm-text">{{d.comm}}</small>
-              </div>
+                <img class="dp" [src]="d.by.dp ? imageurl+d.by.dp : '../../../../assets/dp.png'" alt="">
+            </a>
+            <div>
+                <b>{{d.by.name}}</b>
+                <br>
+                <small class="comm-text">{{d.comm}}</small>
+            </div>
         </section>
     </section>
 </main>

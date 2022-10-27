@@ -13,55 +13,55 @@ import { SearchComponent } from './search/search.component';
 import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [{
-  path:'',
-  component:HomeComponent,
-      children:[
-        {
-          path:'',
-          redirectTo:'posts',
-          pathMatch:'full'
-        }, 
-        {
-          path:'posts',
-          component:PostsComponent
-        },
-        {
-          path:'search',
-          component:SearchComponent
-        },
-        {
-          path:'alerts',
-          component:AlertsComponent
-        },
-        {
-          path:'add-post',
-          component:AddComponent
-        },
-        {
-          path:'discover-people',
-          component:DiscoverComponent
-        },
-        {
-          path:'profile/:id',
-          component:ProfileComponent
-        },
-        {
-          path:'followers/:id',
-          component:FollowersComponent
-        },
-        {
-          path:'following/:id',
-          component:FollowingComponent
-        },
-        {
-          path:'settings',
-          component:SettingsComponent
-        },
-        {
-          path:'comment/:id',
-          component:CommentComponent
-        }
-      ]
+  path: '',
+  component: HomeComponent,
+  children: [
+    {
+      path: '',
+      redirectTo: 'posts',
+      pathMatch: 'full'
+    },
+    {
+      path: 'posts',
+      component: PostsComponent
+    },
+    {
+      path: 'search',
+      component: SearchComponent
+    },
+    {
+      path: 'alerts',
+      component: AlertsComponent
+    },
+    {
+      path: 'add-post',
+      component: AddComponent
+    },
+    {
+      path: 'discover-people',
+      component: DiscoverComponent
+    },
+    {
+      path: 'profile/:id',
+      component: ProfileComponent
+    },
+    {
+      path: 'followers/:id',
+      component: FollowersComponent
+    },
+    {
+      path: 'following/:id',
+      component: FollowingComponent
+    },
+    {
+      path: 'settings',
+      component: SettingsComponent
+    },
+    {
+      path: 'comment/:id',
+      component: CommentComponent
+    },
+  ]
 }];
 
 @NgModule({

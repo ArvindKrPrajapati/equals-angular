@@ -7,9 +7,9 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { PostsComponent } from './posts/posts.component';
 import { HomeComponent } from './home.component';
 
-import {MatIconModule} from '@angular/material/icon';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -29,9 +29,9 @@ import { FormsModule } from '@angular/forms';
 import { CommentComponent } from './comment/comment.component';
 import { SinglePostComponent } from './comment/single-post/single-post.component';
 import { LoadingComponent } from './common/loading/loading.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 
 @NgModule({

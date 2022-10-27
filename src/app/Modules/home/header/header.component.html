@@ -13,7 +13,7 @@
     <div class="row h-100">
         <div class="col-3 h-100">
             <div class="d-flex align-items-center h-100">
-                <img src="../../../../assets/logo.png" width="30px" />
+                <img src="../../../../assets/logo.png" width="40px" />
                 <div class="myfont text-dark">
                     <h5>Equals</h5>
                 </div>
@@ -68,7 +68,7 @@
             <div class="d-flex align-items-center h-100">
                 <div class="text-dark d-none d-md-block"><strong>{{user.name}}</strong></div>
                 <a [routerLink]="['/home/profile/',user.id]">
-                    <img [src]="user.dp ? user.dp : '../../../../assets/dp.png'" class="dp" />
+                    <img [src]="user.dp ? imageurl+user.dp : '../../../../assets/dp.png'" class="dp" />
                 </a>
                 <button class="d-block d-md-none" mat-icon-button (click)="toggleMenu(true)">
                     <mat-icon>segment</mat-icon>

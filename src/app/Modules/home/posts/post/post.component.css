@@ -4,6 +4,9 @@
   display: grid;
   padding: 15px;
   grid-template-columns: 68px 1fr;
+  margin-top: 10px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 8px #7e7e7e8e;
 }
 
 .player {
@@ -31,6 +34,8 @@
   border-radius: 10px;
   max-width: 100%;
   margin-top: 10px;
+  margin: auto;
+  display: block;
 }
 
 .menu-button {
@@ -67,6 +72,7 @@
   justify-content: space-between;
 }
 
+
 mat-icon {
   font-size: 20px;
 }
@@ -94,4 +100,11 @@ mat-icon {
 
 .delete-btn:hover {
   background-color: var(--line);
+}
+
+@media screen and (max-width: 768px) {
+  .post {
+    box-shadow: none;
+    margin-top: 0%;
+  }
 }

@@ -52,7 +52,7 @@ export class PostsComponent implements OnInit {
           this.loadOnScroll = false
           this.action = true
         } else {
-          this.isLoading = false
+          // this.isLoading = false
           this.loadOnScroll = false
         }
 

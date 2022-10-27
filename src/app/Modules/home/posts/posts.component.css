@@ -102,8 +102,8 @@ app-loading {
 }
 
 .nopost a {
-    color: var(--light);
-    border: 2px inset var(--light);
+    color: #c133ff;
+    border: 2px inset #c133ff;
 }
 
 .loading {

@@ -1,4 +1,4 @@
-.profile{
+.profile {
     padding: 10px;
     padding-bottom: 60px;
     background-color: var(--back);
@@ -7,159 +7,202 @@
     box-sizing: border-box;
     /* height: calc(100vh - 50px); */
 }
-.name{
+
+.name {
     text-transform: capitalize;
     font-size: x-large;
 }
-.cover{
+
+.cover {
     border-radius: 15px;
     width: 100%;
     height: 230px;
-    border: .8px solid #eee;
-    border: 1px solid var(--light);
+    box-shadow: 1px 1px 4px #1a1919;
 }
-.dp{
+
+.dp {
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    border: 1px solid var(--light);
     position: relative;
     top: -85px;
     left: 30px;
+    box-shadow: 1px 1px 4px #1a1919;
+
 }
-.user-details{
+
+.user-details {
     box-sizing: border-box;
     padding: 10px;
-    margin-left:200px ;
+    margin-left: 200px;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
-.follow-btn{
- border: none;
- height: 40px;
- padding: 10px 40px;
- background:var(--light) ;
- color: var(--back);
- border-radius: 5px;
+
+.follow-btn {
+    border: none;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c133ff;
+    color: white;
+    border-radius: 5px;
 }
-.showdp{
+
+.showdp {
     position: fixed;
     height: 100%;
-    width:100%;
+    width: 100%;
     left: 0px;
     top: 0px;
     background: var(--bg);
     z-index: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.showdp-body,.imgPre{
-    position: fixed;
-    left: calc(50% - 360px);
-    margin-top: 20px;
-    background-color:var(--back) ;
+.showdp-body,
+.imgPre {
+    position: absolute;
+    background-color: white;
     width: 500px;
-    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 0 8px #4a4a4a;
+    overflow: hidden;
 }
-.imgPre{
+
+.imgPre {
     overflow-x: hidden;
     height: 540px;
 }
-.showdp img{
+
+.showdp img {
     width: 500px;
 }
-.top-bar{
-    position: sticky;
-    top:0px;
+
+.showdp-card {
+    min-width: 500px;
+    background-color: white;
+    height: 100%;
+}
+
+.top-bar {
     z-index: 7;
-    background-color: var(--line);
+    background-color: white;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.top-bar p{
+
+.top-bar p {
     margin-left: 15px;
+    position: relative;
+    top: 8px
 }
-.close{
+
+.close {
     color: red;
 }
-.close:hover{
+
+.close:hover {
     background-color: red;
     color: white;
 }
-.progress-bar{
+
+.progress-bar {
     position: sticky;
     top: 0px;
     z-index: 7;
 }
-button:disabled{
+
+button:disabled {
     opacity: 0.4;
 }
-.follow-btn:active{
+
+.follow-btn:active {
     box-shadow: 0 0 6px var(--light);
 }
-.pcontent{
+
+.pcontent {
     margin-top: -170px;
 }
-.numbers{
+
+.numbers {
     display: flex;
     justify-content: center;
 }
 
-.numbers b{
+.numbers b {
     font-size: xx-large;
 }
-.numbers a{
+
+.numbers a {
     display: block;
     padding: 18px;
     text-align: center;
     color: var(--text);
 }
-.numbers p{
-  font-size: small;
-}
-.numbers a:hover{
-   transform: scale(1.1);
-} 
 
-@media screen and (max-width: 768px){
-    .showdp{
-      width: 100%;
-      z-index: 200;
-     }
-     .top-bar{
-       height: 50px;
-     }
-    .showdp-body,.imgPre{
-      left: 0;
-      height: 100vh;
-      width: 100%;
-      margin-top: 0;
-      top: 0;
-      z-index: 200;
+.numbers p {
+    font-size: small;
+}
+
+.numbers a:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    .showdp {
+        width: 100%;
+        z-index: 200;
     }
-    .showdp img{
-      width: calc(100% - 10px);
-      margin:10px 5px;
+
+    .top-bar {
+        height: 50px;
     }
-    .cover{
-      height: 150px;
+
+    .showdp-body,
+    .imgPre {
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        margin-top: 0;
+        top: 0;
+        z-index: 200;
     }
-    .dp{
-      width:120px;
-      height: 120px;
-      left:15px;
-      top:-60px;
+
+    .showdp img {
+        width: calc(100% - 10px);
+        margin: 10px 5px;
     }
-    .user-details{
-      display: block;
-      margin-top: 50px;
-      margin-left: 135px;
+
+    .cover {
+        height: 150px;
     }
-    .name{
-      font-size:large;
+
+    .dp {
+        width: 120px;
+        height: 120px;
+        left: 15px;
+        top: -60px;
     }
-    .follow-btn{
-      margin-top: 15px;
+
+    .user-details {
+        display: block;
+        margin-top: 50px;
+        margin-left: 135px;
     }
-  }
+
+    .name {
+        font-size: large;
+    }
+
+    .follow-btn {
+        margin-top: 15px;
+    }
+}

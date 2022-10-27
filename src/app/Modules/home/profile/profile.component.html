@@ -16,7 +16,7 @@
         </button>
       </div>
     </div>
-    <img [src]="imageurl+data.cover" alt="cover pic">
+    <img [src]="data.cover ? imageurl+data.cover : '../../../assets/dp.png'" alt="cover pic">
   </div>
 
   <div class="imgPre" id="scroll" *ngIf="cimageChangedEvent">
@@ -41,6 +41,13 @@
 </section>
 <!-- end -->
 
+
+
+
+
+
+
+
 <!-- for dp -->
 <section class="showdp" *ngIf="showdp">
   <div class="showdp-body">
@@ -56,7 +63,7 @@
         </button>
       </div>
     </div>
-    <img [src]="imageurl+data.dp" alt="profile pic">
+    <img [src]="data.dp ? imageurl+data.dp : '../../../assets/dp.png'" alt="profile pic">
   </div>
 
   <div class="imgPre" id="scroll" *ngIf="imageChangedEvent">

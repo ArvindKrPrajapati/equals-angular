@@ -39,6 +39,8 @@ onResize(event:any) {
 }
 
   ngOnInit(): void {
+    console.log(this.postdata);
+    
       const text=this.postdata.text
     if(text && !(this.postdata.image)){
      const reg=/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/gmi

@@ -94,21 +94,32 @@ export class ApiService {
   liveSearch(searchstring: string) {
     return this._http.get(this.url + "/user/search?name=" + searchstring, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
+  getSpecificPost(id: string) {
+    return this._http.get(this.url + "/post/getspecificpost?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
   uploadDp(dp: string) {
-    return this._http.put(this.url + "/user/dp", { dp }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+    return this._http.patch(this.url + "/user/updatedp", { dp }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
   uploadCover(cover: string) {
-    return this._http.put(this.url + "/user/cover", { cover }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+    return this._http.patch(this.url + "/user/updatecover", { cover }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
+  getComments(id: string) {
+    return this._http.get(this.url + "/post/comment?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
+  follow(to: string, action: string) {
+    return this._http.post(this.url + "/follow", { to, action }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
+
+  getFollowersOrFollowing(route: string, id: string) {
+    return this._http.get(this.url + "/follow/" + route + "?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
 
   unFollowedUsers() {
-    return this._http.get(this.url + "/user/unfollowed", { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+    return this._http.get(this.url + "/user/discover-people", { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
-  follow(followerid: string, action: string) {
-    return this._http.put(this.url + "/user/follow", { followerid, action }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
-  }
+
 
 
 
@@ -123,19 +134,13 @@ export class ApiService {
   editUserDetails(data: any) {
     return this._http.patch(this.url + "/user", data, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
-  getFollowersOrFollowing(route: string, id: string) {
-    return this._http.get(this.url + "/user/" + route + "?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
-  }
 
 
 
-  getSpecificPost(id: string) {
-    return this._http.get(this.url + "/post/getspecificpost?postid=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
-  }
 
-  getComments(id: string) {
-    return this._http.get(this.url + "/post/getcomments?postid=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
-  }
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 <ul class="sidemenu">
     <a [routerLink]="['/home/profile/',user.id]">
         <li>
-            <img [src]="user.dp ? user.dp : '../../../../assets/dp.png'" class="dp" />
+            <img [src]="user.dp ? imageurl+user.dp : '../../../../assets/dp.png'" class="dp" />
             <strong class="text-dark d-block m-2">{{user.name}}</strong>
         </li>
     </a>

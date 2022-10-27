@@ -16,7 +16,8 @@
 
 .sidemenu {
   height: 55px;
-  width: 100%;
+  width: 75%;
+  margin: auto;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -25,6 +26,14 @@
 
 .active {
   color: #c133ff;
+  border-bottom: 3px solid #c133ff;
+}
+
+.sidemenu li {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidemenu a {
@@ -32,6 +41,8 @@
   font-weight: 520;
   color: black;
   display: block;
+  width: 20%;
+  text-align: center;
 }
 
 .bg-menu {
