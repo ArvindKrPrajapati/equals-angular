@@ -1,10 +1,13 @@
 <div class="mat-spinner" *ngIf="isLoading">
-    <mat-spinner  [diameter]="30"></mat-spinner>
-   </div>
+    <mat-spinner [diameter]="30"></mat-spinner>
+</div>
 
 
-<main  id="scroll" *ngIf="!isLoading">
+<main id="scroll" *ngIf="!isLoading" id="posts">
     <div *ngFor="let d of data;let index=index">
-    <app-post [postdata]="d" [postindex]="index"  ></app-post>
+        <app-post [postdata]="d" [postindex]="index"></app-post>
     </div>
+    <main class="mat-spinner" style="height:60px ;" *ngIf="loadOnScroll">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </main>
 </main>

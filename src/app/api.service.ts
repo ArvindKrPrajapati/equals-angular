@@ -80,8 +80,8 @@ export class ApiService {
   doComment(postid: string, comm: string, postedby: string) {
     return this._http.put(this.url + "/post/comment", { postid, comm, postedby }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
-  getuserPost(id: string) {
-    return this._http.get(this.url + "/post/getuserposts?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  getuserPost(id: string, start: number) {
+    return this._http.get(this.url + "/post/getuserposts?id=" + id + "&skip=" + start, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
   uploadToCloudinary(data: any) {

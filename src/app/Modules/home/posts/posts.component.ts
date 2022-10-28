@@ -43,8 +43,6 @@ export class PostsComponent implements OnInit {
     this.action = false
     this.loadOnScroll = true
     this._api.getSubPost(this.start).subscribe((data: any) => {
-      console.log(data);
-
       if (data.success) {
         if (data.data.length > 0) {
           this.data.push(...data.data)
