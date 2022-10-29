@@ -1,0 +1,39 @@
+mat-icon {
+    font-size: 15px;
+}
+
+.dp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#like {
+    transition: all .3s;
+    margin-left: -10px;
+}
+
+#like:active {
+    transform: scale(1.3);
+}
+
+#like:hover {
+    background-color: #ebcdcd;
+    color: red;
+}
+
+.comm-text {
+    white-space: pre-wrap;
+}
+
+.see-comment {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    padding: 20px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 1px 1px 8px #7e7e7e8e;
+    margin-top: 10px;
+    background-color: white;
+}

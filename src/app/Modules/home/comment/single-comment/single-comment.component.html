@@ -1,0 +1,20 @@
+<section class="see-comment">
+    <a [routerLink]="['/home/profile/',data.by._id]">
+        <img class="dp" [src]="data.by.dp ? imageurl+data.by.dp : '../../../../../assets/dp.png'" alt="">
+    </a>
+    <div>
+        <b>{{data.by.name}}</b>&nbsp; <small>{{formatDate(data.datetime,data.now)}}</small>
+        <br>
+        <small class="comm-text">{{data.comm}}</small>
+        <div class="d-flex align-items-center">
+            <button id="like" [disabled]="reacting" mat-icon-button *ngIf="!data.isLiked" (click)="doReact('like')">
+                <mat-icon>favorite_border</mat-icon>
+            </button>
+            <button id="like" [disabled]="reacting" mat-icon-button *ngIf="data.isLiked" (click)="doReact('dislike')"
+                style="color:red">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <small *ngIf="data.likes > 0">{{data.likes}}</small>
+        </div>
+    </div>
+</section>
