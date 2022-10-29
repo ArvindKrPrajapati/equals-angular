@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="user._id!==myid">
     <a [routerLink]="['/home/profile',user._id]" class="people-link d-flex align-items-center">
         <img class="people-img" [src]="user.dp ? imageurl+user.dp : '../../../assets/dp.png'" alt="profie pic">
         <div style="margin-left:15px">

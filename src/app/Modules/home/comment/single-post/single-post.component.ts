@@ -24,7 +24,7 @@ export class SinglePostComponent implements OnInit {
       if (res.success) {
         this.data = res.data[0]
         this.isLoading = false
-        this.postedby.emit(res.data.postedby._id)
+        this.postedby.emit(res.data[0].postedby._id)
       }
     })
   }

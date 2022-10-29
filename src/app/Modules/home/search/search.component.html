@@ -1,24 +1,13 @@
-<app-loading *ngIf="isLoading"></app-loading>
 <main class="discover">
     <div class="search">
         <input type="search" name="search" placeholder="looking for someone" (keyup)="search($event)">
     </div>
     <br>
+    <app-loading *ngIf="isLoading"></app-loading>
+
     <div class="content">
-        <a *ngFor=" let d of data" [routerLink]="['/home/profile/',d._id]" class="user text-dark">
-            <div>
-                <table>
-                    <tr>
-                        <td width="80px">
-                            <img [src]="d.dp ? imageurl+d.dp : '../../../../assets/dp.png'" alt="">
-                        </td>
-                        <td>
-                            <b> {{d.name}} </b><br>
-                            <small>{{d.gender}} &nbsp;</small>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </a>
+        <div class="content" *ngIf="!isLoading">
+            <app-people *ngFor="let d of data" [user]="d"></app-people>
+        </div>
     </div>
 </main>

@@ -5,8 +5,9 @@
   padding: 0%;
   height: 100vh;
   position: fixed;
-  width: 300px;
-  /* background-color: red; */
+  width: 23%;
+  max-width: 350px;
+  /* background-color: white; */
 }
 
 .dp {

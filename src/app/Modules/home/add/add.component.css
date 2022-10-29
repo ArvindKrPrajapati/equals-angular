@@ -32,14 +32,18 @@
 }
 
 .add {
-    padding: 15px;
+    /* padding: 15px; */
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px #7e7e7e8e;
+
     background-color: white;
-    height: calc(100vh - 60px);
+    /* height: calc(100vh - 60px); */
     box-sizing: border-box;
 }
 
 .add-table {
-    padding: 15px;
+    padding: 0 15px;
     border-radius: 7px;
     background-color: var(--back);
 }
@@ -62,7 +66,8 @@
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
-    height: 120px;
+    /* height: 50px; */
+    height: 150px;
     color: var(--text);
     background-color: var(--back);
 }
@@ -73,6 +78,7 @@
 
 .btns {
     float: right;
+    margin-bottom: -20px;
 }
 
 .share-btn {
@@ -104,5 +110,13 @@
 
     .close-top {
         left: calc(100% - 50px);
+    }
+
+    .btns {
+        margin: 0;
+    }
+
+    .add {
+        box-shadow: none;
     }
 }

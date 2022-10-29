@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -8,6 +8,22 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
+  el: any;
+  action: boolean = true
+  start: number = 0
+  loadOnScroll: boolean = false
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let top = window.scrollY
+    this.el = document.querySelector("#posts")
+    let h = this.el.offsetHeight;
+    if (window.innerHeight + top > h && this.action) {
+      this.start += 20;
+      this.loadOnScroll = true
+      console.log(this.start);
+      this.loadData();
+    }
+  }
   postid: any;
   data: any = []
   userdata: any;
@@ -16,20 +32,38 @@ export class CommentComponent implements OnInit {
   saving: boolean = false
   isLoading: boolean = false
   postedby: any;
+
   constructor(private _api: ApiService, private _route: ActivatedRoute) {
     this.userdata = _api.getUserInfo()
+    this.imageurl = this._api.imageurl
     _route.paramMap.subscribe((p: any) => {
       this.postid = p.get('id')
     })
   }
 
   ngOnInit(): void {
-    this.imageurl = this._api.imageurl
     this.isLoading = true
-    this._api.getComments(this.postid).subscribe((res: any) => {
-      if (res.success) {
-        this.data = res.data
-        this.isLoading = false
+    if (this.action) {
+      this.loadData();
+    }
+
+  }
+
+
+  loadData() {
+    this.action = false
+    this._api.getComments(this.postid, this.start).subscribe((data: any) => {
+      if (data.success) {
+        if (data.data.length > 0) {
+          this.data.push(...data.data)
+          this.isLoading = false
+          this.loadOnScroll = false
+          this.action = true
+        } else {
+          // this.isLoading = false
+          this.loadOnScroll = false
+        }
+
       }
     })
   }
@@ -55,5 +89,4 @@ export class CommentComponent implements OnInit {
       }
     })
   }
-
 }

@@ -8,30 +8,30 @@ import { ApiService } from 'src/app/api.service';
 })
 export class RightmenuComponent implements OnInit {
 
-  userdata:any;
-  imageurl:string="";
-  constructor(private _api:ApiService,private el:ElementRef) { 
-   this.userdata= _api.getUserInfo();  
-   this.imageurl=_api.imageurl; 
+  userdata: any;
+  imageurl: string = "";
+  constructor(private _api: ApiService, private el: ElementRef) {
+    this.userdata = _api.getUserInfo();
+    this.imageurl = _api.imageurl;
   }
   ngOnInit(): void {
   }
-  changeMode(e:any){
-    this.el.nativeElement.style.setProperty(' --back','#0c0c0c')
+  changeMode(e: any) {
+    this.el.nativeElement.style.setProperty(' --back', '#0c0c0c')
 
-    if(e.checked){
+    if (e.checked) {
       // document.body.style.background="#0c0c0c"
       // document.documentElement.style.setProperty(' --back','#0c0c0c')
       // document.documentElement.style.setProperty( ' --text','white')
 
-    // console.log( document.documentElement.style.setProperty(' --back','#0c0c0c'))
- 
-    }else{
+      // console.log( document.documentElement.style.setProperty(' --back','#0c0c0c'))
+
+    } else {
       // document.body.style.background="white"
-      document.documentElement.style.setProperty(' --back','white')
-      document.documentElement.style.setProperty( ' --text','black')
-      
+      document.documentElement.style.setProperty(' --back', 'white')
+      document.documentElement.style.setProperty(' --text', 'black')
+
     }
-   
+
   }
 }

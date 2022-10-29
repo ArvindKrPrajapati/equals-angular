@@ -76,6 +76,9 @@ export class ApiService {
   doReact(postid: string, action: string, postedby: string) {
     return this._http.put(this.url + "/post/react", { postid, action, postedby }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
+  doReactOnComment(postid: string, route: string, commid: string) {
+    return this._http.put(this.url + "/post/comment/" + route, { postid, commid }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
 
   doComment(postid: string, comm: string, postedby: string) {
     return this._http.put(this.url + "/post/comment", { postid, comm, postedby }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
@@ -103,8 +106,8 @@ export class ApiService {
   uploadCover(cover: string) {
     return this._http.patch(this.url + "/user/updatecover", { cover }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
-  getComments(id: string) {
-    return this._http.get(this.url + "/post/comment?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  getComments(id: string, skip: number) {
+    return this._http.get(this.url + "/post/comment?id=" + id + "&skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
   follow(to: string, action: string) {
@@ -115,8 +118,8 @@ export class ApiService {
     return this._http.get(this.url + "/follow/" + route + "?id=" + id + "&skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
-  unFollowedUsers() {
-    return this._http.get(this.url + "/user/discover-people", { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  unFollowedUsers(skip: number) {
+    return this._http.get(this.url + "/user/discover-people?skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
 

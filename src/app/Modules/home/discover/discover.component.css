@@ -1,19 +1,39 @@
-.discover{
-    box-sizing: border-box;
-    padding: 15px;
-    overflow-y: auto;
-    height: calc(100vh - 50px);
+.following {
+    padding: 20px;
 }
-.search input{
+
+.search input {
     width: 100%;
     box-sizing: border-box;
     padding: 10px 15px;
     border: none;
     border-radius: 7px;
-    border: 1px solid silver;
+    border: 1px solid var(--line);
+    color: var(--text);
+    background-color: var(--back);
 }
-.search input:focus{
+
+.search input:focus {
     outline: none;
     border: 2px solid dodgerblue;
     box-shadow: 0 0 6px dodgerblue;
+}
+
+.mat-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -25px;
+}
+
+.mat-spinner ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #c133ff;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-bottom: 60px;
+    }
 }

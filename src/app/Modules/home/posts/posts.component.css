@@ -5,6 +5,7 @@ app-loading {
 
 .posts {
     background-color: var(--back);
+    margin-bottom: 15px;
 }
 
 .add-comment {
@@ -110,6 +111,11 @@ app-loading {
     display: flex;
     justify-content: center;
     padding: 15px;
+}
+
+.loading ::ng-deep .mat-progress-spinner circle,
+.loading circle {
+    stroke: #c133ff;
 }
 
 @media screen and (max-width: 768px) {

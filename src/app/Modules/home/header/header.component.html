@@ -11,7 +11,7 @@
 
 <section class="container-fluid header">
     <div class="row h-100">
-        <div class="col-3 h-100">
+        <div class="col-md-3 col-6 h-100">
             <div class="d-flex align-items-center h-100">
                 <img src="../../../../assets/logo.png" width="40px" />
                 <div class="myfont text-dark">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="col-6 p-0 h-100 bg-white">
+        <div class="col-md-6 col-1 p-0 h-100 bg-white">
             <ul class="sidemenu">
                 <a routerLink="posts">
                     <li routerLinkActive="active">
@@ -64,7 +64,7 @@
             </ul>
         </div>
 
-        <div class="col-3 h-100 d-flex align-items-center justify-content-end">
+        <div class="col-md-3 col-5  h-100 d-flex align-items-center justify-content-end">
             <div class="d-flex align-items-center h-100">
                 <div class="text-dark d-none d-md-block"><strong>{{user.name}}</strong></div>
                 <a [routerLink]="['/home/profile/',user.id]">

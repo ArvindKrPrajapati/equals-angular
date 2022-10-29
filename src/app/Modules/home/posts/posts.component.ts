@@ -18,6 +18,7 @@ export class PostsComponent implements OnInit {
     let h = this.el.offsetHeight;
     if (window.innerHeight + top > h && this.action) {
       this.start += 10;
+      this.loadOnScroll = true
       this.loadData();
     }
   }
@@ -41,7 +42,6 @@ export class PostsComponent implements OnInit {
   }
   loadData() {
     this.action = false
-    this.loadOnScroll = true
     this._api.getSubPost(this.start).subscribe((data: any) => {
       if (data.success) {
         if (data.data.length > 0) {

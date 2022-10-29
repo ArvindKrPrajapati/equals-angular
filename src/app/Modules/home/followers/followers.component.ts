@@ -19,7 +19,7 @@ export class FollowersComponent implements OnInit {
     let h = this.el.offsetHeight;
     if (window.innerHeight + top > h && this.action) {
       this.start += 20;
-      console.log(this.start);
+      this.loadOnScroll = true
       this.loadData();
     }
   }
@@ -39,7 +39,6 @@ export class FollowersComponent implements OnInit {
   }
   loadData() {
     this.action = false
-    this.loadOnScroll = true
     this._api.getFollowersOrFollowing("getfollowers", this.id, this.start).subscribe((data: any) => {
       if (data.success) {
         if (data.data.length > 0) {

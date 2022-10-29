@@ -1,37 +1,39 @@
 .discover {
-    box-sizing: border-box;
-    padding: 15px;
-    overflow-y: auto;
-    height: calc(100vh - 50px);
+    padding: 20px;
 }
 
 .search input {
     width: 100%;
+    background-color: inherit;
     box-sizing: border-box;
     padding: 10px 15px;
-    background-color: var(--back);
-    color: var(--text);
+    border: none;
     border-radius: 7px;
-    border: 2px solid dodgerblue;
+    border: 2px solid #c133ff;
+    color: var(--text);
 }
 
 .search input:focus {
     outline: none;
-    border: 2px solid dodgerblue;
-    box-shadow: 0 0 6px dodgerblue;
+    border: 2px solid #c133ff;
+    box-shadow: 0 0 6px #c133ff;
 }
 
-.user img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+.mat-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -25px;
 }
 
-.user div {
-    width: 100%;
-    color: var(--text);
+.mat-spinner ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #c133ff;
 }
 
-.user div:hover {
-    background-color: #eee;
+@media screen and (max-width: 768px) {
+    .content {
+        margin-bottom: 60px;
+    }
 }

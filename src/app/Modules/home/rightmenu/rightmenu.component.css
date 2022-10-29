@@ -1,9 +1,10 @@
 .rightmenu {
-    background-color: var(--headerBg);
     height: 100vh;
     position: fixed;
     overflow: hidden;
-    width: 300px;
+    width: 21.5%;
+    margin-left: 40px;
+    /* background-color: white; */
 }
 
 .header {
@@ -82,11 +83,17 @@
     background-color: gainsboro;
 }
 
+.rightmenu ul {
+    padding: 0%;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 768px) {
     .rightmenu {
         z-index: 210;
         top: 0;
         width: 250px;
+        margin-left: 0;
     }
 
     .header {

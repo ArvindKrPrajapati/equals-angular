@@ -10,26 +10,19 @@
     border-radius: 50%;
 }
 
-.comments-body {
-    padding: 0px 25px;
-    border-left: 1px solid var(--line);
-}
-
-.comm-text {
-    white-space: pre-wrap;
-}
 
 .comments-body table {
     /* border-bottom: 1px solid gainsboro; */
     padding: 10px 0px;
 }
 
-.see-comment {
-    display: grid;
-    grid-template-columns: 55px 1fr;
-    border-top: 1px solid #eee;
-    padding: 20px 0px;
+
+
+.comment-body {
+    margin-bottom: 60px;
 }
+
+
 
 .comment {
     width: 100%;
@@ -46,6 +39,18 @@
 .comment:focus {
     outline: none;
     /* border: 1px solid var(--light); */
+}
+
+.comm-input-box {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 1px 1px 8px #7e7e7e8e;
+    margin-top: 10px;
+    position: sticky;
+    z-index: 10;
+    top: 60px;
+    background-color: white;
 }
 
 .comm-btn {
@@ -80,7 +85,11 @@
     height: 70vh;
 }
 
+.loadMore {
+    height: 50px;
+}
+
 .mat-spinner ::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
-    stroke: var(--light);
+    stroke: #c133ff;
 }

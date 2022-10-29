@@ -27,6 +27,7 @@ body {
   margin: 0;
   font-family: 'Noto Sans', sans-serif;
   overflow: auto;
+  background-color: #e7e7e7;
 }
 
 a {
@@ -50,7 +51,7 @@ a {
 
 #scroll::-webkit-scrollbar-thumb {
   width: 6px;
-  background-color: var(--light);
+  background-color: gainsboro;
   border-radius: 20px;
 }
 
@@ -60,6 +61,12 @@ a {
 
 button:disabled {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: white;
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {

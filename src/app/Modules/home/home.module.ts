@@ -33,6 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { YouTubePlayerModule } from "@angular/youtube-player";
+import { SingleCommentComponent } from './comment/single-comment/single-comment.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
     CommentComponent,
     SinglePostComponent,
     LoadingComponent,
+    SingleCommentComponent,
   ],
   imports: [
     CommonModule,
