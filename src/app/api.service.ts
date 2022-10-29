@@ -12,8 +12,8 @@ export class ApiService {
 
   // ,headers: new HttpHeaders({ 'ngsw-bypass': 'true' }) 
   // url:string="https://equals-api.herokuapp.com/api/v2"
-  // url: string = "https://api-equals.herokuapp.com/v1"
-  url: string = "http://localhost:3000/v1";
+  url: string = "https://api-equals.herokuapp.com/v1"
+  // url: string = "http://localhost:3000/v1";
   imageurl: string = "https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl: string = "https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http: HttpClient) { }
