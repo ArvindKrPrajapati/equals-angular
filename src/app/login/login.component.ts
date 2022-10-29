@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     if (this.mobile.length == 10 && this.password) {
       this._api.login({ mobile: this.mobile, password: this.password }).subscribe((data: any) => {
         if (data.success) {
-          localStorage.setItem('token', data.data);
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.data));
           this._router.navigate(['/home/posts'])
         }
       }, (err: any) => {

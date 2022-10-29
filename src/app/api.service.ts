@@ -12,8 +12,8 @@ export class ApiService {
 
   // ,headers: new HttpHeaders({ 'ngsw-bypass': 'true' }) 
   // url:string="https://equals-api.herokuapp.com/api/v2"
-  url: string = "https://api-equals.herokuapp.com/v1"
-  // url: string = "http://localhost:3000/v1";
+  // url: string = "https://api-equals.herokuapp.com/v1"
+  url: string = "http://localhost:3000/v1";
   imageurl: string = "https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl: string = "https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http: HttpClient) { }
@@ -21,12 +21,10 @@ export class ApiService {
     return localStorage.getItem("token");
   }
   getUserInfo() {
-    const token = localStorage.getItem("token");
-    let payload;
-    if (token) {
-      payload = token.split(".")[1];
-      payload = window.atob(payload);
-      return JSON.parse(payload);
+    const user = localStorage.getItem("user");
+    if (user) {
+      const d = JSON.parse(user);
+      return d
     } else {
       return [];
     }
@@ -123,6 +121,9 @@ export class ApiService {
   }
 
 
+  editUserDetails(data: any) {
+    return this._http.patch(this.url + "/user/edit", data, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
 
 
 
@@ -133,9 +134,6 @@ export class ApiService {
 
   deleteUser() {
     return this._http.delete(this.url + "/user", { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
-  }
-  editUserDetails(data: any) {
-    return this._http.patch(this.url + "/user", data, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
 

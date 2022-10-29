@@ -37,7 +37,8 @@ export class SignupComponent implements OnInit {
         }
         this._api.signup(a).subscribe((res: any) => {
           if (res.success) {
-            localStorage.setItem('token', res.data);
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('user', JSON.stringify(res.data));
             this._route.navigate(['/home/posts'])
           }
         }, (err: any) => {

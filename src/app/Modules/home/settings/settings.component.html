@@ -1,149 +1,185 @@
-<!-- <main class="askpass" *ngIf="askPass">
+<main class="askpass" *ngIf="askPass">
     <div>
         <section style="display: flex;align-items: center;justify-content: space-between;">
-        <label for="password">Old Password</label>
-        <button mat-icon-button style="color:red" (click)="close()"><mat-icon>close</mat-icon></button>
+            <label for="password">Old Password</label>
+            <button mat-icon-button style="color:red" (click)="close()">
+                <mat-icon>close</mat-icon>
+            </button>
         </section>
-        <input type="password" class="input"  id="password" [(ngModel)]="password">
+        <input type="password" class="input" id="password" [(ngModel)]="password">
         <small style="color: red;">{{error}}</small>
-        <button [disabled]="saving" mat-button style="color:green;width: 100%;margin-top: 10px;" (click)="editInDb()">Change</button>
+        <button [disabled]="saving" mat-button style="color:green;width: 100%;margin-top: 10px;"
+            (click)="editInDb()">Change</button>
     </div>
-</main> -->
+</main>
 
 
 <main class="main">
-    <!-- <small style="display: block; width: 100%; margin: 10px 0px; text-align: center;" *ngIf="isLoading">loading.....</small>
+    <small style="display: block; width: 100%; margin: 10px 0px; text-align: center;"
+        *ngIf="isLoading">loading.....</small>
     <div class="success" *ngIf="sucessMsg">
         {{sucessMsg}}
     </div>
     <main class="setting">
         <section>
-         <p class="title">Personal Information</p>
-         <br>
-         <div class="personal">
-          <table width="100%">
-              <tr>
-                  <td>
-                      <label for="name">Full Name</label>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <input type="text"  id="name" class="input" [disabled]="namefield" [(ngModel)]="data.name"/>
-                  </td>
-                  <td width="30px">
-                      <button mat-button *ngIf="namefield"  (click)="enableEdit('namefield')"><mat-icon>edit</mat-icon></button>
-                      <button mat-button *ngIf="!namefield" (click)="save()"><mat-icon>done</mat-icon></button>
+            <p class="title">Personal Information</p>
+            <div class="personal">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <label for="name">Full Name</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="name" class="input" [disabled]="namefield" [(ngModel)]="data.name" />
+                        </td>
+                        <td width="30px">
+                            <button mat-button [disabled]="isLoading" *ngIf="namefield"
+                                (click)="enableEdit('namefield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!namefield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
 
-                  </td>
-              </tr>
-        <tr>
-          <td>
-              <label for="email">Email</label>
-          </td>
-      </tr>
-      <tr>
-          <td>
-              <input type="text"  id="email" class="input" [disabled]="emailfield" [(ngModel)]="data.email"/>
-          </td>
-          <td width="30px">
-              <button mat-button *ngIf="emailfield" (click)="enableEdit('emailfield')"><mat-icon>edit</mat-icon></button>
-              <button mat-button *ngIf="!emailfield" (click)="save()"><mat-icon>done</mat-icon></button>
-          </td>
-      </tr>
-      <tr>
-          <td>
-              <label for="gender">Gender</label>
-          </td>
-      </tr>
-      <tr>
-          <td>
-             <select id="gender" class="input" [(ngModel)]="data.gender" [disabled]="genderfield">
-                 <option value="male">Male</option>
-                 <option value="female">Female</option>
-                 <option value="gay">Gay</option>
-                 <option value="lesbian">Lesbian</option>
-                 <option value="other">Other</option>
-             </select>
-          </td>
-          <td width="30px">
-              <button mat-button *ngIf="genderfield" (click)="enableEdit('genderfield')"><mat-icon>edit</mat-icon></button>
-              <button mat-button *ngIf="!genderfield" (click)="save()"><mat-icon>done</mat-icon></button>
-          </td>
-      </tr>
-              <tr>
-                  <td>
-                      <label for="dob">Date Of Birth</label>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <input type="date" class="input"  id="dob" [disabled]="dobfield" [(ngModel)]="data.dob"/>
-                  </td>
-                  <td width="30px">
-                      <button mat-button *ngIf="dobfield" (click)="enableEdit('dobfield')"><mat-icon>edit</mat-icon></button>
-                      <button mat-button *ngIf="!dobfield" (click)="save()"><mat-icon>done</mat-icon></button>
-                  </td>
-              </tr>
-          </table>
-         </div>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                            <label for="email">Email</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="email" class="input" [disabled]="emailfield"
+                                [(ngModel)]="data.email" />
+                        </td>
+                        <td width="30px">
+                            <button mat-button *ngIf="emailfield" (click)="enableEdit('emailfield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!emailfield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            <label for="gender">Gender</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="gender" class="input" [(ngModel)]="data.gender" [disabled]="genderfield">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td width="30px">
+                            <button mat-button [disabled]="isLoading" *ngIf="genderfield"
+                                (click)="enableEdit('genderfield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!genderfield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="dob">Date Of Birth</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" class="input" id="dob" [disabled]="dobfield" [(ngModel)]="data.dob" />
+                        </td>
+                        <td width="30px">
+                            <button mat-button [disabled]="isLoading" *ngIf="dobfield" (click)="enableEdit('dobfield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!dobfield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </section>
-     
-       <section>
-         <p class="title">About You</p>
-         <br>
-          <div class="personal">
-             <table width="100%">
-                <tr>
-                 <td>
-                     <label for="about">Introduce Yourself  <small *ngIf="!aboutfield">{{data.about.length}} / 50</small></label>
-                 </td>
-                 <td width="30px">
-                     <button mat-button *ngIf="aboutfield" (click)="enableEdit('aboutfield')"><mat-icon>edit</mat-icon></button>
-                     <button mat-button *ngIf="!aboutfield" (click)="save()"><mat-icon>done</mat-icon></button>
-                 </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <textarea class="textarea" [disabled]="aboutfield" maxlength="50"  [(ngModel)]="data.about"></textarea>
-                    </td>
-                </tr>
-             </table>
-          </div>
-     
-          <div class="personal">
-              <small style="color: green;">{{psucess}}</small>
-             <table width="100%">
-                 <tr>
-                     <td>
-                         <label for="password">Change Password</label>
-                     </td>
-                 </tr>
-                 <tr>
-                     <td>
-                         <input type="password" placeholder="enter new password" [disabled]="newpassfield"  id="password" class="input" [(ngModel)]="newpass"/>
-                     </td>
-                     <td width="30px">
-                        <button mat-button *ngIf="newpassfield" (click)="enableEdit('newpassfield')"><mat-icon>edit</mat-icon></button>
-                        <button mat-button *ngIf="!newpassfield" (click)="save()"><mat-icon>done</mat-icon></button>
-                     </td>
-                 </tr>
-             </table>
-          </div>
-          
-       </section>
-     </main>
-    
-     <section class="delete">
+
+        <section>
+            <p class="title">About You</p>
+            <div class="personal">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <label for="about">Introduce Yourself <small *ngIf="!aboutfield">{{data.about.length}} /
+                                    50</small></label>
+                        </td>
+                        <td width="30px">
+                            <button mat-button [disabled]="isLoading" *ngIf="aboutfield"
+                                (click)="enableEdit('aboutfield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!aboutfield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <textarea class="textarea" [disabled]="aboutfield" maxlength="50"
+                                [(ngModel)]="data.about"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="personal">
+                <small style="color: green;">{{psucess}}</small>
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <label for="password">Change Password</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="enter new password" [disabled]="newpassfield"
+                                id="password" class="input" [(ngModel)]="newpass" />
+                        </td>
+                        <td width="30px">
+                            <button mat-button [disabled]="isLoading" *ngIf="newpassfield"
+                                (click)="enableEdit('newpassfield')">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-button *ngIf="!newpassfield" (click)="save()">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- <section class="delete">
         <p class="title" style="color: red; margin-bottom: 7px;">Delete Your Account</p>
         <div>
-          <small style="color: crimson;"> 
-             Deleting your will parmemtly delete everything and it cannot be reversed . if you are then only delete your 
-             account .hope to see you again
-          </small> <br>
-        <button [disabled]="saving" mat-button style="color:red;width: 100%;margin-top: 5px; " (click)="deleteUser()">Delete Anyway</button>
-       </div>
-     </section> -->
+            <small style="color: crimson;">
+                Deleting your will parmemtly delete everything and it cannot be reversed . if you are then only delete
+                your
+                account .hope to see you again
+            </small> <br>
+            <button [disabled]="saving" mat-button style="color:red;width: 100%;margin-top: 5px; "
+                (click)="deleteUser()">Delete Anyway</button>
+        </div>
+    </section> -->
+
+
     <button mat-raised-button class="logout" (click)="logout()">logout</button>
 
 </main>

@@ -1,74 +1,84 @@
-.setting{
+.setting {
     padding: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
     background-color: var(--back);
 }
-.personal{
+
+.personal {
     padding: 16px;
     margin: 10px;
     border-radius: 9px;
     border: 1px solid var(--line);
 }
-.title{
+
+.title {
     font-weight: 560;
-    color: var(--dark);
+    color: #c133ff;
 }
-label{
+
+label {
     display: block;
     font-size: small;
     margin: 10px 0px;
 }
-.input{
-    border: 1px solid var(--dark);
+
+.input {
+    border: 1px solid #c133ff;
     width: 100%;
     padding: 10px 16px;
-    border: 1px solid var(--line);
     color: var(--text);
-    background-color: var(--back);
+    background-color: inherit;
     border-radius: 5px;
     box-sizing: border-box;
 }
-.textarea{
+
+.textarea {
     width: 100%;
     min-height: 140px;
-    padding:10px;
+    padding: 10px;
     box-sizing: border-box;
-    border: 1px solid var(--line);
+    border: 1px solid #c133ff;
     color: var(--text);
-    background-color: var(--back);
+    background-color: inherit;
     resize: none;
 }
-.input:focus{
+
+.input:focus {
     outline: none;
-    border: 1px solid var(--light);
+    border: 1px solid #c133ff;
 }
-.textarea:focus{
+
+.textarea:focus {
     outline: none;
 }
-.logout{
+
+.logout {
     width: calc(100% - 40px);
     display: block;
     color: white;
     box-sizing: border-box;
-   margin:0px auto;
+    margin: 0px auto;
     background-color: crimson;
 }
-.delete{
+
+.delete {
     padding: 20px;
     border: 1px solid red;
     background-color: #ffd5d5;
     border-radius: 10px;
     margin: 20px;
 }
-.input:disabled,.textarea:disabled{
- border: none;
- color: var(--text);
- background-color: inherit;
+
+.input:disabled,
+.textarea:disabled {
+    border: none;
+    color: var(--text);
+    background-color: inherit;
 }
 
-.askpass{
+.askpass {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -78,16 +88,18 @@ label{
     background-color: var(--bg);
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
-.askpass div{
+
+.askpass div {
     margin-top: 40px;
-    background-color:var(--back);
+    background-color: white;
     padding: 14px;
     border-radius: 9px;
     width: 340px;
-    height: 150px;
 }
-.success{
+
+.success {
     color: green;
     background: #f0fbf0;
     border: 1px solid green;
@@ -96,20 +108,24 @@ label{
     padding: 10px;
     font-size: small
 }
-@media screen and (max-width: 768px){
-  .setting{
-      display: block;
-  }
-  .main{
-    padding-bottom: 60px;
 
-  }
-  .askpass{
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-  }
-  .askpass div{
-    width: 100%;
-  }
+@media screen and (max-width: 768px) {
+    .setting {
+        display: block;
+    }
+
+    .main {
+        padding-bottom: 60px;
+
+    }
+
+    .askpass {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .askpass div {
+        width: 100%;
+    }
 }

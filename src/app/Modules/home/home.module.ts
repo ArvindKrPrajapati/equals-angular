@@ -34,6 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { SingleCommentComponent } from './comment/single-comment/single-comment.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SingleCommentComponent } from './comment/single-comment/single-comment.
     SinglePostComponent,
     LoadingComponent,
     SingleCommentComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,

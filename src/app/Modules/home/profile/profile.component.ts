@@ -147,7 +147,8 @@ export class ProfileComponent implements OnInit {
         let name = "/" + s[s.length - 2] + "/" + s[s.length - 1]
         this._api.uploadDp(name).subscribe((res: any) => {
           if (res.success) {
-            this.data.dp = res.data.dp;
+            this.data.dp = name;
+            localStorage.setItem('user', JSON.stringify(res.data));
             this.cancel();
             this.uploading = false;
             this.showdp = false;
