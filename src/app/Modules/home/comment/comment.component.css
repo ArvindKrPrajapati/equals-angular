@@ -76,6 +76,13 @@
         border-left: 0;
         margin-bottom: 60px;
     }
+
+    .comm-input-box {
+        box-shadow: none;
+        border-radius: 0;
+        top: 55.5px;
+        border-radius: 0px;
+    }
 }
 
 .mat-spinner {
