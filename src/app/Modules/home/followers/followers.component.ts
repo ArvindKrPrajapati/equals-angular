@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -8,23 +8,51 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./followers.component.css']
 })
 export class FollowersComponent implements OnInit {
-
-  data:any=[]
-  isLoading:boolean=true;
-  constructor(private _api:ApiService,private _route:ActivatedRoute) { }
+  el: any;
+  action: boolean = true
+  start: number = 0
+  loadOnScroll: boolean = false
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let top = window.scrollY
+    this.el = document.querySelector("#posts")
+    let h = this.el.offsetHeight;
+    if (window.innerHeight + top > h && this.action) {
+      this.start += 20;
+      console.log(this.start);
+      this.loadData();
+    }
+  }
+  data: any = []
+  isLoading: boolean = true;
+  id: any
+  constructor(private _api: ApiService, private _route: ActivatedRoute) {
+    this._route.paramMap.subscribe((p: any) => {
+      this.id = p.get('id')
+    })
+  }
 
   ngOnInit(): void {
-     this._route.paramMap.subscribe((p:any)=>{
-       this.loadData(p.get('id'))
-     })
+    if (this.action) {
+      this.loadData();
+    }
   }
-  loadData(id:string){
-   this._api.getFollowersOrFollowing("getfollowers",id).subscribe((data:any)=>{
-     if(data.success){
-      this.data=data.data
-      this.isLoading=false
-     }
-   })
+  loadData() {
+    this.action = false
+    this.loadOnScroll = true
+    this._api.getFollowersOrFollowing("getfollowers", this.id, this.start).subscribe((data: any) => {
+      if (data.success) {
+        if (data.data.length > 0) {
+          this.data.push(...data.data)
+          this.isLoading = false
+          this.loadOnScroll = false
+          this.action = true
+        } else {
+          this.isLoading = false
+          this.loadOnScroll = false
+        }
+      }
+    })
   }
 
 }

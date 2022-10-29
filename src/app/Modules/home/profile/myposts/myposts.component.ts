@@ -49,10 +49,10 @@ export class MypostsComponent implements OnInit {
         if (data.data.length > 0) {
           this.data.push(...data.data)
           this.isLoading = false
-          // this.loadOnScroll = false
+          this.loadOnScroll = false
           this.action = true
         } else {
-          // this.isLoading = false
+          this.isLoading = false
           this.loadOnScroll = false
         }
       }

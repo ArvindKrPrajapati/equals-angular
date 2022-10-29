@@ -1,12 +1,15 @@
-<app-loading *ngIf="isLoading"></app-loading>
-<main class="following">
-    <p style="color: var(--dark);">Followings</p>
-    <br>
+<main class="following" id="posts">
+    <p style="color: #c133ff;">Followings</p>
+    <app-loading *ngIf="isLoading"></app-loading>
+    <!-- <br>
     <div class="search">
         <input type="search" name="search" placeholder="looking for someone">
     </div>
-    <br>
+    <br> -->
     <div class="content" *ngIf="!isLoading">
         <app-people *ngFor="let d of data" [user]="d"></app-people>
     </div>
+    <main class="mat-spinner" *ngIf="loadOnScroll">
+        <mat-spinner [diameter]="30"></mat-spinner>
+    </main>
 </main>

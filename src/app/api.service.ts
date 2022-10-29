@@ -111,8 +111,8 @@ export class ApiService {
     return this._http.post(this.url + "/follow", { to, action }, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
-  getFollowersOrFollowing(route: string, id: string) {
-    return this._http.get(this.url + "/follow/" + route + "?id=" + id, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  getFollowersOrFollowing(route: string, id: string, skip: number) {
+    return this._http.get(this.url + "/follow/" + route + "?id=" + id + "&skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
   unFollowedUsers() {
