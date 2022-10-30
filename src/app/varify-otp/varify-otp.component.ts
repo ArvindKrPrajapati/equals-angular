@@ -35,7 +35,7 @@ export class VarifyOtpComponent implements OnInit {
         if (res.success) {
           localStorage.setItem('token', res.token);
           localStorage.setItem('user', JSON.stringify(res.data));
-          this._router.navigate(['/home/posts'])
+          this._router.navigate(['/home'])
         }
       }, (err: any) => {
         console.log(err);

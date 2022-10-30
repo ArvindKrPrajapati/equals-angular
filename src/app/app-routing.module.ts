@@ -24,6 +24,7 @@ const routes: Routes = [{
 {
   path: 'varify-otp',
   component: VarifyOtpComponent,
+  canActivate: [AuthGuardService]
 }
 ];
 

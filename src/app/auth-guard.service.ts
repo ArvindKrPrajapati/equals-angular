@@ -6,9 +6,9 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   getUserInfo() {
-    const token =localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     let payload;
     if (token) {
       payload = token.split(".")[1];
@@ -20,22 +20,22 @@ export class AuthGuardService implements CanActivate {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // if i am logged in and i m on login page or register send me to home
-      if(localStorage.getItem("token")){
-        if(route.url.toString()=="" || route.url.toString()=="signup"){
-          this.router.navigate(['/home']);
-          return false
-        }
-        return true
+    if (localStorage.getItem("token")) {
+      if (route.url.toString() == "" || route.url.toString() == "signup" || route.url.toString() == "varify-otp") {
+        this.router.navigate(['/home']);
+        return false
       }
-       // if i am "NOT" logged in and i m on login page or register let me stay
+      return true
+    }
+    // if i am "NOT" logged in and i m on login page or register let me stay
 
-      if(route.url.toString()=="" || route.url.toString()=="signup"){
-        return true;
-      }
-     
-          // if i am "NOT" logged in and i m on any othr route then send me to login page
+    if (route.url.toString() == "" || route.url.toString() == "signup" || route.url.toString() == "varify-otp") {
+      return true;
+    }
 
-      this.router.navigate(['/']);
-      return false;
+    // if i am "NOT" logged in and i m on any othr route then send me to login page
+
+    this.router.navigate(['/']);
+    return false;
   }
 }
