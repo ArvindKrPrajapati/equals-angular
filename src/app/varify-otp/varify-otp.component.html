@@ -1,0 +1,13 @@
+<main class="h-100 d-flex justify-content-center align-items-start main">
+    <div class="content">
+        <b class="title">Varify Otp</b>
+        <p class="message m-0" style="margin-bottom: 6px;">OTP send to +91
+            {{mobile.slice(0,2)}}******{{mobile.substring(8)}}</p>
+        <small *ngIf="error" class="text-danger" style="font-size:12px">{{error}}</small>
+        <form style="margin-top:6px" #formData="ngForm" (submit)="handleSubmit(formData)">
+            <input type="number" class="form-control" name="otp" ngModel />
+            <button [disabled]="isLoading" type="submit" class="btn btn-primary w-100 mt-3">{{isLoading ? "varifying..."
+                : "varify"}}</button>
+        </form>
+    </div>
+</main>

@@ -37,9 +37,9 @@ export class SignupComponent implements OnInit {
         }
         this._api.signup(a).subscribe((res: any) => {
           if (res.success) {
-            localStorage.setItem('token', res.token);
-            localStorage.setItem('user', JSON.stringify(res.data));
-            this._route.navigate(['/home/posts'])
+            // localStorage.setItem('token', res.token);
+            // localStorage.setItem('user', JSON.stringify(res.data));
+            this._route.navigate(['/varify-otp'], { state: { mobile: this.mobile } })
           }
         }, (err: any) => {
           console.log(err);

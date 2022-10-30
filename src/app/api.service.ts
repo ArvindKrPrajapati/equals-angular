@@ -35,6 +35,9 @@ export class ApiService {
   signup(data: any) {
     return this._http.post(this.url + "/auth/signup", data)
   }
+  varifyOtp(data: any) {
+    return this._http.post(this.url + "/auth/varify-otp", data)
+  }
 
   getSubPost(start: number) {
     const purl = this.url + "/post/getsubpost?skip=" + start + "&id=" + this.getUserInfo().id
