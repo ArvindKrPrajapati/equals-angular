@@ -10,7 +10,7 @@ export class ApiService {
   public responseCache = new Map();
   // cache end
 
-  url: string = "https://api-equals.herokuapp.com/v1"
+  url: string = "https://equals-api.onrender.com/v1"
 
   // url: string = "http://localhost:3000/v1";
   imageurl: string = "https://res.cloudinary.com/shivraj-technology/image/upload";
