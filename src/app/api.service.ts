@@ -143,9 +143,9 @@ export class ApiService {
   getMessage(id: string, skip: number) {
     return this._http.get(this.url + "/message/" + id + "?skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
-
-
-
+  getChats(skip: number) {
+    return this._http.get(this.url + "/message/chats?skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
 
 
 

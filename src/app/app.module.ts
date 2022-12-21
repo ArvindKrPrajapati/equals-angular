@@ -17,10 +17,8 @@ import { VarifyOtpComponent } from './varify-otp/varify-otp.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 const config: SocketIoConfig = {
-  url: "http://localhost:5000", // socket server url;
-  options: {
-    transports: ['websocket']
-  }
+  url: "http://localhost:5000",
+  options: {}
 }
 
 @NgModule({

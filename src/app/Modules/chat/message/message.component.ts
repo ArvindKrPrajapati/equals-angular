@@ -31,6 +31,7 @@ export class MessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   getUserInfo() {
@@ -63,21 +64,23 @@ export class MessageComponent implements OnInit {
   }
 
   send(): void {
-    const msg = {
-      roomId: this.combinedId,
-      receiver: this.id,
-      text: this.msgText
-    }
-    this.messages.unshift({ sender: this.currentUser.id, text: this.msgText })
-    this.msgText = ""
-
-    this._api.sendMessage(msg).subscribe((res: any) => {
-      if (!res.success) {
-        this.messages.shift()
+    if (this.msgText) {
+      const msg = {
+        roomId: this.combinedId,
+        receiver: this.id,
+        text: this.msgText
       }
 
-    })
+      this.messages.unshift({ sender: this.currentUser.id, text: this.msgText })
+      this.msgText = ""
 
+      this._api.sendMessage(msg).subscribe((res: any) => {
+        if (!res.success) {
+          this.messages.shift()
+        }
+
+      })
+    }
   }
 
 }

@@ -1,1 +1,28 @@
-<p>chat works!</p>
+<main class="bg-flex-center">
+    <main class="chat-container">
+        <!-- message header  -->
+        <div class='message-header'>
+            <a routerLink="/" class="back-icon">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                </svg>
+            </a>
+            <b class="text-dark">Chats</b>
+        </div>
+        <!-- message container -->
+        <div class="chats">
+            <div *ngIf="loading" class='h-100 d-flex justify-content-center align-items-center'>
+                <div class="spinner-grow" role="status"></div>
+            </div>
+            <div *ngIf="!loading">
+                <a *ngFor="let d of data" [routerLink]="['/chat/',d.user._id]" class="single-chat">
+                    <img [src]=" d.user.dp ? imageurl+d.user.dp : '../../../../assets/dp.png'" class="dp" alt="dp" />
+                    <div class="info">
+                        <b class="text-dark">{{d.user.name}}</b>
+                        <small class="text-dark msg">{{d.text}}</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+</main>
