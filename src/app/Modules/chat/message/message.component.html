@@ -1,0 +1,59 @@
+<main *ngIf="!userLoading && !user.ifollow" class="not-follow">
+    you dont follow this account
+</main>
+
+<main class='bg-flex-center'>
+    <div class='chat-container'>
+        <!-- message header  -->
+        <div class='message-header'>
+            <a routerLink="/chat" class="back-icon">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                </svg>
+            </a>
+            <img [src]="!userLoading && user.dp ? imageurl+user.dp : '../../../../assets/dp.png'" class='dp' alt='dp' />
+            <div>
+                <b class='name'>{{!userLoading? user.name : "...." }}</b>
+                <small class='status'>online</small>
+            </div>
+        </div>
+        <!-- message   -->
+        <div *ngIf="isLoading" class='h-100 d-flex justify-content-center align-items-center bg-gainsboro'>
+            <div class="spinner-grow" role="status"></div>
+        </div>
+        <div *ngIf="!isLoading && messages.length===0"
+            class='h-100 d-flex justify-content-center align-items-center bg-gainsboro'>
+            <strong class=' text-dark'>No Message</strong>
+        </div>
+        <div class='messages' *ngIf="!isLoading && messages.length>0">
+            <div>
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border spinner-border-sm text-secondary" role="status" *ngIf="loadingMore">
+                    </div>
+                    <div *ngIf="messages.length===(skip+20)">
+                        <button class="btn-sm older-mess-btn" *ngIf="!loadingMore" (click)="loadMore()">older
+                            message</button>
+                    </div>
+                </div>
+                <section class="msg-container">
+                    <div class="message-holder-parent" *ngFor="let o of messages"
+                        [style.justifyContent]="o.sender===currentUser?.id ? 'flex-end' : 'flex-start'">
+                        <div class="message-holder" [class.me]="o.sender===currentUser.id"
+                            [class.you]="o.sender !==currentUser.id">
+                            <small>{{o.text}}</small>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- messages footer -->
+        <div class='message-footer'>
+            <textarea placeholder='Enter message' class='msg-box' [(ngModel)]="msgText"></textarea>
+            <button class='btn' type='button' (click)="send()">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</main>

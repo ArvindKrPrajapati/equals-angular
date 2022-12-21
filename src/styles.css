@@ -39,17 +39,17 @@ a {
   color: dodgerblue;
 }
 
-#scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
 }
 
-#scroll::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   width: 10px;
   background-color: white;
   border-radius: 50px;
 }
 
-#scroll::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   width: 6px;
   background-color: gainsboro;
   border-radius: 20px;

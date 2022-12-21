@@ -102,9 +102,13 @@
         <br><small style="text-transform: capitalize;">{{findAge(data.dob)}}</small>
         <br><small style="text-transform: capitalize; word-break: break-all;">{{data.about}}</small>
       </div>
-      <button class="follow-btn" *ngIf="id!==userdata.id" (click)="follow(id,$event)">{{data.ifollow ? "unfollow" :
+    </div>
+    <div class="d-flex">
+      <a [routerLink]="['/chat/',id]" class="follow-btn w-100 m-1" *ngIf=" id!==userdata.id && ifollow">Message</a>
+      <button class="follow-btn w-100 m-1" *ngIf="id!==userdata.id" (click)="follow(id,$event)">{{data.ifollow ?
+        "unfollow"
+        :
         "follow"}}</button>
-
     </div>
     <div class="numbers">
       <a class="npost">

@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   ccroppedImageFile: any = '';
   cuploading: boolean = false;
   uploadingProgress: number = 0;
+  ifollow: any;
   constructor(private _api: ApiService, private _route: ActivatedRoute) {
     _route.paramMap.subscribe((p: any) => {
       this.id = p.get('id')
@@ -46,7 +47,7 @@ export class ProfileComponent implements OnInit {
     this._api.getProfile(this.id).subscribe((data: any) => {
       if (data.success) {
         this.data = data.data
-        console.log(data.data);
+        this.ifollow = data.data.ifollow
 
         this.isLoading = false
       }
@@ -115,6 +116,7 @@ export class ProfileComponent implements OnInit {
         if (data.success) {
           e.target.disabled = false
           e.target.innerText = "unfollow"
+          this.ifollow = true
           this.data.followers++;
         }
       })
@@ -123,6 +125,7 @@ export class ProfileComponent implements OnInit {
         if (data.success) {
           e.target.disabled = false
           e.target.innerText = "follow"
+          this.ifollow = false
           this.data.followers--;
         }
       })

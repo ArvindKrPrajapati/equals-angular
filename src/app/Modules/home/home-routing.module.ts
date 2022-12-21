@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddComponent } from './add/add.component';
 import { AlertsComponent } from './alerts/alerts.component';
-import { ChatComponent } from './chat/chat.component';
 import { CommentComponent } from './comment/comment.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { FollowersComponent } from './followers/followers.component';
@@ -33,10 +32,6 @@ const routes: Routes = [{
     {
       path: 'alerts',
       component: AlertsComponent
-    },
-    {
-      path: 'chats',
-      component: ChatComponent
     },
     {
       path: 'add-post',

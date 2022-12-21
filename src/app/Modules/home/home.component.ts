@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -9,11 +10,15 @@ import { ApiService } from 'src/app/api.service';
 export class HomeComponent implements OnInit {
   menu: any;
   user: any;
-  constructor(private _api: ApiService) {
+  constructor(private _api: ApiService, private activatedroute: ActivatedRoute) {
     this.user = _api.getUserInfo()
   }
 
   ngOnInit(): void {
+    this.activatedroute.data.subscribe(data => {
+      console.log("activate", data);
+
+    })
   }
   toggleMenu(state: any) {
     console.log(state);

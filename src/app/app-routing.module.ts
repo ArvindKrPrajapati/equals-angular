@@ -17,6 +17,11 @@ const routes: Routes = [{
   canActivate: [AuthGuardService]
 },
 {
+  path: "chat",
+  loadChildren: () => import('./Modules/chat/chat.module').then(m => m.ChatModule),
+  canActivate: [AuthGuardService]
+},
+{
   path: 'signup',
   component: SignupComponent,
   canActivate: [AuthGuardService]

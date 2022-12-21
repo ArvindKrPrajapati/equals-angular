@@ -10,9 +10,12 @@ export class ApiService {
   public responseCache = new Map();
   // cache end
 
-  url: string = "https://equals-api.onrender.com/v1"
+  // url: string = "https://equals-api.onrender.com/v1"
+  // socket_url: string = "https://equals-api.onrender.com"
 
-  // url: string = "http://localhost:3000/v1";
+  url: string = "http://localhost:5000/v1";
+  socket_url: string = "http://localhost:5000"
+
   imageurl: string = "https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl: string = "https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
   constructor(private _http: HttpClient) { }
@@ -27,6 +30,12 @@ export class ApiService {
     } else {
       return [];
     }
+  }
+
+
+  combinedId(userid: string) {
+    const myId = this.getUserInfo().id
+    return myId > userid ? myId + "-" + userid : userid + "-" + myId
   }
 
   login(data: any) {
@@ -125,6 +134,14 @@ export class ApiService {
 
   editUserDetails(data: any) {
     return this._http.patch(this.url + "/user/edit", data, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
+
+
+  sendMessage(data: any) {
+    return this._http.post(this.url + "/message", data, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
+  }
+  getMessage(id: string, skip: number) {
+    return this._http.get(this.url + "/message/" + id + "?skip=" + skip, { headers: new HttpHeaders({ "Authorization": "Bearer " + this.token() }) })
   }
 
 

@@ -13,6 +13,16 @@ import { SignupComponent } from './signup/signup.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { VarifyOtpComponent } from './varify-otp/varify-otp.component';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = {
+  url: "http://localhost:5000", // socket server url;
+  options: {
+    transports: ['websocket']
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +36,7 @@ import { VarifyOtpComponent } from './varify-otp/varify-otp.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    SocketIoModule.forRoot(config),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
