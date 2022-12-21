@@ -10,11 +10,8 @@ export class ApiService {
   public responseCache = new Map();
   // cache end
 
-  // url: string = "https://equals-api.onrender.com/v1"
-  // socket_url: string = "https://equals-api.onrender.com"
-
-  url: string = "http://localhost:5000/v1";
-  socket_url: string = "http://localhost:5000"
+  url: string = "https://equals-api.onrender.com/v1"
+  // url: string = "http://localhost:5000/v1";
 
   imageurl: string = "https://res.cloudinary.com/shivraj-technology/image/upload";
   upurl: string = "https://api.cloudinary.com/v1_1/shivraj-technology/image/upload"
